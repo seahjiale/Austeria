@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://1vbqs3go4ko6"]
+
+[ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Sprites/background.png" id="1_cbhea"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="2_tanm1"]
+[ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_6qsvb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fadmi"]
+texture = ExtResource("1_cbhea")
+
+[node name="MainMenu" type="Control" unique_id=739886298]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1311610743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fadmi")
+
+[node name="Button" type="TextureButton" parent="." unique_id=272009498]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -321.0
+offset_top = -109.0
+offset_right = 402.25
+offset_bottom = 107.5
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("2_tanm1")
+
+[node name="Label" type="Label" parent="." unique_id=1152979225]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -371.625
+offset_right = 371.625
+offset_bottom = 208.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_6qsvb")
+theme_override_font_sizes/font_size = 60
+text = "Game Title
+"
+horizontal_alignment = 1
+vertical_alignment = 1
