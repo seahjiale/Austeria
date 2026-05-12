@@ -1,36 +1,36 @@
 [gd_scene format=3 uid="uid://1vbqs3go4ko6"]
 
-[ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Sprites/background.png" id="1_cbhea"]
-[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="2_tanm1"]
-[ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_6qsvb"]
-[ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Scripts/settings_button.gd" id="4_tanm1"]
-[ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Scripts/quit_button.gd" id="5_6qsvb"]
+[ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Sprites/background.png" id="1_yjd2g"]
+[ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_aefbv"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="3_p1k0d"]
+[ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Scripts/settings_button.gd" id="4_5bods"]
+[ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Scripts/quit_button.gd" id="5_7v3ns"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fadmi"]
-texture = ExtResource("1_cbhea")
+texture = ExtResource("1_yjd2g")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fsbqx"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(0, 32, 96, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qsvb"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(96, 32, 96, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cbhea"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(0, 0, 96, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fadmi"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(96, 0, 96, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tanm1"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(0, 0, 96, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_shbfh"]
-atlas = ExtResource("2_tanm1")
+atlas = ExtResource("3_p1k0d")
 region = Rect2(96, 0, 96, 32)
 
 [node name="MainMenu" type="Control" unique_id=739886298]
@@ -60,7 +60,7 @@ offset_top = 81.0
 offset_right = 371.625
 offset_bottom = 178.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_6qsvb")
+theme_override_fonts/font = ExtResource("2_aefbv")
 theme_override_font_sizes/font_size = 60
 text = "Game Title
 "
@@ -98,7 +98,7 @@ texture_normal = SubResource("AtlasTexture_cbhea")
 texture_hover = SubResource("AtlasTexture_fadmi")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("4_tanm1")
+script = ExtResource("4_5bods")
 
 [node name="SettingsLabel" type="Label" parent="VBoxContainer/SettingsButton" unique_id=1854670545]
 layout_mode = 1
@@ -112,7 +112,7 @@ offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("3_6qsvb")
+theme_override_fonts/font = ExtResource("2_aefbv")
 theme_override_font_sizes/font_size = 45
 text = "Settings"
 horizontal_alignment = 1
@@ -127,7 +127,7 @@ texture_pressed = SubResource("AtlasTexture_shbfh")
 texture_hover = SubResource("AtlasTexture_shbfh")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("5_6qsvb")
+script = ExtResource("5_7v3ns")
 
 [node name="QuitLabel" type="Label" parent="VBoxContainer/QuitButton" unique_id=796353436]
 layout_mode = 1
@@ -141,7 +141,7 @@ offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
-theme_override_fonts/font = ExtResource("3_6qsvb")
+theme_override_fonts/font = ExtResource("2_aefbv")
 theme_override_font_sizes/font_size = 45
 text = "Quit"
 horizontal_alignment = 1
