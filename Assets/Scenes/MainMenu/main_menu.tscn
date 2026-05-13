@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://1vbqs3go4ko6"]
 
+[ext_resource type="Script" uid="uid://ds0eljcrcuau0" path="res://Assets/Scripts/main_menu.gd" id="1_aefbv"]
 [ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Sprites/background.png" id="1_yjd2g"]
 [ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_aefbv"]
 [ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="3_p1k0d"]
 [ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Scripts/settings_button.gd" id="4_5bods"]
 [ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Scripts/quit_button.gd" id="5_7v3ns"]
+[ext_resource type="Script" uid="uid://bo5nig1n2h5vq" path="res://Assets/Scripts/play_button.gd" id="5_p1k0d"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fadmi"]
 texture = ExtResource("1_yjd2g")
@@ -40,6 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_aefbv")
 
 [node name="Background" type="Panel" parent="." unique_id=1311610743]
 layout_mode = 1
@@ -89,6 +92,7 @@ texture_pressed = SubResource("AtlasTexture_6qsvb")
 texture_hover = SubResource("AtlasTexture_6qsvb")
 ignore_texture_size = true
 stretch_mode = 0
+script = ExtResource("5_p1k0d")
 
 [node name="SettingsButton" type="TextureButton" parent="VBoxContainer" unique_id=308587477]
 custom_minimum_size = Vector2(50, 50)
