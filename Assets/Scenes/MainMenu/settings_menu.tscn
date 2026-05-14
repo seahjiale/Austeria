@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/Setting menu.png" id="1_gh63n"]
 [ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="2_nkrft"]
 [ext_resource type="Script" uid="uid://8sx3xso5lb3y" path="res://Assets/Scripts/volume_progress_bar.gd" id="3_xc50m"]
-[ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_5rb6j"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="4_5rb6j"]
 [ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="5_qqrnj"]
 [ext_resource type="Texture2D" uid="uid://c304yq14ayxeh" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/buttons/Small Square Buttons.png" id="6_nkrft"]
 [ext_resource type="Script" uid="uid://dxyb7mg7msjwe" path="res://Assets/Scripts/back_button.gd" id="7_5rb6j"]

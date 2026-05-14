@@ -96,6 +96,7 @@ radius = 4.0
 height = 14.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1059602613]
+z_index = 2
 script = ExtResource("1_7dd06")
 speed = 5.0
 

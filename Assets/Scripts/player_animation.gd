@@ -4,7 +4,7 @@ extends Node2D
 @export var animation_player : AnimationPlayer
 @export var sprite : Sprite2D
 
-func _process(delta):
+func _process(_delta):
 	# direction of player
 	if player_movement.direction == 1:
 		sprite.flip_h = false
