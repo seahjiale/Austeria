@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ds0eljcrcuau0" path="res://Assets/Scripts/main_menu.gd" id="1_aefbv"]
 [ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Sprites/background.png" id="1_yjd2g"]
-[ext_resource type="FontFile" uid="uid://c5p5685u61tx4" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_aefbv"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_aefbv"]
 [ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="3_p1k0d"]
 [ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Scripts/settings_button.gd" id="4_5bods"]
 [ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Scripts/quit_button.gd" id="5_7v3ns"]
