@@ -3,4 +3,4 @@ extends Area2D
 
 func _on_body_entered(body: Node2D) -> void:
 	if (body.is_in_group("player")):
-		SceneTransition.transition_to(get_tree().current_scene.scene_file_path)
+		GameState.respawn_position = global_position
