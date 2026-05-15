@@ -14,6 +14,7 @@ shader_parameter/pixelsPrTile = Vector2(16, 16)
 script = ExtResource("1_ym7il")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1273104787]
+z_index = 10
 material = SubResource("ShaderMaterial_uro0b")
 anchors_preset = 15
 anchor_right = 1.0

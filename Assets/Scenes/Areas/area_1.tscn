@@ -1,12 +1,21 @@
 [gd_scene format=4 uid="uid://d26dgyra2krty"]
 
 [ext_resource type="Texture2D" uid="uid://diwyypsvbkltn" path="res://Assets/Sprites/Tileset.png" id="1_3uyhe"]
+[ext_resource type="Script" uid="uid://gbccd3mvc01m" path="res://Assets/Scripts/game_manager.gd" id="1_ttsc2"]
 [ext_resource type="PackedScene" uid="uid://ce4g3xeb1pj3n" path="res://Assets/Scenes/Characters/mushroom_enemy.tscn" id="2_7fk0h"]
 [ext_resource type="PackedScene" uid="uid://bwc2ftghlrav3" path="res://Assets/Scenes/Characters/player.tscn" id="2_8wi1m"]
 [ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Sprites/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_8wi1m"]
 [ext_resource type="Script" uid="uid://dc3c86fh4bdpm" path="res://Assets/Scripts/fall_mechanic.gd" id="3_nlyig"]
 [ext_resource type="Script" uid="uid://dopaujq4dwd3o" path="res://Assets/Scripts/checkpoint_1.gd" id="4_msn23"]
 [ext_resource type="Texture2D" uid="uid://bycfpisoqqmy1" path="res://Assets/Sprites/game_menu_sprites/emojis-free/emoji style ui/Inventory_Light_Herat_Spritesheet.png" id="4_ql8qi"]
+[ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/Setting menu.png" id="8_xl8b6"]
+[ext_resource type="Script" uid="uid://ehu31lfm65of" path="res://Assets/Scripts/pause.gd" id="8_ys1tx"]
+[ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="9_ys1tx"]
+[ext_resource type="Script" uid="uid://8sx3xso5lb3y" path="res://Assets/Scripts/volume_progress_bar.gd" id="10_ttsc2"]
+[ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="11_lbrap"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="12_xai42"]
+[ext_resource type="Script" uid="uid://0vak60465a1s" path="res://Assets/Scripts/resume_button.gd" id="13_c8jce"]
+[ext_resource type="Script" uid="uid://3maqk6r2bs4" path="res://Assets/Scripts/back_to_main_menu_button.gd" id="14_5cg6o"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ql8qi"]
 texture = ExtResource("1_3uyhe")
@@ -407,51 +416,92 @@ size = Vector2(30, 307)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msn23"]
 size = Vector2(1, 142)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7fk0h"]
-texture = ExtResource("4_ql8qi")
-region_rect = Rect2(0, 280, 112, 24)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_msn23"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nlyig"]
 atlas = ExtResource("4_ql8qi")
 region = Rect2(4, 54, 23, 20)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0xoj"]
+texture = ExtResource("8_xl8b6")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 128, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p11o7"]
+atlas = ExtResource("9_ys1tx")
+region = Rect2(2, 194, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_klwya"]
+atlas = ExtResource("9_ys1tx")
+region = Rect2(50, 194, 44, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7vlb"]
+texture = ExtResource("11_lbrap")
+region_rect = Rect2(9.600037, 68.79999, 28.799988, 20.800003)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3rwo"]
+atlas = ExtResource("12_xai42")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxlx6"]
+atlas = ExtResource("12_xai42")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu28u"]
+atlas = ExtResource("12_xai42")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_citrs"]
+atlas = ExtResource("12_xai42")
+region = Rect2(96, 0, 96, 32)
+
 [node name="Area1" type="Node2D" unique_id=1958189425]
+
+[node name="GameManager" type="Node" parent="." unique_id=607846285]
+script = ExtResource("1_ttsc2")
 
 [node name="SceneObjects" type="Node" parent="." unique_id=1694957455]
 
-[node name="Player" parent="SceneObjects" unique_id=1059602613 groups=["player"] instance=ExtResource("2_8wi1m")]
+[node name="Characters" type="Node" parent="SceneObjects" unique_id=28946071]
+
+[node name="Player" parent="SceneObjects/Characters" unique_id=1059602613 groups=["player"] instance=ExtResource("2_8wi1m")]
 position = Vector2(-144, 0)
 
-[node name="MushroomEnemy" parent="SceneObjects" unique_id=12949898 instance=ExtResource("2_7fk0h")]
+[node name="MushroomEnemy" parent="SceneObjects/Characters" unique_id=12949898 instance=ExtResource("2_7fk0h")]
 position = Vector2(170, 1)
 
-[node name="MushroomEnemy2" parent="SceneObjects" unique_id=774131767 instance=ExtResource("2_7fk0h")]
+[node name="MushroomEnemy2" parent="SceneObjects/Characters" unique_id=774131767 instance=ExtResource("2_7fk0h")]
 position = Vector2(288, -48)
 
-[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=313158284]
+[node name="Map" type="Node" parent="SceneObjects" unique_id=571821445]
+
+[node name="MapLayer" type="TileMapLayer" parent="SceneObjects/Map" unique_id=313158284]
 position = Vector2(-1, -1)
 tile_map_data = PackedByteArray("AAD9/wAAAAANAAoAAAD+/wAAAAAOAAoAAAAAAAAAAAAEAAAAAAABAAAAAAABAAAAAAADAAAAAAADAAAAAAACAAAAAAACAAAAAAAEAAAAAAAFAAAAAAD+/wEAAAADAAEAAAD//wEAAAAEAAEAAAAAAAEAAAABAAEAAAABAAEAAAACAAEAAAACAAEAAAADAAEAAAADAAEAAAAEAAEAAAAEAAEAAAAFAAEAAAD9/wIAAAACAAIAAAD9/wMAAAACAAMAAAD9/wQAAAACAAEAAAD9/wUAAAACAAIAAAD+/wMAAAADAAMAAAD//wMAAAAEAAMAAAAAAAMAAAABAAMAAAABAAIAAAACAAIAAAACAAIAAAADAAIAAAADAAIAAAAEAAIAAAAEAAIAAAAFAAEAAAAEAAMAAAAFAAIAAAACAAQAAAADAAEAAAACAAUAAAADAAIAAAACAAYAAAADAAMAAAADAAUAAAAEAAIAAAADAAYAAAAEAAMAAAAEAAUAAAAFAAMAAAAEAAYAAAAFAAMAAAD+/wQAAAADAAEAAAD+/wUAAAADAAIAAAD+/wYAAAADAAMAAAD//wQAAAAEAAEAAAD//wUAAAAEAAIAAAD//wYAAAAEAAMAAAAAAAQAAAABAAEAAAAAAAUAAAABAAIAAAAAAAYAAAABAAMAAAABAAQAAAACAAEAAAABAAUAAAACAAIAAAABAAYAAAACAAMAAAD9/wYAAAACAAMAAAD9/wEAAAACAAEAAAD+/wIAAAADAAIAAAD//wIAAAAEAAIAAAAAAAIAAAABAAIAAAABAAMAAAACAAMAAAACAAMAAAADAAMAAAADAAMAAAAEAAMAAAADAAQAAAAEAAEAAAAEAAQAAAAFAAMAAAD0/wAAAAAEAAAAAAD1/wAAAAADAAYAAAD2/wAAAAAEAAYAAAD3/wAAAAAFAAYAAAD4/wAAAAAGAAYAAAD5/wAAAAAGAAYAAAD6/wAAAAAGAAYAAAD7/wAAAAADAAYAAAD8/wAAAAAMAAoAAAD8/wEAAAABAAEAAAD8/wIAAAABAAIAAAD8/wMAAAABAAMAAAD8/wQAAAABAAEAAAD8/wUAAAABAAIAAAD8/wYAAAABAAMAAAD6/wEAAAADAAEAAAD6/wIAAAADAAIAAAD6/wMAAAADAAMAAAD6/wQAAAADAAEAAAD6/wUAAAADAAIAAAD6/wYAAAADAAMAAAD3/wEAAAAEAAEAAAD3/wIAAAAEAAIAAAD3/wMAAAAEAAEAAAD3/wQAAAAEAAIAAAD3/wUAAAAEAAMAAAD3/wYAAAAEAAQAAAD1/wEAAAACAAEAAAD1/wIAAAACAAIAAAD1/wMAAAACAAEAAAD1/wQAAAACAAIAAAD1/wUAAAACAAMAAAD1/wYAAAACAAQAAAD4/wEAAAABAAEAAAD4/wIAAAABAAIAAAD4/wMAAAABAAMAAAD4/wQAAAABAAEAAAD4/wUAAAABAAIAAAD4/wYAAAABAAMAAAD7/wEAAAAEAAEAAAD7/wIAAAAEAAIAAAD7/wMAAAAEAAMAAAD7/wQAAAAEAAEAAAD7/wUAAAAEAAIAAAD7/wYAAAAEAAMAAAD5/wEAAAACAAEAAAD5/wIAAAACAAIAAAD5/wMAAAACAAMAAAD5/wQAAAACAAEAAAD5/wUAAAACAAIAAAD5/wYAAAACAAMAAAD2/wEAAAADAAEAAAD2/wIAAAADAAIAAAD2/wMAAAADAAEAAAD2/wQAAAADAAIAAAD2/wUAAAADAAMAAAD2/wYAAAADAAQAAAD0/wEAAAABAAEAAAD0/wIAAAABAAIAAAD0/wMAAAABAAEAAAD0/wQAAAABAAIAAAD0/wUAAAABAAMAAAD0/wYAAAABAAQAAAD8////AAAMAAkAAAD9//7/AAANAAgAAAD9////AAANAAkAAAD+//7/AAAOAAgAAAD+////AAAOAAkAAAD/////AAAPAAkAAAALAAAAAAACAAAAAAALAAEAAAACAAEAAAALAAIAAAACAAIAAAALAAMAAAACAAMAAAALAAQAAAACAAQAAAALAAUAAAACAAEAAAALAAYAAAACAAIAAAAMAAAAAAADAAAAAAAMAAEAAAADAAEAAAAMAAIAAAADAAIAAAAMAAMAAAADAAMAAAAMAAQAAAADAAQAAAAMAAUAAAADAAEAAAAMAAYAAAADAAIAAAANAAAAAAAEAAAAAAANAAEAAAAEAAEAAAANAAIAAAAEAAIAAAANAAMAAAAEAAMAAAANAAQAAAAEAAQAAAANAAUAAAAEAAEAAAANAAYAAAAEAAIAAAAOAAAAAAADAAAAAAAOAAEAAAABAAEAAAAOAAIAAAABAAIAAAAOAAMAAAABAAMAAAAOAAQAAAABAAQAAAAOAAUAAAABAAEAAAAOAAYAAAABAAIAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAEAAAAJAAIAAAAAAAIAAAAJAAMAAAAAAAMAAAAJAAQAAAAAAAQAAAAJAAUAAAAAAAMAAAAJAAYAAAAAAAMAAAAKAAAAAAABAAAAAAAKAAEAAAABAAEAAAAKAAIAAAABAAIAAAAKAAMAAAABAAMAAAAKAAQAAAABAAQAAAAKAAUAAAABAAEAAAAKAAYAAAABAAIAAADw/wEAAAABAAEAAADw/wIAAAABAAIAAADw/wMAAAABAAEAAADw/wQAAAABAAIAAADx/wEAAAACAAEAAADx/wIAAAACAAIAAADx/wMAAAACAAEAAADx/wQAAAACAAIAAADy/wEAAAADAAEAAADy/wIAAAADAAIAAADy/wMAAAADAAEAAADy/wQAAAADAAIAAADz/wEAAAAEAAEAAADz/wIAAAAEAAIAAADz/wMAAAAEAAEAAADz/wQAAAAEAAIAAADw/wUAAAABAAMAAADw/wYAAAABAAQAAADx/wUAAAACAAMAAADx/wYAAAACAAQAAADy/wUAAAADAAMAAADy/wYAAAADAAQAAADz/wUAAAAEAAMAAADz/wYAAAAEAAQAAADt/wYAAAACAAQAAADu/wYAAAADAAQAAADv/wYAAAAEAAQAAADt/wIAAAACAAIAAADt/wMAAAACAAEAAADt/wQAAAACAAIAAADt/wUAAAACAAMAAADu/wIAAAADAAIAAADu/wMAAAADAAEAAADu/wQAAAADAAIAAADu/wUAAAADAAMAAADv/wIAAAAEAAIAAADv/wMAAAAEAAEAAADv/wQAAAAEAAIAAADv/wUAAAAEAAMAAADs/wEAAAABAAEAAADs/wIAAAABAAIAAADs/wMAAAABAAEAAADs/wQAAAABAAIAAADt/wEAAAACAAEAAADu/wEAAAADAAEAAADv/wEAAAAEAAEAAADs/wUAAAABAAMAAADs/wYAAAABAAQAAADx/wAAAAABAAAAAADy/wAAAAACAAAAAADz/wAAAAADAAAAAADt/wAAAAACAAAAAADu/wAAAAADAAAAAADv/wAAAAAEAAAAAADw/wAAAAAEAAAAAADs/wAAAAABAAAAAADr/wAAAAAAAAAAAADr/wEAAAAAAAEAAADr/wIAAAAAAAIAAADr/wMAAAAAAAMAAADr/wQAAAAAAAQAAADr/wUAAAAAAAEAAADr/wYAAAAAAAEAAADr/wcAAAAAAAIAAADr/wgAAAAAAAEAAADr/wkAAAAAAAIAAADr/woAAAAAAAMAAADr/wsAAAAAAAQAAADr/wwAAAAAAAEAAADr/w0AAAAAAAIAAADr/w4AAAAAAAEAAADr/w8AAAAAAAIAAADr/xAAAAAAAAMAAADr/xEAAAAAAAUAAADs/wcAAAABAAEAAADs/wgAAAABAAIAAADt/wcAAAACAAEAAADt/wgAAAACAAIAAADu/wcAAAADAAEAAADu/wgAAAADAAIAAADv/wcAAAAEAAEAAADv/wgAAAAEAAIAAADw/wcAAAABAAEAAADw/wgAAAABAAIAAADx/wcAAAACAAEAAADx/wgAAAACAAIAAADy/wcAAAADAAEAAADy/wgAAAADAAIAAADz/wcAAAAEAAEAAADz/wgAAAAEAAIAAAD0/wcAAAABAAEAAAD0/wgAAAABAAIAAAD1/wcAAAACAAEAAAD1/wgAAAACAAIAAAD2/wcAAAADAAEAAAD2/wgAAAADAAIAAAD3/wcAAAAEAAEAAAD3/wgAAAAEAAIAAAD4/wcAAAABAAEAAAD4/wgAAAABAAIAAAD5/wcAAAACAAEAAAD5/wgAAAACAAIAAAD6/wcAAAADAAEAAAD6/wgAAAADAAIAAAD7/wcAAAAEAAEAAAD7/wgAAAAEAAIAAAD8/wcAAAABAAEAAAD8/wgAAAABAAIAAAD9/wcAAAACAAEAAAD9/wgAAAACAAIAAAD+/wcAAAADAAEAAAD+/wgAAAADAAIAAAD//wcAAAAEAAEAAAD//wgAAAAEAAIAAAAAAAcAAAABAAEAAAAAAAgAAAABAAIAAAABAAcAAAACAAEAAAABAAgAAAACAAIAAAACAAcAAAADAAEAAAACAAgAAAADAAIAAAADAAcAAAAEAAEAAAADAAgAAAAEAAIAAADs/wkAAAABAAEAAADs/woAAAABAAIAAADt/wkAAAACAAEAAADt/woAAAACAAIAAADu/wkAAAADAAEAAADu/woAAAADAAIAAADv/wkAAAAEAAEAAADv/woAAAAEAAIAAADw/wkAAAABAAEAAADw/woAAAABAAIAAADx/wkAAAACAAEAAADx/woAAAACAAIAAADy/wkAAAADAAEAAADy/woAAAADAAIAAADz/wkAAAAEAAEAAADz/woAAAAEAAIAAAD0/wkAAAABAAEAAAD0/woAAAABAAIAAAD1/wkAAAACAAEAAAD1/woAAAACAAIAAAD2/wkAAAADAAEAAAD2/woAAAADAAIAAAD3/wkAAAAEAAEAAAD3/woAAAAEAAIAAAD4/wkAAAABAAEAAAD4/woAAAABAAIAAAD5/wkAAAACAAEAAAD5/woAAAACAAIAAAD6/wkAAAADAAEAAAD6/woAAAADAAIAAAD7/wkAAAAEAAEAAAD7/woAAAAEAAIAAAD8/wkAAAABAAEAAAD8/woAAAABAAIAAAD9/wkAAAACAAEAAAD9/woAAAACAAIAAAD+/wkAAAADAAEAAAD+/woAAAADAAIAAAD//wkAAAAEAAEAAAD//woAAAAEAAIAAAAAAAkAAAABAAEAAAAAAAoAAAABAAIAAAABAAkAAAACAAEAAAABAAoAAAACAAIAAAACAAkAAAADAAEAAAACAAoAAAADAAIAAAADAAkAAAAEAAEAAAADAAoAAAAEAAIAAADs/wsAAAABAAEAAADs/wwAAAABAAIAAADt/wsAAAACAAEAAADt/wwAAAACAAIAAADu/wsAAAADAAEAAADu/wwAAAADAAIAAADv/wsAAAAEAAEAAADv/wwAAAAEAAIAAADw/wsAAAABAAEAAADw/wwAAAABAAIAAADx/wsAAAACAAEAAADx/wwAAAACAAIAAADy/wsAAAADAAEAAADy/wwAAAADAAIAAADz/wsAAAAEAAEAAADz/wwAAAAEAAIAAAD0/wsAAAABAAEAAAD0/wwAAAABAAIAAAD1/wsAAAACAAEAAAD1/wwAAAACAAIAAAD2/wsAAAADAAEAAAD2/wwAAAADAAIAAAD3/wsAAAAEAAEAAAD3/wwAAAAEAAIAAAD4/wsAAAABAAEAAAD4/wwAAAABAAIAAAD5/wsAAAACAAEAAAD5/wwAAAACAAIAAAD6/wsAAAADAAEAAAD6/wwAAAADAAIAAAD7/wsAAAAEAAEAAAD7/wwAAAAEAAIAAAD8/wsAAAABAAEAAAD8/wwAAAABAAIAAAD9/wsAAAACAAEAAAD9/wwAAAACAAIAAAD+/wsAAAADAAEAAAD+/wwAAAADAAIAAAD//wsAAAAEAAEAAAD//wwAAAAEAAIAAAAAAAsAAAABAAEAAAAAAAwAAAABAAIAAAABAAsAAAACAAEAAAABAAwAAAACAAIAAAACAAsAAAADAAEAAAACAAwAAAADAAIAAAADAAsAAAAEAAEAAAADAAwAAAAEAAIAAADs/w0AAAABAAEAAADs/w4AAAABAAIAAADt/w0AAAACAAEAAADt/w4AAAACAAIAAADu/w0AAAADAAEAAADu/w4AAAADAAIAAADv/w0AAAAEAAEAAADv/w4AAAAEAAIAAADw/w0AAAABAAEAAADw/w4AAAABAAIAAADx/w0AAAACAAEAAADx/w4AAAACAAIAAADy/w0AAAADAAEAAADy/w4AAAADAAIAAADz/w0AAAAEAAEAAADz/w4AAAAEAAIAAAD0/w0AAAABAAEAAAD0/w4AAAABAAIAAAD1/w0AAAACAAEAAAD1/w4AAAACAAIAAAD2/w0AAAADAAEAAAD2/w4AAAADAAIAAAD3/w0AAAAEAAEAAAD3/w4AAAAEAAIAAAD4/w0AAAABAAEAAAD4/w4AAAABAAIAAAD5/w0AAAACAAEAAAD5/w4AAAACAAIAAAD6/w0AAAADAAEAAAD6/w4AAAADAAIAAAD7/w0AAAAEAAEAAAD7/w4AAAAEAAIAAAD8/w0AAAABAAEAAAD8/w4AAAABAAIAAAD9/w0AAAACAAEAAAD9/w4AAAACAAIAAAD+/w0AAAADAAEAAAD+/w4AAAADAAIAAAD//w0AAAAEAAEAAAD//w4AAAAEAAIAAAAAAA0AAAABAAEAAAAAAA4AAAABAAIAAAABAA0AAAACAAEAAAABAA4AAAACAAIAAAACAA0AAAADAAEAAAACAA4AAAADAAIAAAADAA0AAAAEAAEAAAADAA4AAAAEAAIAAADs/w8AAAABAAEAAADs/xAAAAABAAIAAADt/w8AAAACAAEAAADt/xAAAAACAAIAAADu/w8AAAADAAEAAADu/xAAAAADAAIAAADv/w8AAAAEAAEAAADv/xAAAAAEAAIAAADw/w8AAAABAAEAAADw/xAAAAABAAIAAADx/w8AAAACAAEAAADx/xAAAAACAAIAAADy/w8AAAADAAEAAADy/xAAAAADAAIAAADz/w8AAAAEAAEAAADz/xAAAAAEAAIAAAD0/w8AAAABAAEAAAD0/xAAAAABAAIAAAD1/w8AAAACAAEAAAD1/xAAAAACAAIAAAD2/w8AAAADAAEAAAD2/xAAAAADAAIAAAD3/w8AAAAEAAEAAAD3/xAAAAAEAAIAAAD4/w8AAAABAAEAAAD4/xAAAAABAAIAAAD5/w8AAAACAAEAAAD5/xAAAAACAAIAAAD6/w8AAAADAAEAAAD6/xAAAAADAAIAAAD7/w8AAAAEAAEAAAD7/xAAAAAEAAIAAAD8/w8AAAABAAEAAAD8/xAAAAABAAIAAAD9/w8AAAACAAEAAAD9/xAAAAACAAIAAAD+/w8AAAADAAEAAAD+/xAAAAADAAIAAAD//w8AAAAEAAEAAAD//xAAAAAEAAIAAAAAAA8AAAABAAEAAAAAABAAAAABAAIAAAABAA8AAAACAAEAAAABABAAAAACAAIAAAACAA8AAAADAAEAAAACABAAAAADAAIAAAADAA8AAAAEAAEAAAADABAAAAAEAAIAAADs/xEAAAABAAUAAADt/xEAAAACAAUAAADu/xEAAAADAAUAAADv/xEAAAAEAAUAAADw/xEAAAAFAAUAAADx/xEAAAACAAUAAADy/xEAAAADAAUAAADz/xEAAAACAAUAAAD0/xEAAAADAAUAAAD1/xEAAAACAAUAAAD2/xEAAAADAAUAAAD3/xEAAAACAAUAAAD4/xEAAAADAAUAAAD5/xEAAAACAAUAAAD6/xEAAAADAAUAAAD7/xEAAAACAAUAAAD8/xEAAAADAAUAAAD9/xEAAAACAAUAAAD+/xEAAAADAAUAAAD//xEAAAACAAUAAAAAABEAAAADAAUAAAABABEAAAACAAUAAAACABEAAAADAAUAAAADABEAAAACAAUAAAAEABEAAAAFAAUAAAAEAAcAAAAFAAMAAAAEAAgAAAAFAAMAAAAEAAkAAAAFAAMAAAAEAAoAAAAFAAMAAAAEAAsAAAAFAAIAAAAEAAwAAAAFAAMAAAAEAA0AAAAFAAIAAAAEAA4AAAAFAAMAAAAEAA8AAAAFAAIAAAAEABAAAAAFAAMAAAAJAAcAAAAAAAMAAAAJAAgAAAAAAAMAAAAJAAkAAAAAAAMAAAAJAAoAAAAAAAQAAAAJAAsAAAAAAAEAAAAJAAwAAAAAAAIAAAAJAA0AAAAAAAMAAAAJAA4AAAAAAAEAAAAJAA8AAAAAAAIAAAAJABAAAAAAAAMAAAAJABEAAAAAAAUAAAAKABEAAAACAAUAAAALABEAAAADAAUAAAAMABEAAAAEAAUAAAANABEAAAACAAUAAAAOABEAAAADAAUAAAAPABEAAAAEAAUAAAAPAAEAAAACAAEAAAAPAAIAAAACAAIAAAAPAAMAAAACAAMAAAAPAAQAAAACAAQAAAAQAAEAAAADAAEAAAAQAAIAAAADAAIAAAAQAAMAAAADAAMAAAAQAAQAAAADAAQAAAARAAEAAAAEAAEAAAARAAIAAAAEAAIAAAARAAMAAAAEAAMAAAARAAQAAAAEAAQAAAASAAEAAAABAAEAAAASAAIAAAABAAIAAAASAAMAAAABAAMAAAASAAQAAAABAAQAAAATAAEAAAACAAEAAAATAAIAAAACAAIAAAATAAMAAAACAAMAAAATAAQAAAACAAQAAAAUAAEAAAADAAEAAAAUAAIAAAADAAIAAAAUAAMAAAADAAMAAAAUAAQAAAADAAQAAAAVAAEAAAACAAQAAAAVAAIAAAAEAAIAAAAVAAMAAAAEAAMAAAAVAAQAAAAEAAQAAAAKAAcAAAABAAMAAAAKAAgAAAABAAQAAAALAAcAAAACAAMAAAALAAgAAAACAAQAAAAMAAcAAAADAAMAAAAMAAgAAAADAAQAAAANAAcAAAAEAAMAAAANAAgAAAAEAAQAAAAOAAcAAAABAAMAAAAOAAgAAAABAAQAAAAPAAUAAAACAAEAAAAPAAYAAAACAAIAAAAPAAcAAAACAAMAAAAPAAgAAAACAAQAAAAQAAUAAAADAAEAAAAQAAYAAAADAAIAAAAQAAcAAAADAAMAAAAQAAgAAAADAAQAAAARAAUAAAAEAAEAAAARAAYAAAAEAAIAAAARAAcAAAAEAAMAAAARAAgAAAAEAAQAAAASAAUAAAABAAEAAAASAAYAAAABAAIAAAASAAcAAAABAAMAAAASAAgAAAABAAQAAAATAAUAAAACAAEAAAATAAYAAAACAAIAAAATAAcAAAACAAMAAAATAAgAAAACAAQAAAAUAAUAAAADAAEAAAAUAAYAAAADAAIAAAAUAAcAAAADAAMAAAAUAAgAAAADAAQAAAAVAAUAAAAEAAEAAAAVAAYAAAAEAAIAAAAVAAcAAAAEAAMAAAAVAAgAAAAEAAQAAAAKAAkAAAABAAEAAAAKAAoAAAABAAIAAAAKAAsAAAABAAMAAAAKAAwAAAABAAQAAAALAAkAAAACAAEAAAALAAoAAAACAAIAAAALAAsAAAACAAMAAAALAAwAAAACAAQAAAAMAAkAAAADAAEAAAAMAAoAAAADAAIAAAAMAAsAAAADAAMAAAAMAAwAAAADAAQAAAANAAkAAAAEAAEAAAANAAoAAAAEAAIAAAANAAsAAAAEAAMAAAANAAwAAAAEAAQAAAAOAAkAAAABAAEAAAAOAAoAAAABAAIAAAAOAAsAAAABAAMAAAAOAAwAAAABAAQAAAAPAAkAAAACAAEAAAAPAAoAAAACAAIAAAAPAAsAAAACAAMAAAAPAAwAAAACAAQAAAAQAAkAAAADAAEAAAAQAAoAAAADAAIAAAAQAAsAAAADAAMAAAAQAAwAAAADAAQAAAARAAkAAAAEAAEAAAARAAoAAAAEAAIAAAARAAsAAAAEAAMAAAARAAwAAAAEAAQAAAASAAkAAAABAAEAAAASAAoAAAABAAIAAAASAAsAAAABAAMAAAASAAwAAAABAAQAAAATAAkAAAACAAEAAAATAAoAAAACAAIAAAATAAsAAAACAAMAAAATAAwAAAACAAQAAAAUAAkAAAADAAEAAAAUAAoAAAADAAIAAAAUAAsAAAADAAMAAAAUAAwAAAADAAQAAAAVAAkAAAAEAAEAAAAVAAoAAAAEAAIAAAAVAAsAAAAEAAMAAAAVAAwAAAAEAAQAAAAKAA0AAAABAAEAAAAKAA4AAAABAAIAAAAKAA8AAAABAAMAAAAKABAAAAABAAQAAAALAA0AAAACAAEAAAALAA4AAAACAAIAAAALAA8AAAACAAMAAAALABAAAAACAAQAAAAMAA0AAAADAAEAAAAMAA4AAAADAAIAAAAMAA8AAAADAAMAAAAMABAAAAADAAQAAAANAA0AAAAEAAEAAAANAA4AAAAEAAIAAAANAA8AAAAEAAMAAAANABAAAAAEAAQAAAAOAA0AAAABAAEAAAAOAA4AAAABAAIAAAAOAA8AAAABAAMAAAAOABAAAAABAAQAAAAPAA0AAAACAAEAAAAPAA4AAAACAAIAAAAPAA8AAAACAAMAAAAPABAAAAACAAQAAAAQAA0AAAADAAEAAAAQAA4AAAADAAIAAAAQAA8AAAADAAMAAAAQABAAAAADAAQAAAARAA0AAAAEAAEAAAARAA4AAAAEAAIAAAARAA8AAAAEAAMAAAARABAAAAAEAAQAAAASAA0AAAABAAEAAAASAA4AAAABAAIAAAASAA8AAAABAAMAAAASABAAAAABAAQAAAATAA0AAAACAAEAAAATAA4AAAACAAIAAAATAA8AAAACAAMAAAATABAAAAACAAQAAAAUAA0AAAADAAEAAAAUAA4AAAADAAIAAAAUAA8AAAADAAMAAAAUABAAAAADAAQAAAAVAA0AAAAEAAEAAAAVAA4AAAAEAAIAAAAVAA8AAAAEAAMAAAAVABAAAAAEAAQAAAAQABEAAAABAAUAAAARABEAAAACAAUAAAASABEAAAADAAUAAAATABEAAAABAAUAAAAUABEAAAACAAUAAAAVABEAAAADAAUAAAAPAAAAAAACAAIAAAAQAAAAAAACAAIAAAARAAAAAAABAAIAAAASAAAAAAACAAIAAAATAAAAAAABAAIAAAAUAAAAAAACAAIAAAAVAAAAAAACAAMAAAAWAAAAAAACAAMAAAAPAP//AAACAAAAAAAQAP//AAACAAAAAAARAP//AAABAAEAAAASAP//AAACAAEAAAARAP3/AAACAAAAAAARAP7/AAACAAIAAAASAP3/AAACAAAAAAASAP7/AAACAAIAAAATAP//AAABAAEAAAAUAP//AAACAAEAAAATAP3/AAABAAEAAAATAP7/AAABAAIAAAAUAP3/AAACAAEAAAAUAP7/AAACAAIAAAATAPv/AAACAAAAAAATAPz/AAACAAIAAAAUAPv/AAACAAAAAAAUAPz/AAACAAIAAAAVAPv/AAAOAAgAAAAVAPz/AAAOAAkAAAAVAP3/AAAOAAoAAAAWAPz/AAAPAAkAAAAWAP3/AAAPAAoAAAAXAP3/AAACAAAAAAAVAP7/AAACAAMAAAAVAP//AAACAAQAAAAWAP7/AAACAAMAAAAWAP//AAACAAQAAAAWAAEAAAACAAQAAAAXAAAAAAADAAMAAAAXAAEAAAADAAQAAAAYAAAAAAADAAMAAAAYAAEAAAADAAQAAAAXAP7/AAADAAMAAAAXAP//AAADAAQAAAAWAAIAAAACAAMAAAAWAAMAAAACAAQAAAAXAAIAAAADAAMAAAAXAAMAAAADAAQAAAAWAAQAAAACAAMAAAAWAAUAAAACAAQAAAAXAAQAAAADAAMAAAAXAAUAAAADAAQAAAAWAAYAAAACAAMAAAAWAAcAAAACAAQAAAAXAAYAAAADAAMAAAAXAAcAAAADAAQAAAAWAAgAAAACAAMAAAAWAAkAAAACAAQAAAAXAAgAAAADAAMAAAAXAAkAAAADAAQAAAAYAP3/AAADAAAAAAAYAP7/AAADAAEAAAAYAP//AAADAAIAAAAYAAIAAAADAAEAAAAYAAMAAAADAAIAAAAYAAQAAAADAAMAAAAYAAUAAAADAAQAAAAYAAYAAAADAAEAAAAYAAcAAAADAAIAAAAYAAgAAAADAAMAAAAYAAkAAAADAAQAAAAWAAoAAAABAAEAAAAWAAsAAAABAAIAAAAWAAwAAAABAAMAAAAXAAoAAAACAAEAAAAXAAsAAAACAAIAAAAXAAwAAAACAAMAAAAYAAoAAAADAAEAAAAYAAsAAAADAAIAAAAYAAwAAAADAAMAAAAWAA0AAAABAAEAAAAWAA4AAAABAAIAAAAWAA8AAAABAAMAAAAXAA0AAAACAAEAAAAXAA4AAAACAAIAAAAXAA8AAAACAAMAAAAYAA0AAAADAAEAAAAYAA4AAAADAAIAAAAYAA8AAAADAAMAAAD//wAAAAAPAAoAAAA=")
 tile_set = SubResource("TileSet_7fk0h")
 
-[node name="MapBoundary" type="Node2D" parent="." unique_id=1163878902]
+[node name="MapBoundary" type="Node2D" parent="SceneObjects/Map" unique_id=1163878902]
 
-[node name="FallMechanic" type="Area2D" parent="MapBoundary" unique_id=427011586]
+[node name="FallMechanic" type="Area2D" parent="SceneObjects/Map/MapBoundary" unique_id=427011586]
 position = Vector2(109, 215)
 script = ExtResource("3_nlyig")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapBoundary/FallMechanic" unique_id=441761509]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/Map/MapBoundary/FallMechanic" unique_id=441761509]
 shape = SubResource("WorldBoundaryShape2D_f20k6")
 
-[node name="LeftBorder" type="StaticBody2D" parent="MapBoundary" unique_id=1671964302]
+[node name="LeftBorder" type="StaticBody2D" parent="SceneObjects/Map/MapBoundary" unique_id=1671964302]
 position = Vector2(-212, -102)
 
-[node name="LeftBorderCollision" type="CollisionShape2D" parent="MapBoundary/LeftBorder" unique_id=329342703]
+[node name="LeftBorderCollision" type="CollisionShape2D" parent="SceneObjects/Map/MapBoundary/LeftBorder" unique_id=329342703]
 position = Vector2(0, 54)
 shape = SubResource("RectangleShape2D_3uyhe")
 
-[node name="TutorialTexts" type="Node2D" parent="." unique_id=643585830]
+[node name="TutorialTexts" type="Node2D" parent="SceneObjects/Map" unique_id=643585830]
 
-[node name="MovingText" type="Panel" parent="TutorialTexts" unique_id=1931499178]
+[node name="MovingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1931499178]
 texture_filter = 1
 offset_left = -183.0
 offset_top = -65.0
@@ -459,7 +509,7 @@ offset_right = -66.0
 offset_bottom = -22.0
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="TutorialTexts/MovingText" unique_id=1034518925]
+[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/MovingText" unique_id=1034518925]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -478,14 +528,14 @@ text = "A to move left
 D to move right"
 horizontal_alignment = 1
 
-[node name="JumpingText" type="Panel" parent="TutorialTexts" unique_id=1807470247]
+[node name="JumpingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1807470247]
 texture_filter = 1
 offset_left = 65.0
 offset_top = -64.0
 offset_right = 162.0
 offset_bottom = -22.0
 
-[node name="Label" type="Label" parent="TutorialTexts/JumpingText" unique_id=235469025]
+[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/JumpingText" unique_id=235469025]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -502,11 +552,11 @@ text = "Spacebar to
 jump"
 horizontal_alignment = 1
 
-[node name="Checkpoint1" type="Area2D" parent="." unique_id=1236589979]
+[node name="Checkpoint1" type="Area2D" parent="SceneObjects/Map" unique_id=1236589979]
 position = Vector2(47, 1)
 script = ExtResource("4_msn23")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Checkpoint1" unique_id=633490915]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneObjects/Map/Checkpoint1" unique_id=633490915]
 position = Vector2(0.5, -61)
 shape = SubResource("RectangleShape2D_msn23")
 
@@ -515,19 +565,12 @@ layer = 10
 
 [node name="Hearts" type="Panel" parent="UI" unique_id=2054623776]
 texture_filter = 1
-anchors_preset = -1
-anchor_left = -0.17400001
-anchor_top = -0.16700001
-anchor_right = -0.17400001
-anchor_bottom = -0.16700001
-offset_left = 220.44801
-offset_top = 128.216
-offset_right = 359.448
-offset_bottom = 160.216
+offset_right = 93.66667
+offset_bottom = 32.0
 scale = Vector2(3, 3)
 size_flags_horizontal = 0
 size_flags_vertical = 8
-theme_override_styles/panel = SubResource("StyleBoxTexture_7fk0h")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_msn23")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts" unique_id=92854554]
 layout_mode = 1
@@ -545,7 +588,7 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=137082067]
+[node name="Heart1" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=137082067]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 4
@@ -553,19 +596,157 @@ texture = SubResource("AtlasTexture_nlyig")
 expand_mode = 2
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1763151132]
+[node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1763151132]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_nlyig")
 expand_mode = 2
 stretch_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1562138008]
+[node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1562138008]
 texture_filter = 1
 layout_mode = 2
 texture = SubResource("AtlasTexture_nlyig")
 expand_mode = 2
 stretch_mode = 2
 
-[connection signal="body_entered" from="MapBoundary/FallMechanic" to="MapBoundary/FallMechanic" method="_on_body_entered"]
-[connection signal="body_entered" from="Checkpoint1" to="Checkpoint1" method="_on_body_entered"]
+[node name="Pause" type="Node" parent="UI" unique_id=1827406553]
+script = ExtResource("8_ys1tx")
+
+[node name="PauseMenu" type="Panel" parent="UI/Pause" unique_id=710024816]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -274.5
+offset_right = 272.0
+offset_bottom = 274.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0xoj")
+
+[node name="VolumeProgressBar" type="TextureProgressBar" parent="UI/Pause/PauseMenu" unique_id=635826902]
+texture_filter = 1
+custom_minimum_size = Vector2(20, 48)
+layout_mode = 0
+offset_left = 261.0
+offset_top = 175.5
+offset_right = 482.0
+offset_bottom = 223.5
+mouse_filter = 0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_p11o7")
+texture_progress = SubResource("AtlasTexture_klwya")
+script = ExtResource("10_ttsc2")
+
+[node name="VolumeLabel" type="Label" parent="UI/Pause/PauseMenu" unique_id=2023179728]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.074
+anchor_bottom = 0.066
+offset_left = 32.0
+offset_top = 148.5
+offset_right = 219.744
+offset_bottom = 208.26599
+theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_j7vlb")
+text = "volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="UI/Pause/PauseMenu" unique_id=1594687114]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 21.5
+offset_right = 152.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_g3rwo")
+texture_hover = SubResource("AtlasTexture_sxlx6")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("13_c8jce")
+
+[node name="ResumeLabel" type="Label" parent="UI/Pause/PauseMenu/ResumeButton" unique_id=818513935]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 45
+text = "resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenuButton" type="TextureButton" parent="UI/Pause/PauseMenu" unique_id=186366984]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_wu28u")
+texture_pressed = SubResource("AtlasTexture_citrs")
+texture_hover = SubResource("AtlasTexture_citrs")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("14_5cg6o")
+
+[node name="BackToMainMenuLabel" type="Label" parent="UI/Pause/PauseMenu/BackToMainMenuButton" unique_id=2142289540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 45
+text = "main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="SceneObjects/Map/MapBoundary/FallMechanic" to="SceneObjects/Map/MapBoundary/FallMechanic" method="_on_body_entered"]
+[connection signal="body_entered" from="SceneObjects/Map/Checkpoint1" to="SceneObjects/Map/Checkpoint1" method="_on_body_entered"]
+[connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause" method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause" method="_on_back_to_main_menu_button_pressed"]
