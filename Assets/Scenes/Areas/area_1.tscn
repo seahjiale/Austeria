@@ -483,10 +483,10 @@ hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart1"), NodePath("../UI/Hearts/
 position = Vector2(-144, 0)
 
 [node name="MushroomEnemy" parent="SceneObjects/Characters" unique_id=12949898 instance=ExtResource("2_7fk0h")]
-position = Vector2(728, -191)
+position = Vector2(526, -17)
 
 [node name="MushroomEnemy2" parent="SceneObjects/Characters" unique_id=774131767 instance=ExtResource("2_7fk0h")]
-position = Vector2(846, -191)
+position = Vector2(203, 1)
 
 [node name="Map" type="Node" parent="SceneObjects" unique_id=571821445]
 

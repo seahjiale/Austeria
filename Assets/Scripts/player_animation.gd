@@ -1,10 +1,18 @@
 extends Node2D
 
 @export var player_movement : PlayerMovement
-@export var animation_player : AnimationPlayer
-@export var sprite : Sprite2D
+@export var sprite : AnimatedSprite2D
+
+var is_hurt = false
+
+func take_damage():
+	is_hurt = true
+	sprite.play("hit")
 
 func _process(_delta):
+	if is_hurt:
+		return
+		
 	# direction of player
 	if player_movement.direction == 1:
 		sprite.flip_h = false
@@ -13,12 +21,16 @@ func _process(_delta):
 	
 	# running animation
 	if abs(player_movement.velocity.x) > 0:
-		animation_player.play("move")
+		sprite.play("move")
 	else:
-		animation_player.play("idle")
+		sprite.play("idle")
 		
 	# jump animation
 	if player_movement.velocity.y < 0:
-		animation_player.play("jump")
+		sprite.play("jump")
 	elif player_movement.velocity.y > 0:
-		animation_player.play("fall")
+		sprite.play("fall")
+		
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if sprite.animation == "hit":
+		is_hurt = false

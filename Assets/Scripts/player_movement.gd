@@ -9,6 +9,7 @@ var jump_multiplier = -30.0
 var direction = 0
 var knockback = false
 var knockback_timer = 0.0
+var is_hurt = false
 
 func _ready():
 	# checking if it has passed any checkpoints, if yes reset position
@@ -21,7 +22,8 @@ func _physics_process(delta: float) -> void:
 	# gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		
+	
+	# knockback track
 	if knockback_timer > 0:
 		knockback_timer -= delta
 	else:
