@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://ce4g3xeb1pj3n"]
 
+[ext_resource type="Script" uid="uid://bngsvjo4hlk40" path="res://Assets/Scripts/mushroom_enemy.gd" id="1_5gyvg"]
 [ext_resource type="Texture2D" uid="uid://ccacroxatcaqr" path="res://Assets/Sprites/CharacterSprites/Mushroom/Idle (32x32).png" id="1_tv7xb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tu7ih"]
@@ -111,7 +112,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s741c"]
 size = Vector2(27, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5gyvg"]
+size = Vector2(28, 22)
+
 [node name="MushroomEnemy" type="RigidBody2D" unique_id=12949898]
+contact_monitor = true
+max_contacts_reported = 100
+script = ExtResource("1_5gyvg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497110310]
 texture_filter = 1
@@ -120,6 +127,14 @@ sprite_frames = SubResource("SpriteFrames_aeqyt")
 autoplay = "default"
 frame_progress = 0.21415949
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1825451095]
+[node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
 position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_s741c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=16536058]
+
+[node name="DamageDetection" type="CollisionShape2D" parent="Area2D" unique_id=1036392765]
+position = Vector2(0, -11)
+shape = SubResource("RectangleShape2D_5gyvg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

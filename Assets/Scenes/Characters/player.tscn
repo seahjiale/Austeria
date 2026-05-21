@@ -98,7 +98,7 @@ height = 14.0
 [node name="Player" type="CharacterBody2D" unique_id=1059602613]
 z_index = 2
 script = ExtResource("1_7dd06")
-speed = 5.0
+speed = 4.0
 
 [node name="PlayerAnimation" type="Node2D" parent="." unique_id=23722242 node_paths=PackedStringArray("player_movement", "animation_player", "sprite")]
 script = ExtResource("2_38rej")
@@ -127,3 +127,6 @@ zoom = Vector2(3, 3)
 limit_left = -200
 limit_top = -200
 limit_bottom = 200
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
