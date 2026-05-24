@@ -7,6 +7,7 @@ var duration: float = 0.8
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	color_rect.visible = false
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 
 func transition_to(new_scene: String, trans_duration: float = 0.8) -> void:
 	target_scene = new_scene
@@ -28,8 +29,14 @@ func _on_out_finished() -> void:
 
 func _animate_in() -> void:
 	color_rect.material.set_shader_parameter("reverse", true)
+	color_rect.material.set_shader_parameter("progress", 0.0)
 	var tween = create_tween()
 	tween.tween_method(
 		func(v): color_rect.material.set_shader_parameter("progress", v),
 		0.0, 1.0, duration
 	)
+	tween.finished.connect(_on_in_finished)
+	
+func _on_in_finished() -> void:
+	color_rect.visible = false
+	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE

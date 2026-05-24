@@ -1,5 +1,6 @@
 extends Node
 
+@onready var game_over_ui: Panel = $"../UI/GameOver/GameOverMenu"
 @export var hearts : Array[Node]
 
 var points = 0
@@ -16,5 +17,9 @@ func decrease_health():
 		else:
 			hearts[h].hide()
 	
-	if lives == 0:
-		get_tree().call_deferred("reload_current_scene")
+	if lives <= 0:
+		trigger_game_over()
+		
+func trigger_game_over():
+	game_over_ui.show()
+	get_tree().paused = true

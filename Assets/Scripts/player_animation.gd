@@ -4,6 +4,16 @@ extends Node2D
 @export var sprite : AnimatedSprite2D
 
 var is_hurt = false
+var is_double_jumping = false
+
+func _ready():
+	player_movement.double_jumped.connect(_on_double_jump)
+
+func _on_double_jump():
+	if is_hurt:
+		return
+	is_double_jumping = true
+	sprite.play("double_jump")
 
 func take_damage():
 	is_hurt = true
@@ -18,19 +28,22 @@ func _process(_delta):
 		sprite.flip_h = false
 	elif player_movement.direction == -1:
 		sprite.flip_h = true
-	
-	# running animation
-	if abs(player_movement.velocity.x) > 0:
-		sprite.play("move")
-	else:
-		sprite.play("idle")
 		
-	# jump animation
+	if is_double_jumping:
+		return
+	
 	if player_movement.velocity.y < 0:
 		sprite.play("jump")
 	elif player_movement.velocity.y > 0:
 		sprite.play("fall")
+	elif player_movement.is_on_floor():
+		if abs(player_movement.velocity.x) > 0:
+			sprite.play("move")
+		else:
+			sprite.play("idle")
 		
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if sprite.animation == "hit":
 		is_hurt = false
+	if sprite.animation == "double_jump":
+		is_double_jumping = false
