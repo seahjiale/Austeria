@@ -7,15 +7,15 @@ func _ready():
 	# initial start at maximum volume
 	value = 9
 	step = 1
-	
 	self.value_changed.connect(_on_value_changed)
 	
 func _gui_input(event):
-	# click
+	# click to adjust volume
 	if event is InputEventMouseButton and event.pressed:
 		var click_ratio = event.position.x / size.x
 		value = ceil(click_ratio * max_value)
-		
+	
+	# click and drag to adjust volume
 	if event is InputEventMouseMotion and event.button_mask == MOUSE_BUTTON_MASK_LEFT:
 		var drag_ratio = clamp(event.position.x / size.x, 0.0, 1.0)
 		value = ceil(drag_ratio * max_value)

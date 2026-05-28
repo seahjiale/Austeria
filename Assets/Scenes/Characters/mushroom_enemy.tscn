@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bngsvjo4hlk40" path="res://Assets/Scripts/mushroom_enemy.gd" id="1_5gyvg"]
 [ext_resource type="Texture2D" uid="uid://ccacroxatcaqr" path="res://Assets/Sprites/CharacterSprites/Mushroom/Idle (32x32).png" id="1_tv7xb"]
+[ext_resource type="Texture2D" uid="uid://b78lvh4o1881n" path="res://Assets/Sprites/CharacterSprites/Mushroom/Hit.png" id="3_httxq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tu7ih"]
 atlas = ExtResource("1_tv7xb")
@@ -59,6 +60,26 @@ region = Rect2(384, 0, 32, 32)
 atlas = ExtResource("1_tv7xb")
 region = Rect2(416, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvhyt"]
+atlas = ExtResource("3_httxq")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4ugm"]
+atlas = ExtResource("3_httxq")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1dc5"]
+atlas = ExtResource("3_httxq")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g564d"]
+atlas = ExtResource("3_httxq")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yh8ix"]
+atlas = ExtResource("3_httxq")
+region = Rect2(128, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_aeqyt"]
 animations = [{
 "frames": [{
@@ -105,8 +126,28 @@ animations = [{
 "texture": SubResource("AtlasTexture_t88pe")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvhyt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4ugm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1dc5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g564d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yh8ix")
+}],
+"loop": false,
+"name": &"take_damage",
+"speed": 15.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s741c"]
@@ -115,17 +156,18 @@ size = Vector2(27, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5gyvg"]
 size = Vector2(28, 22)
 
-[node name="MushroomEnemy" type="RigidBody2D" unique_id=12949898]
+[node name="MushroomEnemy" type="RigidBody2D" unique_id=12949898 node_paths=PackedStringArray("sprite")]
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_5gyvg")
+sprite = NodePath("AnimatedSprite2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497110310]
 texture_filter = 1
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-autoplay = "default"
-frame_progress = 0.21415949
+animation = &"take_damage"
+autoplay = "idle"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
 position = Vector2(0, -11)

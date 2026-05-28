@@ -2,6 +2,7 @@ extends Node2D
 
 @export var player_movement : PlayerMovement
 @export var sprite : AnimatedSprite2D
+@onready var attack_sprite = $"../Attack/AttackSprite"
 
 var is_hurt = false
 var is_double_jumping = false
@@ -47,3 +48,12 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		is_hurt = false
 	if sprite.animation == "double_jump":
 		is_double_jumping = false
+
+
+func play_attack():
+	attack_sprite.flip_h = sprite.flip_h
+	attack_sprite.position.x = abs(attack_sprite.position.x) * (-1 if sprite.flip_h else 1)
+	attack_sprite.show()
+	attack_sprite.play("attack")
+	await attack_sprite.animation_finished
+	attack_sprite.hide()

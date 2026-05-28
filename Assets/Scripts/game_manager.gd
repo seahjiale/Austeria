@@ -8,7 +8,8 @@ var lives = 3
 
 func _ready() -> void:
 	$"../UI".show()
-	
+
+# handles health logic and health UI
 func decrease_health():
 	lives -= 1
 	for h in 3:
