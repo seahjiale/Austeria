@@ -21,7 +21,7 @@ func update_inventory_data() -> void:
 		slot.queue_free()
 	
 	for item_data in inventory_data.item_data:
-		var new_slot = preload("res://Assets/InventoryPage/Inventory/Slot.tscn").instantiate()
+		var new_slot = preload("res://Assets/Items/Resources/Slot.tscn").instantiate()
 		new_slot.current_item = item_data
 		%SlotGroup.add_child(new_slot)
 

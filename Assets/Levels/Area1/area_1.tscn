@@ -29,7 +29,7 @@
 [ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Background/Clouds/cloud_2.gd" id="25_sxlx6"]
 [ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Background/Clouds/big_cloud_2.gd" id="25_xb627"]
 [ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Background/Clouds/small_cloud_2.gd" id="28_me1nw"]
-[ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/InventoryPage/Inventory/inventory_window.tscn" id="29_xb627"]
+[ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/Items/Resources/inventory_window.tscn" id="29_xb627"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ql8qi"]
 texture = ExtResource("1_3uyhe")
