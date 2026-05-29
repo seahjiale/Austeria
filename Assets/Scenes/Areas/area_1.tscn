@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cod3xatlptdos" path="res://Assets/Scenes/Characters/pig_enemy.tscn" id="4_c8jce"]
 [ext_resource type="Script" uid="uid://dopaujq4dwd3o" path="res://Assets/Scripts/checkpoint_1.gd" id="4_msn23"]
 [ext_resource type="Texture2D" uid="uid://bycfpisoqqmy1" path="res://Assets/Sprites/game_menu_sprites/emojis-free/emoji style ui/Inventory_Light_Herat_Spritesheet.png" id="4_ql8qi"]
+[ext_resource type="PackedScene" uid="uid://bb0twhh0l82io" path="res://Assets/Scenes/Characters/chicken_enemy.tscn" id="5_xb627"]
 [ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/Setting menu.png" id="8_xl8b6"]
 [ext_resource type="Script" uid="uid://ehu31lfm65of" path="res://Assets/Scripts/pause.gd" id="8_ys1tx"]
 [ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Sprites/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="9_ys1tx"]
@@ -520,6 +521,9 @@ position = Vector2(716, -194)
 
 [node name="PigEnemy" parent="SceneObjects/Characters" unique_id=1756957328 instance=ExtResource("4_c8jce")]
 position = Vector2(1415, -64)
+
+[node name="ChickenEnemy" parent="SceneObjects/Characters" unique_id=916798956 instance=ExtResource("5_xb627")]
+position = Vector2(1304, -96)
 
 [node name="Map" type="Node" parent="SceneObjects" unique_id=571821445]
 
