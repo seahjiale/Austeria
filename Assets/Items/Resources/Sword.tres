@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ItemData" format=3 uid="uid://d01s0xaw1ro2q"]
+
+[ext_resource type="Texture2D" uid="uid://c0umclx4884dj" path="res://Assets/Items/Sprites/Item SpriteSheet.png" id="1_w7ife"]
+[ext_resource type="Script" uid="uid://bqk8pbn8d871" path="res://Assets/Items/Scripts/ItemData.gd" id="2_oowlr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8fig"]
+atlas = ExtResource("1_w7ife")
+region = Rect2(287.60068, 291.38474, 31.200012, 28.00003)
+
+[resource]
+script = ExtResource("2_oowlr")
+item_name = "Sword"
+item_texture = SubResource("AtlasTexture_w8fig")
+metadata/_custom_type_script = "uid://bqk8pbn8d871"

@@ -28,6 +28,7 @@
 [ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Scripts/cloud_2.gd" id="25_sxlx6"]
 [ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Scripts/big_cloud_2.gd" id="25_xb627"]
 [ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Scripts/small_cloud_2.gd" id="28_me1nw"]
+[ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/Items/Resources/inventory_window.tscn" id="29_xb627"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ql8qi"]
 texture = ExtResource("1_3uyhe")
@@ -965,6 +966,11 @@ scale = Vector2(2, 2)
 texture = ExtResource("23_sxlx6")
 centered = false
 script = ExtResource("28_me1nw")
+
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=1324672093]
+
+[node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("29_xb627")]
+visible = false
 
 [connection signal="body_entered" from="SceneObjects/Map/MapBoundary/FallMechanic" to="SceneObjects/Map/MapBoundary/FallMechanic" method="_on_body_entered"]
 [connection signal="body_entered" from="SceneObjects/Map/Checkpoint1" to="SceneObjects/Map/Checkpoint1" method="_on_body_entered"]
