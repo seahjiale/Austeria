@@ -1,0 +1,174 @@
+[gd_scene format=3 uid="uid://1vbqs3go4ko6"]
+
+[ext_resource type="Script" uid="uid://ds0eljcrcuau0" path="res://Assets/Menus/Main_Menu/main_menu.gd" id="1_slwae"]
+[ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Menus/game_menu_sprites/background.png" id="2_a3pmd"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_buetm"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="4_njv4u"]
+[ext_resource type="Script" uid="uid://bo5nig1n2h5vq" path="res://Assets/Menus/Main_Menu/play_button.gd" id="5_7l52i"]
+[ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Menus/Settings_Menu/settings_button.gd" id="6_6wpe1"]
+[ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Menus/Main_Menu/quit_button.gd" id="7_coteh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fadmi"]
+texture = ExtResource("2_a3pmd")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tanm1"]
+atlas = ExtResource("4_njv4u")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shbfh"]
+atlas = ExtResource("4_njv4u")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbhea"]
+atlas = ExtResource("4_njv4u")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fadmi"]
+atlas = ExtResource("4_njv4u")
+region = Rect2(96, 0, 96, 32)
+
+[node name="MainMenu" type="Control" unique_id=739886298]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_slwae")
+
+[node name="Background" type="Panel" parent="." unique_id=1311610743]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_fadmi")
+
+[node name="GameTitle" type="Label" parent="." unique_id=1152979225]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -371.625
+offset_top = 81.0
+offset_right = 371.625
+offset_bottom = 178.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_buetm")
+theme_override_font_sizes/font_size = 60
+text = "Game Title
+"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2136818217]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = -115.0
+offset_right = 159.0
+offset_bottom = 138.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="VBoxContainer" unique_id=1020346872]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_tanm1")
+texture_pressed = SubResource("AtlasTexture_shbfh")
+texture_hover = SubResource("AtlasTexture_shbfh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("5_7l52i")
+
+[node name="PlayButtonLabel" type="Label" parent="VBoxContainer/PlayButton" unique_id=1129854867]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_buetm")
+theme_override_font_sizes/font_size = 45
+text = "play"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="VBoxContainer" unique_id=308587477]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_cbhea")
+texture_hover = SubResource("AtlasTexture_fadmi")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("6_6wpe1")
+
+[node name="SettingsLabel" type="Label" parent="VBoxContainer/SettingsButton" unique_id=1854670545]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_buetm")
+theme_override_font_sizes/font_size = 45
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=819626113]
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_tanm1")
+texture_pressed = SubResource("AtlasTexture_shbfh")
+texture_hover = SubResource("AtlasTexture_shbfh")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("7_coteh")
+
+[node name="QuitLabel" type="Label" parent="VBoxContainer/QuitButton" unique_id=796353436]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_buetm")
+theme_override_font_sizes/font_size = 45
+text = "Quit"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/SettingsButton" to="VBoxContainer/SettingsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/SettingsButton" to="VBoxContainer/SettingsButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="mouse_entered" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/QuitButton" to="VBoxContainer/QuitButton" method="_on_mouse_exited"]
