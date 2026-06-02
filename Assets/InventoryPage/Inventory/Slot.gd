@@ -16,5 +16,5 @@ func set_item_slot() -> void:
 	%ItemAmount.text = str(current_item.item_amount)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass

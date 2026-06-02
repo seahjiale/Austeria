@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://d3ms3748j2fig"]
 
-[ext_resource type="Script" uid="uid://chhofd013uuoq" path="res://Assets/Items/Scripts/InventoryWindow.gd" id="1_tqy15"]
-[ext_resource type="Resource" uid="uid://c57bt8lkth5w6" path="res://Assets/Items/Resources/TestInventory.tres" id="2_l5ki2"]
-[ext_resource type="Texture2D" uid="uid://crkoec41c87cw" path="res://Assets/Items/Sprites/InventorySpritesheet.png" id="3_e8lhn"]
+[ext_resource type="Script" uid="uid://chhofd013uuoq" path="res://Assets/InventoryPage/Inventory/InventoryWindow.gd" id="1_tqy15"]
+[ext_resource type="Resource" uid="uid://c57bt8lkth5w6" path="res://Assets/InventoryPage/Inventory/TestInventory.tres" id="2_2xpgq"]
+[ext_resource type="Texture2D" uid="uid://crkoec41c87cw" path="res://Assets/InventoryPage/Sprites/InventorySpritesheet.png" id="3_e7t70"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_uumu2"]
-atlas = ExtResource("3_e8lhn")
-region = Rect2(224.5292, 32.925858, 95.206665, 62.809967)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ds80"]
+atlas = ExtResource("3_e7t70")
+region = Rect2(32.000008, 32.800003, 96.00001, 62.4)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eldnm"]
-texture = SubResource("AtlasTexture_uumu2")
+texture = SubResource("AtlasTexture_2ds80")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
@@ -23,7 +23,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_tqy15")
-inventory_data = ExtResource("2_l5ki2")
+inventory_data = ExtResource("2_2xpgq")
 
 [node name="Panel" type="PanelContainer" parent="." unique_id=720359412]
 layout_mode = 1
