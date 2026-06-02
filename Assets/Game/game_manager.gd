@@ -5,6 +5,7 @@ extends Node
 
 var points = 0
 var lives = 3
+var game_over = false
 
 func _ready() -> void:
 	$"../UI".show()
@@ -22,5 +23,8 @@ func decrease_health():
 		trigger_game_over()
 		
 func trigger_game_over():
+	if game_over:
+		return
+	game_over = true
 	game_over_ui.show()
 	get_tree().paused = true

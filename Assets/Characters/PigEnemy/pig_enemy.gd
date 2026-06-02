@@ -19,14 +19,17 @@ func on_hit():
 	chasing = true
 
 func _process(delta):
-	if chasing and player:
+	if chasing and is_instance_valid(player):
+
 		var dir = sign(player.global_position.x - global_position.x)
 		position.x += dir * chase_speed * delta
+
 		sprite.flip_h = dir < 0
+
 		if global_position.distance_to(player.global_position) > drop_aggro_distance:
 			chasing = false
+
 	else:
-		# Patrol behaviour here
 		position.x += direction * patrol_speed * delta
 
 func _on_area_2d_body_entered(body) -> void:
