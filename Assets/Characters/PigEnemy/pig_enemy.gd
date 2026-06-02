@@ -1,18 +1,33 @@
-extends RigidBody2D
+extends "res://Assets/Game/enemy.gd"
 
 @onready var game_manager = %GameManager
-@export var sprite : AnimatedSprite2D
 
-var health = 5
+var speed = 20.0
+var direction = -1.0
 
-func take_damage(amount):
-	health -= amount
-	if health <= 0:
-		call_deferred("queue_free")
-	sprite.play("take_damage")
-	await sprite.animation_finished
-	sprite.play("idle")
+var player: CharacterBody2D = null
+var chasing = false
 
+@export var patrol_speed = 20.0
+@export var chase_speed = 50.0
+@export var drop_aggro_distance = 300.0
+
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
+	
+func on_hit():
+	chasing = true
+
+func _process(delta):
+	if chasing and player:
+		var dir = sign(player.global_position.x - global_position.x)
+		position.x += dir * chase_speed * delta
+		sprite.flip_h = dir < 0
+		if global_position.distance_to(player.global_position) > drop_aggro_distance:
+			chasing = false
+	else:
+		# Patrol behaviour here
+		position.x += direction * patrol_speed * delta
 
 func _on_area_2d_body_entered(body) -> void:
 	if body is CharacterBody2D:

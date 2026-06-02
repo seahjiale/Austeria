@@ -243,7 +243,9 @@ size = Vector2(24, 21)
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_5qdni")
+xp_reward = 60
 sprite = NodePath("AnimatedSprite2D")
+health = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497110310]
 texture_filter = 1
