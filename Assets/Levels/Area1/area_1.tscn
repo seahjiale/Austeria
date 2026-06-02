@@ -525,7 +525,7 @@ position = Vector2(716, -194)
 position = Vector2(1415, -64)
 
 [node name="ChickenEnemy" parent="SceneObjects/Characters" unique_id=916798956 instance=ExtResource("5_xb627")]
-position = Vector2(1304, -96)
+position = Vector2(1238, -66)
 
 [node name="Map" type="Node" parent="SceneObjects" unique_id=571821445]
 

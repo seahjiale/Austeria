@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bb0twhh0l82io"]
 
-[ext_resource type="Script" uid="uid://xsv2q862fgnx" path="res://Assets/Characters/PigEnemy/pig_enemy.gd" id="1_00bj1"]
+[ext_resource type="Script" uid="uid://c5b7sr2h0b76g" path="res://Assets/Characters/ChickenEnemy/chicken_enemy.gd" id="1_1yrom"]
 [ext_resource type="Texture2D" uid="uid://bqvxdf06wk1i5" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Hit (32x34).png" id="2_00bj1"]
 [ext_resource type="Texture2D" uid="uid://bkcf53k4xlnn" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Idle (32x34).png" id="3_clojl"]
 [ext_resource type="Texture2D" uid="uid://dnjri7wgee8sx" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Run (32x34).png" id="4_05ysi"]
@@ -222,9 +222,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_kc4g7")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -256,16 +256,19 @@ size = Vector2(24, 22.5)
 [node name="ChickenEnemy" type="RigidBody2D" unique_id=12949898 node_paths=PackedStringArray("sprite")]
 contact_monitor = true
 max_contacts_reported = 100
-script = ExtResource("1_00bj1")
+script = ExtResource("1_1yrom")
+xp_reward = 40
 sprite = NodePath("AnimatedSprite2D")
+health = 5
+default_animation = "run"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=497110310]
 texture_filter = 1
 position = Vector2(0, -12)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-animation = &"take_damage"
-autoplay = "idle"
+animation = &"idle"
+autoplay = "run"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
 position = Vector2(0, -11.3125)
@@ -279,6 +282,7 @@ shape = SubResource("RectangleShape2D_5gyvg")
 
 [node name="Timer" type="Timer" parent="." unique_id=350390069]
 wait_time = 2.0
-autostart = true
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
