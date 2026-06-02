@@ -157,6 +157,8 @@ size = Vector2(27, 20)
 size = Vector2(28, 22)
 
 [node name="MushroomEnemy" type="RigidBody2D" unique_id=12949898 node_paths=PackedStringArray("sprite")]
+collision_layer = 4
+collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_5gyvg")
@@ -175,6 +177,8 @@ position = Vector2(0, -11)
 shape = SubResource("RectangleShape2D_s741c")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=16536058]
+collision_layer = 4
+collision_mask = 3
 
 [node name="DamageDetection" type="CollisionShape2D" parent="Area2D" unique_id=1036392765]
 position = Vector2(0, -11)

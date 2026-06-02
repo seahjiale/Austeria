@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dcvj5tpi0yhif" path="res://Assets/Characters/PigEnemy/Pig/Hit 1 (36x30).png" id="2_mpqlx"]
 [ext_resource type="Texture2D" uid="uid://c0vnpely1fyuk" path="res://Assets/Characters/PigEnemy/Pig/Idle (36x30).png" id="3_5qdni"]
 [ext_resource type="Texture2D" uid="uid://crqqck1i0gu6h" path="res://Assets/Characters/PigEnemy/Pig/Walk (36x30).png" id="4_4lop6"]
+[ext_resource type="Texture2D" uid="uid://d4e0c7fl7v1jf" path="res://Assets/Characters/PigEnemy/Pig/Run (36x30).png" id="4_r72d0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lii7"]
 atlas = ExtResource("3_5qdni")
@@ -104,6 +105,54 @@ region = Rect2(504, 0, 36, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj42w"]
 atlas = ExtResource("4_4lop6")
 region = Rect2(540, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyw5l"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(0, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bshf"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(36, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48y3f"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(72, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hhyq"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(108, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpr4f"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(144, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbk7b"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(180, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67h42"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(216, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bd64q"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(252, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rr6wi"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(288, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mgg38"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(324, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_51e4u"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(360, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy0hc"]
+atlas = ExtResource("4_r72d0")
+region = Rect2(396, 0, 36, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uo8cq"]
 atlas = ExtResource("2_mpqlx")
@@ -208,9 +257,50 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_cj42w")
 }],
-"loop": false,
+"loop": true,
 "name": &"run",
-"speed": 5.0
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyw5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7bshf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48y3f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7hhyq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rpr4f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbk7b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67h42")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bd64q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rr6wi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mgg38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_51e4u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy0hc")
+}],
+"loop": true,
+"name": &"run_aggro",
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -240,6 +330,9 @@ size = Vector2(22, 19.375)
 size = Vector2(24, 21)
 
 [node name="PigEnemy" type="RigidBody2D" unique_id=12949898 node_paths=PackedStringArray("sprite")]
+collision_layer = 4
+collision_mask = 3
+lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 100
 script = ExtResource("1_5qdni")
@@ -252,7 +345,7 @@ texture_filter = 1
 position = Vector2(0, -12)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-animation = &"idle"
+animation = &"run"
 autoplay = "idle"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
@@ -260,9 +353,16 @@ position = Vector2(0, -10.3125)
 shape = SubResource("RectangleShape2D_s741c")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=16536058]
+collision_layer = 4
+collision_mask = 3
 
 [node name="DamageDetection" type="CollisionShape2D" parent="Area2D" unique_id=1036392765]
 position = Vector2(0, -10.5)
 shape = SubResource("RectangleShape2D_5gyvg")
 
+[node name="Timer" type="Timer" parent="." unique_id=1577148435]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,36 +1,35 @@
 extends "res://Assets/Game/enemy.gd"
-
 @onready var game_manager = %GameManager
-
-var speed = 20.0
 var direction = -1.0
-
 var player: CharacterBody2D = null
 var chasing = false
-
-@export var patrol_speed = 20.0
 @export var chase_speed = 50.0
-@export var drop_aggro_distance = 300.0
+@export var drop_aggro_distance = 200.0
 
 func _ready():
 	player = get_tree().get_first_node_in_group("player")
-	
+	sprite.play("idle")
+
 func on_hit():
+	if chasing:
+		return
 	chasing = true
+	default_animation = "run_aggro"
 
-func _process(delta):
+func _process(_delta):
 	if chasing and is_instance_valid(player):
-
 		var dir = sign(player.global_position.x - global_position.x)
-		position.x += dir * chase_speed * delta
-
-		sprite.flip_h = dir < 0
-
+		linear_velocity.x = dir * chase_speed
+		sprite.flip_h = dir > 0
+		if sprite.animation != "take_damage":
+			sprite.play("run_aggro")
 		if global_position.distance_to(player.global_position) > drop_aggro_distance:
 			chasing = false
-
+			linear_velocity.x = 0
+			default_animation = "idle"
+			sprite.play("idle")
 	else:
-		position.x += direction * patrol_speed * delta
+		linear_velocity.x = 0
 
 func _on_area_2d_body_entered(body) -> void:
 	if body is CharacterBody2D:

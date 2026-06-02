@@ -10,7 +10,6 @@ func on_hit():
 
 func take_damage(amount):
 	health -= amount
-	
 	on_hit()
 	
 	if health <= 0:
