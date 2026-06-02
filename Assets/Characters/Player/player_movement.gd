@@ -8,6 +8,9 @@ signal double_jumped
 @export var speed = 10.0
 @export var jump_power = 10.0
 
+var equipped_weapon: WeaponData = null
+var base_damage: int = 1
+
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
 var direction = 0
@@ -77,6 +80,19 @@ func attack():
 	await player_animation.play_attack()
 	attack_hitbox.monitoring = false
 
+func equip_weapon(weapon: WeaponData) -> void:
+	equipped_weapon = weapon
+	player_animation.equip_weapon(weapon)
+	if weapon == null:
+		print("Weapon unequipped")
+	else:
+		print("Equipped weapon: ", weapon.item_name)
+
+func get_attack_damage() -> int:
+	if equipped_weapon != null:
+		return equipped_weapon.damage
+	return base_damage
+
 func _on_attack_hit_box_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
-		body.take_damage(1)
+		body.take_damage(get_attack_damage())

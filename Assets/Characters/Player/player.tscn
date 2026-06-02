@@ -332,6 +332,22 @@ region = Rect2(2520, 0, 191, 192)
 atlas = ExtResource("3_rc8y2")
 region = Rect2(2713, 0, 191, 192)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xk7i"]
+atlas = ExtResource("3_rc8y2")
+region = Rect2(594, 0, 190, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ae3s"]
+atlas = ExtResource("3_rc8y2")
+region = Rect2(784, 0, 190, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6l0bo"]
+atlas = ExtResource("3_rc8y2")
+region = Rect2(974, 0, 190, 192)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yay70"]
+atlas = ExtResource("3_rc8y2")
+region = Rect2(1164, 0, 190, 192)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_rc8y2"]
 animations = [{
 "frames": [{
@@ -350,9 +366,26 @@ animations = [{
 "loop": false,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xk7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ae3s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6l0bo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yay70")
+}],
+"loop": false,
+"name": &"sword_attack",
+"speed": 10.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1059602613]
+[node name="Player" type="CharacterBody2D" unique_id=1059602613 groups=["player"]]
 z_index = 2
 script = ExtResource("1_7dd06")
 speed = 4.0
@@ -398,7 +431,7 @@ visible = false
 position = Vector2(6.4499984, -6.0000005)
 scale = Vector2(0.31989527, 0.2)
 sprite_frames = SubResource("SpriteFrames_rc8y2")
-animation = &"attack"
+animation = &"sword_attack"
 
 [connection signal="animation_finished" from="PlayerAnimation/AnimatedSprite2D" to="PlayerAnimation" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Attack/AttackHitBox" to="." method="_on_attack_hit_box_body_entered"]
