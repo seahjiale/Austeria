@@ -1,7 +1,6 @@
 extends "res://Assets/Game/enemy.gd"
 
 @onready var game_manager = %GameManager
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var timer: Timer = $Timer
 
 var speed = 30.0
@@ -9,6 +8,7 @@ var direction = -1.0
 var paused = false
 	
 func _ready():
+	sprite.play("run")
 	timer.start()
 	
 func _process(delta: float) -> void:
@@ -28,12 +28,12 @@ func _on_area_2d_body_entered(body) -> void:
 
 func _on_timer_timeout() -> void:
 	paused = true
-	animated_sprite_2d.play("idle")
+	sprite.play("idle")
 	
 	await get_tree().create_timer(2.0).timeout
 	
 	direction *= -1
-	animated_sprite_2d.flip_h = !animated_sprite_2d.flip_h
+	sprite.flip_h = !sprite.flip_h
 	paused = false
-	animated_sprite_2d.play("run")
+	sprite.play("run")
 	timer.start()
