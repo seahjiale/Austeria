@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://3maqk6r2bs4" path="res://Assets/Game/back_to_main_menu_button.gd" id="14_5cg6o"]
 [ext_resource type="Script" uid="uid://bb48eit83yo0h" path="res://Assets/Game/restart_button.gd" id="17_lbrap"]
 [ext_resource type="Script" uid="uid://dehld5ifcui24" path="res://Assets/Game/game_over.gd" id="17_xai42"]
+[ext_resource type="Script" uid="uid://ceau380suw6ab" path="res://Assets/Game/experience_bar.gd" id="21_5im4w"]
 [ext_resource type="Texture2D" uid="uid://db7n5qfyin6u0" path="res://Assets/Background/BackgroundSprites/cloud_bg/1.png" id="21_j7vlb"]
 [ext_resource type="Script" uid="uid://cjo4hwqkbl75r" path="res://Assets/Background/Sky/sky.gd" id="21_klwya"]
 [ext_resource type="Script" uid="uid://k6m1q04b7u0q" path="res://Assets/Background/Sky/sky_2.gd" id="22_citrs"]
@@ -928,6 +929,37 @@ theme_override_font_sizes/font_size = 45
 text = "main menu"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ExperienceBar" type="Node" parent="UI" unique_id=467662802]
+script = ExtResource("21_5im4w")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ExperienceBar" unique_id=128107851]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -199.0
+offset_bottom = 54.0
+grow_horizontal = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ExperienceBar/VBoxContainer" unique_id=1291903839]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LevelLabel" type="Label" parent="UI/ExperienceBar/VBoxContainer/HBoxContainer" unique_id=2084506468]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EXPLabel" type="Label" parent="UI/ExperienceBar/VBoxContainer/HBoxContainer" unique_id=1507027151]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="EXPBar" type="ProgressBar" parent="UI/ExperienceBar/VBoxContainer" unique_id=1123462765]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+show_percentage = false
+
+[node name="LevelUpAnimation" type="AnimationPlayer" parent="UI/ExperienceBar/VBoxContainer" unique_id=721030952]
+root_node = NodePath("../HBoxContainer")
 
 [node name="Background" type="CanvasLayer" parent="." unique_id=1912774481]
 layer = -1

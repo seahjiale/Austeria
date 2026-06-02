@@ -3,7 +3,7 @@ extends Control
 @export var inventory_data : InventoryData
 var current_dragged_item_data : Dictionary
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if not has_node("ItemDrag"):
 		return
 	get_node("ItemDrag").position = get_global_mouse_position()

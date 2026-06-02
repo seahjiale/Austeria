@@ -14,7 +14,3 @@ func set_item_slot() -> void:
 		return
 	%ItemTexture.texture = current_item.item_texture
 	%ItemAmount.text = str(current_item.item_amount)
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
