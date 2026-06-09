@@ -21,6 +21,7 @@ SceneTransition="*uid://duaxdyb2gsork"
 GameState="*uid://deciclxwgs3ae"
 GlobalSignals="*uid://c7brbk2avgae1"
 ExpManager="*uid://dywo3ajb530o7"
+MusicManager="*uid://cwupg8xttxue7"
 
 [display]
 

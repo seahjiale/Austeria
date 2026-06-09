@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://cwupg8xttxue7"]
+
+[ext_resource type="Script" uid="uid://hk5ldm14wkic" path="res://Assets/Sound/music_manager.gd" id="1_a3856"]
+[ext_resource type="AudioStream" uid="uid://5b46idrr88ta" path="res://Assets/Sound/Maplestory Theme Music - Intro.mp3" id="2_fxku0"]
+
+[node name="MusicManager" type="Node" unique_id=125932012]
+script = ExtResource("1_a3856")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1945853344]
+stream = ExtResource("2_fxku0")

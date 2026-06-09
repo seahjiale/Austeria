@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cs0ij28ejeum2"
+path="res://.godot/imported/16 - Camera Shutter.MP3-14dc0d7888d7473443de127f57a80bda.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/16 - Camera Shutter.MP3"
+dest_files=["res://.godot/imported/16 - Camera Shutter.MP3-14dc0d7888d7473443de127f57a80bda.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -574,6 +574,10 @@ region = Rect2(0, 0, 96, 32)
 atlas = ExtResource("12_xai42")
 region = Rect2(96, 0, 96, 32)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2a1mf"]
+texture = ExtResource("8_xl8b6")
+region_rect = Rect2(136, 8, 112, 128)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_306j6"]
 atlas = ExtResource("12_xai42")
 region = Rect2(0, 0, 96, 32)
@@ -982,7 +986,25 @@ offset_right = 272.0
 offset_bottom = 274.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_u0xoj")
+theme_override_styles/panel = SubResource("StyleBoxTexture_2a1mf")
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOver/GameOverMenu" unique_id=1107649169]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 54.5
+offset_right = -28.0
+offset_bottom = -367.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 69
+text = "GAME OVER :("
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RestartButton" type="TextureButton" parent="UI/GameOver/GameOverMenu" unique_id=96118911]
 process_mode = 3
@@ -995,9 +1017,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.5
-offset_top = 21.5
+offset_top = -41.5
 offset_right = 152.5
-offset_bottom = 104.5
+offset_bottom = 41.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -1036,9 +1058,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -152.0
-offset_top = 128.0
+offset_top = 53.0
 offset_right = 152.0
-offset_bottom = 210.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3

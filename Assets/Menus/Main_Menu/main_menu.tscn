@@ -1,15 +1,47 @@
 [gd_scene format=3 uid="uid://1vbqs3go4ko6"]
 
 [ext_resource type="Script" uid="uid://ds0eljcrcuau0" path="res://Assets/Menus/Main_Menu/main_menu.gd" id="1_slwae"]
-[ext_resource type="Texture2D" uid="uid://urgf1ese1lbv" path="res://Assets/Menus/game_menu_sprites/background.png" id="2_a3pmd"]
+[ext_resource type="Texture2D" uid="uid://6nfi11fysbye" path="res://Assets/Menus/game_menu_sprites/Banner.png" id="2_mpj51"]
+[ext_resource type="FontFile" uid="uid://grjeekqgq0jl" path="res://Assets/Menus/game_menu_sprites/fonts/EldringBold.ttf" id="3_7kvxi"]
 [ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="3_buetm"]
 [ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="4_njv4u"]
 [ext_resource type="Script" uid="uid://bo5nig1n2h5vq" path="res://Assets/Menus/Main_Menu/play_button.gd" id="5_7l52i"]
 [ext_resource type="Script" uid="uid://hw3mnnk28aom" path="res://Assets/Menus/Settings_Menu/settings_button.gd" id="6_6wpe1"]
 [ext_resource type="Script" uid="uid://byj4m7u3m6tvr" path="res://Assets/Menus/Main_Menu/quit_button.gd" id="7_coteh"]
+[ext_resource type="Texture2D" uid="uid://db7n5qfyin6u0" path="res://Assets/Background/BackgroundSprites/cloud_bg/1.png" id="8_nwmde"]
+[ext_resource type="AudioStream" uid="uid://ctbsc6jgek108" path="res://Assets/Sound/freesound_community-button-pressed-38129.mp3" id="9_7kvxi"]
+[ext_resource type="Script" uid="uid://cjo4hwqkbl75r" path="res://Assets/Background/Sky/sky.gd" id="9_mpj51"]
+[ext_resource type="Script" uid="uid://k6m1q04b7u0q" path="res://Assets/Background/Sky/sky_2.gd" id="10_7kvxi"]
+[ext_resource type="Texture2D" uid="uid://ddakgg63kpo7j" path="res://Assets/Background/BackgroundSprites/cloud_bg/2.png" id="11_uxh8a"]
+[ext_resource type="Script" uid="uid://bqkqy4rv7risg" path="res://Assets/Background/Clouds/cloud_1.gd" id="12_pkn5d"]
+[ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Background/Clouds/big_cloud_2.gd" id="13_jmf8k"]
+[ext_resource type="Texture2D" uid="uid://0d0yk2a6jjgn" path="res://Assets/Background/BackgroundSprites/cloud_bg/3.png" id="14_n4qbq"]
+[ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Background/Clouds/cloud_2.gd" id="15_0ug5g"]
+[ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Background/Clouds/small_cloud_2.gd" id="16_t77h7"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fadmi"]
-texture = ExtResource("2_a3pmd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxh8a"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(0, 0, 149, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pkn5d"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(149, 0, 149, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jmf8k"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(298, 0, 149, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4qbq"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(0, 298, 149, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ug5g"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(149, 298, 149, 149)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t77h7"]
+atlas = ExtResource("2_mpj51")
+region = Rect2(298, 298, 149, 149)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tanm1"]
 atlas = ExtResource("4_njv4u")
@@ -36,29 +68,67 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_slwae")
 
-[node name="Background" type="Panel" parent="." unique_id=1311610743]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_fadmi")
+[node name="GameBanner" type="Node" parent="." unique_id=1448211278]
 
-[node name="GameTitle" type="Label" parent="." unique_id=1152979225]
-layout_mode = 1
+[node name="TopLeft" type="TextureRect" parent="GameBanner" unique_id=999901655]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -310.0
+offset_top = -79.0
+offset_right = -96.0
+offset_bottom = 127.0
+grow_horizontal = 2
+texture = SubResource("AtlasTexture_uxh8a")
+
+[node name="TopMiddle" type="TextureRect" parent="GameBanner" unique_id=1208358209]
+offset_left = 286.0
+offset_top = -90.0
+offset_right = 853.0
+offset_bottom = 142.0
+texture = SubResource("AtlasTexture_pkn5d")
+
+[node name="TopRight" type="TextureRect" parent="GameBanner" unique_id=1001676238]
+offset_left = 663.0
+offset_top = -85.0
+offset_right = 869.0
+offset_bottom = 135.0
+texture = SubResource("AtlasTexture_jmf8k")
+
+[node name="BottomLeft" type="TextureRect" parent="GameBanner" unique_id=1485654167]
+offset_left = 268.0
+offset_top = 74.0
+offset_right = 479.0
+offset_bottom = 237.0
+texture = SubResource("AtlasTexture_n4qbq")
+
+[node name="BottomMiddle" type="TextureRect" parent="GameBanner" unique_id=447443345]
+offset_left = 232.0
+offset_top = 74.0
+offset_right = 980.0
+offset_bottom = 237.0
+texture = SubResource("AtlasTexture_0ug5g")
+
+[node name="BottomRight" type="TextureRect" parent="GameBanner" unique_id=222686839]
+offset_left = 683.0
+offset_top = 80.0
+offset_right = 862.0
+offset_bottom = 233.0
+texture = SubResource("AtlasTexture_t77h7")
+
+[node name="GameTitle" type="Label" parent="GameBanner" unique_id=1152979225]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -371.625
-offset_top = 81.0
+offset_top = 62.0
 offset_right = 371.625
-offset_bottom = 178.0
+offset_bottom = 159.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("3_buetm")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_7kvxi")
 theme_override_font_sizes/font_size = 60
-text = "Game Title
-"
+text = "AUSTERIA"
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2136818217]
@@ -69,9 +139,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.0
-offset_top = -115.0
+offset_top = -28.0
 offset_right = 159.0
-offset_bottom = 138.0
+offset_bottom = 225.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -163,6 +233,51 @@ theme_override_font_sizes/font_size = 45
 text = "Quit"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="VBoxContainer" unique_id=966248827]
+stream = ExtResource("9_7kvxi")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=590800824]
+layer = -1
+
+[node name="Sky" type="Sprite2D" parent="Background" unique_id=470688342]
+scale = Vector2(2, 2)
+texture = ExtResource("8_nwmde")
+centered = false
+script = ExtResource("9_mpj51")
+
+[node name="Sky2" type="Sprite2D" parent="Background" unique_id=1098723986]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("8_nwmde")
+centered = false
+script = ExtResource("10_7kvxi")
+
+[node name="BigCloud1" type="Sprite2D" parent="Background" unique_id=1520275073]
+scale = Vector2(2, 2)
+texture = ExtResource("11_uxh8a")
+centered = false
+script = ExtResource("12_pkn5d")
+
+[node name="BigCloud2" type="Sprite2D" parent="Background" unique_id=1241723148]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("11_uxh8a")
+centered = false
+script = ExtResource("13_jmf8k")
+
+[node name="SmallCloud1" type="Sprite2D" parent="Background" unique_id=1488244637]
+scale = Vector2(2, 2)
+texture = ExtResource("14_n4qbq")
+centered = false
+script = ExtResource("15_0ug5g")
+
+[node name="SmallCloud2" type="Sprite2D" parent="Background" unique_id=760195240]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("14_n4qbq")
+centered = false
+script = ExtResource("16_t77h7")
 
 [connection signal="mouse_entered" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/PlayButton" to="VBoxContainer/PlayButton" method="_on_mouse_exited"]
