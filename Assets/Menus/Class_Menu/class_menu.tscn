@@ -1,0 +1,198 @@
+[gd_scene format=3 uid="uid://b4q1dwkwvsy73"]
+
+[ext_resource type="Script" uid="uid://d070hhqofrc24" path="res://Assets/Menus/Class_Menu/class_menu.gd" id="1_beqf6"]
+[ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/Setting menu.png" id="1_yceny"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_htkgp"]
+[ext_resource type="Resource" uid="uid://b3y747oddmvdo" path="res://Assets/Characters/Classes/Resources/PlayerClass.tres" id="2_mo5oq"]
+[ext_resource type="Resource" uid="uid://dsc11igrcf2k4" path="res://Assets/Characters/Classes/Resources/WarriorClass.tres" id="3_ormlg"]
+[ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="3_ramj0"]
+[ext_resource type="Texture2D" uid="uid://c304yq14ayxeh" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/buttons/Small Square Buttons.png" id="4_31kf0"]
+[ext_resource type="Resource" uid="uid://bsx3ow7m2d3w3" path="res://Assets/Characters/Classes/Resources/ArcherClass.tres" id="4_u3fk2"]
+[ext_resource type="Texture2D" uid="uid://lrk3vavsh143" path="res://Assets/Characters/Player/PlayerSprites/Idle (32x32).png" id="6_htkgp"]
+[ext_resource type="Texture2D" uid="uid://c0umclx4884dj" path="res://Assets/Items/Sprites/Item SpriteSheet.png" id="6_ramj0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_svqb2"]
+atlas = ExtResource("1_yceny")
+region = Rect2(128.8, 0, 127.2, 144)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c5dhe"]
+texture = SubResource("AtlasTexture_svqb2")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mo5oq"]
+texture = ExtResource("3_ramj0")
+region_rect = Rect2(9.600037, 68.79999, 28.799988, 20.800003)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ormlg"]
+atlas = ExtResource("4_31kf0")
+region = Rect2(0, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3fk2"]
+atlas = ExtResource("4_31kf0")
+region = Rect2(16, 80, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_veq45"]
+atlas = ExtResource("6_htkgp")
+region = Rect2(192.87178, 3.3857956, 31.808258, 28.856163)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31kf0"]
+atlas = ExtResource("6_ramj0")
+region = Rect2(318.6067, 289.57373, 33.303955, 31.610535)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htkgp"]
+atlas = ExtResource("6_ramj0")
+region = Rect2(320.57196, 3008.9785, 29.389984, 30.322998)
+
+[node name="Class_Menu" type="Control" unique_id=507004675]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 1.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_beqf6")
+player_class_data = ExtResource("2_mo5oq")
+warrior_class = ExtResource("3_ormlg")
+archer_class = ExtResource("4_u3fk2")
+
+[node name="Class_Panel" type="Panel" parent="." unique_id=1095089564]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.5
+offset_top = -437.5
+offset_right = 400.5
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_c5dhe")
+
+[node name="Warrior" type="Label" parent="Class_Panel" unique_id=562799568]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.074
+anchor_bottom = 0.066
+offset_left = 103.5
+offset_top = 139.5
+offset_right = 356.226
+offset_bottom = 239.75
+theme_override_fonts/font = ExtResource("2_htkgp")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_mo5oq")
+text = "Warrior"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Archer" type="Label" parent="Class_Panel" unique_id=1443403686]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.074
+anchor_bottom = 0.066
+offset_left = 103.5
+offset_top = 385.0
+offset_right = 356.226
+offset_bottom = 485.24997
+theme_override_fonts/font = ExtResource("2_htkgp")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_mo5oq")
+text = "Archer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WarriorButton" type="TextureButton" parent="Class_Panel" unique_id=178504421]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 445.5
+offset_top = -532.0
+offset_right = 670.5
+offset_bottom = -341.0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_ormlg")
+texture_pressed = SubResource("AtlasTexture_u3fk2")
+texture_hover = SubResource("AtlasTexture_u3fk2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="WarriorClass" type="TextureRect" parent="Class_Panel/WarriorButton" unique_id=608186653]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = -19.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_veq45")
+
+[node name="Sword" type="TextureRect" parent="Class_Panel/WarriorButton" unique_id=1040359187]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 152.0
+offset_top = 92.0
+offset_right = -26.0
+offset_bottom = -54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_31kf0")
+
+[node name="ArcherButton" type="TextureButton" parent="Class_Panel" unique_id=1382664080]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 447.5
+offset_top = -284.0
+offset_right = 672.5
+offset_bottom = -93.0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_ormlg")
+texture_pressed = SubResource("AtlasTexture_u3fk2")
+texture_hover = SubResource("AtlasTexture_u3fk2")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ArcherClass" type="TextureRect" parent="Class_Panel/ArcherButton" unique_id=1191403831]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = -19.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_veq45")
+
+[node name="Bow" type="TextureRect" parent="Class_Panel/ArcherButton" unique_id=952127916]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 207.0
+offset_top = 107.0
+offset_right = 37.0
+offset_bottom = -31.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 2.1991148
+texture = SubResource("AtlasTexture_htkgp")
+
+[connection signal="mouse_entered" from="Class_Panel/WarriorButton" to="Class_Panel/WarriorButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Class_Panel/WarriorButton" to="Class_Panel/WarriorButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_pressed"]
+[connection signal="mouse_entered" from="Class_Panel/ArcherButton" to="Class_Panel/ArcherButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Class_Panel/ArcherButton" to="Class_Panel/ArcherButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="Class_Panel/ArcherButton" to="." method="_on_archer_button_pressed"]

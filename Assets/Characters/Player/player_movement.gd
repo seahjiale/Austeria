@@ -3,6 +3,9 @@ class_name PlayerMovement
 
 signal double_jumped
 
+@export var player_class_data: PlayerClassData
+var current_class: CharacterClassData = null
+
 @onready var player_animation = $PlayerAnimation
 @onready var attack_hitbox = $"Attack/AttackHitBox"
 @export var speed = 10.0
@@ -23,6 +26,7 @@ var is_hurt = false
 var jumps_remaining = 2
 
 func _ready():
+	apply_selected_class()
 	# checking if it has passed any checkpoints, if yes reset position
 	if GameState.respawn_position != Vector2.ZERO:
 		global_position = GameState.respawn_position
@@ -96,3 +100,18 @@ func get_attack_damage() -> int:
 func _on_attack_hit_box_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):
 		body.take_damage(get_attack_damage())
+
+func apply_selected_class() -> void:
+	if player_class_data == null:
+		return
+
+	if player_class_data.selected_class == null:
+		return
+
+	current_class = player_class_data.selected_class
+
+	speed = current_class.speed
+	jump_power = current_class.jump_power
+	base_damage = current_class.base_damage
+
+	player_animation.base_attack_animation = current_class.base_attack_animation
