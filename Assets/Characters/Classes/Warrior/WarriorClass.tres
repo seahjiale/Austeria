@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="CharacterClassData" format=3 uid="uid://dsc11igrcf2k4"]
+
+[ext_resource type="Script" uid="uid://bv0c7peetjnhs" path="res://Assets/Characters/Classes/CharactarClassData.gd" id="1_y3ujt"]
+
+[resource]
+script = ExtResource("1_y3ujt")
+base_damage = 2
+speed = 5.0
+base_attack_animation = "sword_attack"
+metadata/_custom_type_script = "uid://bv0c7peetjnhs"

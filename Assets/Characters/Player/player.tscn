@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bwc2ftghlrav3"]
 
 [ext_resource type="Script" uid="uid://bhwyfv5bidynw" path="res://Assets/Characters/Player/player_movement.gd" id="1_7dd06"]
+[ext_resource type="Resource" uid="uid://b3y747oddmvdo" path="res://Assets/Characters/Classes/PlayerClass.tres" id="2_5ae3s"]
+[ext_resource type="PackedScene" uid="uid://c0gyfhp3v8x3s" path="res://Assets/Characters/Classes/Archer/Arrow.tscn" id="2_6l0bo"]
 [ext_resource type="Script" uid="uid://du3enafamf8if" path="res://Assets/Characters/Player/player_animation.gd" id="2_38rej"]
 [ext_resource type="Texture2D" uid="uid://cl1fuckldj54f" path="res://Assets/Characters/Player/PlayerSprites/SlashFX SpriteSheet FX 3E_4.png" id="3_rc8y2"]
 [ext_resource type="Texture2D" uid="uid://lcfteh7ef7lp" path="res://Assets/Characters/Player/PlayerSprites/Double Jump (32x32).png" id="3_rg2dv"]
@@ -389,6 +391,8 @@ animations = [{
 z_index = 2
 collision_mask = 7
 script = ExtResource("1_7dd06")
+arrow_scene = ExtResource("2_6l0bo")
+player_class_data = ExtResource("2_5ae3s")
 speed = 4.0
 
 [node name="PlayerAnimation" type="Node2D" parent="." unique_id=23722242 node_paths=PackedStringArray("player_movement", "sprite")]
@@ -411,6 +415,7 @@ shape = SubResource("CapsuleShape2D_7dd06")
 zoom = Vector2(3, 3)
 limit_left = -200
 limit_top = -999
+limit_right = 1766
 limit_bottom = 201
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -434,6 +439,10 @@ position = Vector2(6.4499984, -6.0000005)
 scale = Vector2(0.31989527, 0.2)
 sprite_frames = SubResource("SpriteFrames_rc8y2")
 animation = &"sword_attack"
+
+[node name="ArrowSpawnPoint" type="Marker2D" parent="." unique_id=852172653]
+unique_name_in_owner = true
+position = Vector2(9, -10)
 
 [connection signal="animation_finished" from="PlayerAnimation/AnimatedSprite2D" to="PlayerAnimation" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Attack/AttackHitBox" to="." method="_on_attack_hit_box_body_entered"]
