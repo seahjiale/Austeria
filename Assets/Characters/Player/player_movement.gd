@@ -3,16 +3,19 @@ class_name PlayerMovement
 
 signal double_jumped
 
+@export var arrow_scene: PackedScene
+@onready var arrow_spawn_point: Marker2D = $ArrowSpawnPoint
+
 @export var player_class_data: PlayerClassData
 var current_class: CharacterClassData = null
+var equipped_weapon: WeaponData = null
+var base_damage: int = 1
+var attack_type: String = "melee"
 
 @onready var player_animation = $PlayerAnimation
 @onready var attack_hitbox = $"Attack/AttackHitBox"
 @export var speed = 10.0
 @export var jump_power = 10.0
-
-var equipped_weapon: WeaponData = null
-var base_damage: int = 1
 
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
@@ -79,6 +82,24 @@ func jump_side(x):
 	knockback_timer = 0.3
 
 func attack():
+	if attack_type == "ranged":
+		await ranged_attack()
+	else:
+		await melee_attack()
+
+func ranged_attack():
+	if arrow_scene == null:
+		return
+	var arrow = arrow_scene.instantiate()
+	var direction := 1
+	if player_animation.sprite.flip_h:
+		direction = -1
+		
+	get_parent().add_child(arrow)
+	arrow.global_position = arrow_spawn_point.global_position
+	arrow.setup(direction, get_attack_damage())
+
+func melee_attack():
 	attack_hitbox.position.x = abs(attack_hitbox.position.x) * (-1 if player_animation.sprite.flip_h else 1)
 	attack_hitbox.monitoring = true
 	await player_animation.play_attack()
@@ -104,14 +125,13 @@ func _on_attack_hit_box_body_entered(body: Node2D) -> void:
 func apply_selected_class() -> void:
 	if player_class_data == null:
 		return
-
+		
 	if player_class_data.selected_class == null:
 		return
-
+	
 	current_class = player_class_data.selected_class
-
 	speed = current_class.speed
 	jump_power = current_class.jump_power
 	base_damage = current_class.base_damage
-
+	attack_type = current_class.attack_type
 	player_animation.base_attack_animation = current_class.base_attack_animation
