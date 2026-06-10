@@ -9,6 +9,15 @@
 [ext_resource type="Script" uid="uid://dxyb7mg7msjwe" path="res://Assets/Menus/Settings_Menu/back_button.gd" id="7_5rb6j"]
 [ext_resource type="Texture2D" uid="uid://oi8khi33ox3c" path="res://Assets/Menus/game_menu_sprites/emojis-free/Emoji_Spritesheet_Free.png" id="8_qqrnj"]
 [ext_resource type="AudioStream" uid="uid://b2gxktiwdyra5" path="res://Assets/Sound/freesound_community-old-radio-button-click-97549.mp3" id="9_cyrmj"]
+[ext_resource type="Texture2D" uid="uid://db7n5qfyin6u0" path="res://Assets/Background/BackgroundSprites/cloud_bg/1.png" id="10_etjox"]
+[ext_resource type="Script" uid="uid://cjo4hwqkbl75r" path="res://Assets/Background/Sky/sky.gd" id="11_0vt06"]
+[ext_resource type="Script" uid="uid://k6m1q04b7u0q" path="res://Assets/Background/Sky/sky_2.gd" id="12_eal4n"]
+[ext_resource type="Texture2D" uid="uid://ddakgg63kpo7j" path="res://Assets/Background/BackgroundSprites/cloud_bg/2.png" id="13_ljj2u"]
+[ext_resource type="Script" uid="uid://bqkqy4rv7risg" path="res://Assets/Background/Clouds/cloud_1.gd" id="14_1rhke"]
+[ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Background/Clouds/big_cloud_2.gd" id="15_n4jhb"]
+[ext_resource type="Texture2D" uid="uid://0d0yk2a6jjgn" path="res://Assets/Background/BackgroundSprites/cloud_bg/3.png" id="16_bvk51"]
+[ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Background/Clouds/cloud_2.gd" id="17_nkdlq"]
+[ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Background/Clouds/small_cloud_2.gd" id="18_3s6pv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qadjw"]
 texture = ExtResource("1_gh63n")
@@ -131,6 +140,48 @@ texture = SubResource("AtlasTexture_qadjw")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SettingsPanel/BackButton" unique_id=895549361]
 position = Vector2(-178, 241)
 stream = ExtResource("9_cyrmj")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=378220607]
+layer = -1
+
+[node name="Sky" type="Sprite2D" parent="Background" unique_id=664475684]
+scale = Vector2(2, 2)
+texture = ExtResource("10_etjox")
+centered = false
+script = ExtResource("11_0vt06")
+
+[node name="Sky2" type="Sprite2D" parent="Background" unique_id=1196693223]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("10_etjox")
+centered = false
+script = ExtResource("12_eal4n")
+
+[node name="BigCloud1" type="Sprite2D" parent="Background" unique_id=1920207511]
+scale = Vector2(2, 2)
+texture = ExtResource("13_ljj2u")
+centered = false
+script = ExtResource("14_1rhke")
+
+[node name="BigCloud2" type="Sprite2D" parent="Background" unique_id=1859402306]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("13_ljj2u")
+centered = false
+script = ExtResource("15_n4jhb")
+
+[node name="SmallCloud1" type="Sprite2D" parent="Background" unique_id=227532945]
+scale = Vector2(2, 2)
+texture = ExtResource("16_bvk51")
+centered = false
+script = ExtResource("17_nkdlq")
+
+[node name="SmallCloud2" type="Sprite2D" parent="Background" unique_id=1160379283]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("16_bvk51")
+centered = false
+script = ExtResource("18_3s6pv")
 
 [connection signal="mouse_entered" from="SettingsPanel/BackButton" to="SettingsPanel/BackButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SettingsPanel/BackButton" to="SettingsPanel/BackButton" method="_on_mouse_exited"]

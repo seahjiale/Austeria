@@ -54,6 +54,7 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 func equip_weapon(weapon: WeaponData) -> void:
 	equipped_weapon = weapon
 	
+var is_attacking := false
 
 func play_attack():
 	attack_sprite.flip_h = sprite.flip_h

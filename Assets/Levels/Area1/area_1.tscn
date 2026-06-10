@@ -538,6 +538,22 @@ animations = [{
 atlas = ExtResource("4_ql8qi")
 region = Rect2(4, 54, 23, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o86if"]
+atlas = ExtResource("4_ql8qi")
+region = Rect2(4, 54, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bomn4"]
+atlas = ExtResource("4_ql8qi")
+region = Rect2(4, 54, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7en0"]
+atlas = ExtResource("4_ql8qi")
+region = Rect2(4, 54, 23, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufl6j"]
+atlas = ExtResource("4_ql8qi")
+region = Rect2(4, 54, 23, 20)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0xoj"]
 texture = ExtResource("8_xl8b6")
 texture_margin_left = 10.0
@@ -611,7 +627,7 @@ corner_radius_bottom_left = 12
 [node name="GameManager" type="Node" parent="." unique_id=607846285 node_paths=PackedStringArray("hearts")]
 unique_name_in_owner = true
 script = ExtResource("1_ttsc2")
-hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart1"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3")]
+hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart1"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3"), NodePath("../UI/Hearts/HBoxContainer/Heart4"), NodePath("../UI/Hearts/HBoxContainer/Heart5")]
 
 [node name="SceneObjects" type="Node" parent="." unique_id=1694957455]
 
@@ -801,17 +817,10 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_msn23")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts" unique_id=92854554]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -10.5
-offset_right = 61.0
-offset_bottom = 10.5
-grow_horizontal = 2
-grow_vertical = 2
+offset_left = 3.6666663
+offset_top = 7.0000014
+offset_right = 148.66667
+offset_bottom = 28.000002
 theme_override_constants/separation = 10
 alignment = 1
 
@@ -826,14 +835,28 @@ stretch_mode = 2
 [node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1763151132]
 texture_filter = 1
 layout_mode = 2
-texture = SubResource("AtlasTexture_nlyig")
+texture = SubResource("AtlasTexture_o86if")
 expand_mode = 2
 stretch_mode = 2
 
 [node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1562138008]
 texture_filter = 1
 layout_mode = 2
-texture = SubResource("AtlasTexture_nlyig")
+texture = SubResource("AtlasTexture_bomn4")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Heart4" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1042424514]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_h7en0")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Heart5" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=128386985]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_ufl6j")
 expand_mode = 2
 stretch_mode = 2
 

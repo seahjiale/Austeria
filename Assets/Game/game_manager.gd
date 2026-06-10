@@ -1,7 +1,7 @@
 extends Node
 
 @onready var game_over_ui: Panel = $"../UI/GameOver/GameOverMenu"
-@export var hearts : Array[Node]
+@onready var hearts = $"../UI/Hearts/HBoxContainer".get_children()
 
 var points = 0
 var lives = 3
@@ -9,16 +9,19 @@ var game_over = false
 
 func _ready() -> void:
 	$"../UI".show()
+	# updating hearts after class selection
+	if GameState.selected_class != null:
+		lives = GameState.selected_class.max_health
+	update_hearts()
+
+func update_hearts():
+	for i in range(hearts.size()):
+		hearts[i].visible = i < lives
 
 # handles health logic and health UI
 func decrease_health():
 	lives -= 1
-	for h in 3:
-		if (h < lives):
-			hearts[h].show()
-		else:
-			hearts[h].hide()
-	
+	update_hearts()
 	if lives <= 0:
 		trigger_game_over()
 		

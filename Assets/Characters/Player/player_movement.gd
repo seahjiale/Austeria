@@ -111,10 +111,17 @@ func ranged_attack():
 	can_attack = true
 
 func melee_attack():
+	if not can_attack:
+		return
+	can_attack = false
 	attack_hitbox.position.x = abs(attack_hitbox.position.x) * (-1 if player_animation.sprite.flip_h else 1)
 	attack_hitbox.monitoring = true
 	await player_animation.play_attack()
 	attack_hitbox.monitoring = false
+	hit_bodies.clear()
+	
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 
 func equip_weapon(weapon: WeaponData) -> void:
 	equipped_weapon = weapon
@@ -129,8 +136,13 @@ func get_attack_damage() -> int:
 		return equipped_weapon.damage
 	return base_damage
 
+var hit_bodies: Array = []
+
 func _on_attack_hit_box_body_entered(body: Node2D) -> void:
+	if body in hit_bodies:
+		return
 	if body.has_method("take_damage"):
+		hit_bodies.append(body)
 		body.take_damage(get_attack_damage())
 
 func apply_selected_class() -> void:
