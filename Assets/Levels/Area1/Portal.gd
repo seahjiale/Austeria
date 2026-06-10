@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var class_menu_scene: String = "res://Assets/Menus/Class_Menu/class_menu.tscn"
 @onready var press_f_label: Label = $PressFLabel
 
 var player_nearby: bool = false
@@ -23,4 +22,4 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):
-		get_tree().change_scene_to_file(class_menu_scene)
+		SceneTransition.transition_to("res://Assets/Menus/Class_Menu/class_menu.tscn")

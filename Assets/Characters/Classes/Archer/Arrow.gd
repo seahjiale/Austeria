@@ -7,7 +7,6 @@ extends Area2D
 var direction: int = 1
 
 func _ready() -> void:
-	body_entered.connect(_on_body_entered)
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
 

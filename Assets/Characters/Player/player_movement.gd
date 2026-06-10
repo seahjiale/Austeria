@@ -5,7 +5,6 @@ signal double_jumped
 
 @export var arrow_scene: PackedScene
 @onready var arrow_spawn_point: Marker2D = $ArrowSpawnPoint
-
 @export var player_class_data: PlayerClassData
 var current_class: CharacterClassData = null
 var equipped_weapon: WeaponData = null
@@ -14,8 +13,10 @@ var attack_type: String = "melee"
 
 @onready var player_animation = $PlayerAnimation
 @onready var attack_hitbox = $"Attack/AttackHitBox"
+@export var health = 3.0
 @export var speed = 10.0
 @export var jump_power = 10.0
+@export var attack_cooldown: float = 0.5
 
 var speed_multiplier = 30.0
 var jump_multiplier = -30.0
@@ -27,6 +28,7 @@ var knockback_timer = 0.0
 var is_hurt = false
 # double jump count
 var jumps_remaining = 2
+var can_attack: bool = true
 
 func _ready():
 	apply_selected_class()
@@ -88,7 +90,11 @@ func attack():
 		await melee_attack()
 
 func ranged_attack():
+	if not can_attack:
+		return
+	can_attack = false
 	if arrow_scene == null:
+		can_attack = true
 		return
 	var arrow = arrow_scene.instantiate()
 	var direction := 1
@@ -96,8 +102,13 @@ func ranged_attack():
 		direction = -1
 		
 	get_parent().add_child(arrow)
-	arrow.global_position = arrow_spawn_point.global_position
+	# Place arrow in front of player depending on facing direction
+	var spawn_offset_x: float = abs(arrow_spawn_point.position.x) * float(direction)
+	arrow.global_position = global_position + Vector2(spawn_offset_x, arrow_spawn_point.position.y)
 	arrow.setup(direction, get_attack_damage())
+	
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
 
 func melee_attack():
 	attack_hitbox.position.x = abs(attack_hitbox.position.x) * (-1 if player_animation.sprite.flip_h else 1)
@@ -130,6 +141,7 @@ func apply_selected_class() -> void:
 		return
 	
 	current_class = player_class_data.selected_class
+	health = current_class.max_health
 	speed = current_class.speed
 	jump_power = current_class.jump_power
 	base_damage = current_class.base_damage

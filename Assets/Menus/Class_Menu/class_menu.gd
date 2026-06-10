@@ -7,8 +7,8 @@ extends Control
 
 func _on_warrior_button_pressed() -> void:
 	player_class_data.selected_class = warrior_class
-	get_tree().change_scene_to_file(next_area_path)
+	SceneTransition.transition_to(next_area_path)
 
 func _on_archer_button_pressed() -> void:
 	player_class_data.selected_class = archer_class
-	get_tree().change_scene_to_file(next_area_path)
+	SceneTransition.transition_to(next_area_path)

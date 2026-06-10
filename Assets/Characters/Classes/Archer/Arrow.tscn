@@ -11,6 +11,8 @@ region = Rect2(288.82452, 4288.983, 31.151886, 31.299316)
 size = Vector2(14.75, 2.5)
 
 [node name="Arrow" type="Area2D" unique_id=882725976]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_2pwcq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1719570620]
@@ -22,3 +24,5 @@ texture = SubResource("AtlasTexture_id6bi")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=277299887]
 position = Vector2(5.625, 0)
 shape = SubResource("RectangleShape2D_2pwcq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,20 @@
+extends State
+@onready var detection_area = $"../../PlayerDetection"
+@onready var progress_bar = owner.find_child("ProgressBar")
+
+func enter():
+	set_physics_process(true)
+	owner.can_move = false
+	animation_player.play("idle")
+	progress_bar.visible = false  # hide HP bar in idle
+
+func exit():
+	set_physics_process(false)
+	owner.can_move = true
+	progress_bar.visible = true  # show HP bar when leaving idle
+
+func transition():
+	for body in detection_area.get_overlapping_bodies():
+		if body is Node and body.is_in_group("player"):
+			get_parent().change_state("Follow")
+			return

@@ -3,7 +3,21 @@
 [ext_resource type="Texture2D" uid="uid://diwyypsvbkltn" path="res://Assets/Levels/Area1/Area1_Sprites/Tileset.png" id="1_4at16"]
 [ext_resource type="PackedScene" uid="uid://bwc2ftghlrav3" path="res://Assets/Characters/Player/player.tscn" id="2_ld7ol"]
 [ext_resource type="Script" uid="uid://dc3c86fh4bdpm" path="res://Assets/Levels/Area1/fall_mechanic.gd" id="2_uh0ki"]
-[ext_resource type="PackedScene" uid="uid://ce4g3xeb1pj3n" path="res://Assets/Characters/MushroomEnemy/mushroom_enemy.tscn" id="4_i47pt"]
+[ext_resource type="Script" uid="uid://gbccd3mvc01m" path="res://Assets/Game/game_manager.gd" id="3_cyp5v"]
+[ext_resource type="PackedScene" uid="uid://bd5smpeq0kk64" path="res://Assets/Characters/GolemBoss/golem_boss.tscn" id="5_cyp5v"]
+[ext_resource type="Texture2D" uid="uid://bycfpisoqqmy1" path="res://Assets/Menus/game_menu_sprites/emojis-free/emoji style ui/Inventory_Light_Herat_Spritesheet.png" id="6_nhc7y"]
+[ext_resource type="Script" uid="uid://ehu31lfm65of" path="res://Assets/Game/pause.gd" id="7_s6m51"]
+[ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/Setting menu.png" id="8_a2e46"]
+[ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="9_mhkbw"]
+[ext_resource type="Script" uid="uid://8sx3xso5lb3y" path="res://Assets/Menus/Settings_Menu/volume_progress_bar.gd" id="10_8kj5x"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="11_mdwbt"]
+[ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="12_krgbe"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="13_5foel"]
+[ext_resource type="Script" uid="uid://0vak60465a1s" path="res://Assets/Game/resume_button.gd" id="14_hp22v"]
+[ext_resource type="Script" uid="uid://3maqk6r2bs4" path="res://Assets/Game/back_to_main_menu_button.gd" id="15_ilt6x"]
+[ext_resource type="Script" uid="uid://dehld5ifcui24" path="res://Assets/Game/game_over.gd" id="16_ccpg8"]
+[ext_resource type="Script" uid="uid://bb48eit83yo0h" path="res://Assets/Game/restart_button.gd" id="17_hfg0j"]
+[ext_resource type="Script" uid="uid://ceau380suw6ab" path="res://Assets/Game/experience_bar.gd" id="18_u70fl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny4ka"]
 texture = ExtResource("1_4at16")
@@ -429,7 +443,92 @@ sources/0 = SubResource("TileSetAtlasSource_ny4ka")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ullrv"]
 size = Vector2(34, 307)
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_djwm6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5nj5r"]
+atlas = ExtResource("6_nhc7y")
+region = Rect2(4, 54, 23, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5duu2"]
+texture = ExtResource("8_a2e46")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+region_rect = Rect2(0, 0, 128, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_per3y"]
+atlas = ExtResource("9_mhkbw")
+region = Rect2(2, 194, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqa0c"]
+atlas = ExtResource("9_mhkbw")
+region = Rect2(50, 194, 44, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ftayb"]
+texture = ExtResource("12_krgbe")
+region_rect = Rect2(9.600037, 68.79999, 28.799988, 20.800003)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_emkp0"]
+atlas = ExtResource("13_5foel")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1u8gm"]
+atlas = ExtResource("13_5foel")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hx6kw"]
+atlas = ExtResource("13_5foel")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phk8k"]
+atlas = ExtResource("13_5foel")
+region = Rect2(96, 0, 96, 32)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rmw0n"]
+texture = ExtResource("8_a2e46")
+region_rect = Rect2(136, 8, 112, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b6w4"]
+atlas = ExtResource("13_5foel")
+region = Rect2(0, 0, 96, 32)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jah84"]
+bg_color = Color(0.61960787, 0.61960787, 0.61960787, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mshwm"]
+bg_color = Color(0.19607843, 0.8039216, 0.19607843, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+
 [node name="Area2" type="Node2D" unique_id=1840515213]
+
+[node name="Player" parent="." unique_id=1059602613 instance=ExtResource("2_ld7ol")]
+position = Vector2(-159, -1)
+
+[node name="GolemBoss" parent="." unique_id=1732738187 groups=["player"] instance=ExtResource("5_cyp5v")]
+position = Vector2(322, -111)
+
+[node name="GameManager" type="Node" parent="." unique_id=2099875785 node_paths=PackedStringArray("hearts") groups=["GameManager"]]
+unique_name_in_owner = true
+script = ExtResource("3_cyp5v")
+hearts = [NodePath("../UI/Hearts/HBoxContainer/Heart1"), NodePath("../UI/Hearts/HBoxContainer/Heart2"), NodePath("../UI/Hearts/HBoxContainer/Heart3")]
 
 [node name="Map" type="Node" parent="." unique_id=74045220]
 
@@ -461,11 +560,383 @@ position = Vector2(-212, -102)
 position = Vector2(1993, -114)
 shape = SubResource("RectangleShape2D_ullrv")
 
-[node name="Player" parent="." unique_id=1059602613 instance=ExtResource("2_ld7ol")]
-position = Vector2(-159, -1)
+[node name="UI" type="CanvasLayer" parent="." unique_id=906321592]
+layer = 10
+visible = false
 
-[node name="MushroomEnemy" parent="." unique_id=12949898 instance=ExtResource("4_i47pt")]
-position = Vector2(201, -3)
-collision_layer = 1
+[node name="Hearts" type="Panel" parent="UI" unique_id=279748447]
+texture_filter = 1
+offset_right = 93.66667
+offset_bottom = 32.0
+scale = Vector2(3, 3)
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/panel = SubResource("StyleBoxEmpty_djwm6")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Hearts" unique_id=1039522682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -10.5
+offset_right = 61.0
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Heart1" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=1479202313]
+texture_filter = 1
+layout_mode = 2
+size_flags_horizontal = 4
+texture = SubResource("AtlasTexture_5nj5r")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Heart2" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=24586959]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_5nj5r")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Heart3" type="TextureRect" parent="UI/Hearts/HBoxContainer" unique_id=391502972]
+texture_filter = 1
+layout_mode = 2
+texture = SubResource("AtlasTexture_5nj5r")
+expand_mode = 2
+stretch_mode = 2
+
+[node name="Pause" type="Node" parent="UI" unique_id=1903890175]
+script = ExtResource("7_s6m51")
+
+[node name="PauseMenu" type="Panel" parent="UI/Pause" unique_id=1368627956]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -274.5
+offset_right = 272.0
+offset_bottom = 274.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5duu2")
+
+[node name="VolumeProgressBar" type="TextureProgressBar" parent="UI/Pause/PauseMenu" unique_id=745479950]
+texture_filter = 1
+custom_minimum_size = Vector2(20, 48)
+layout_mode = 0
+offset_left = 261.0
+offset_top = 175.5
+offset_right = 482.0
+offset_bottom = 223.5
+mouse_filter = 0
+nine_patch_stretch = true
+texture_under = SubResource("AtlasTexture_per3y")
+texture_progress = SubResource("AtlasTexture_bqa0c")
+script = ExtResource("10_8kj5x")
+
+[node name="VolumeLabel" type="Label" parent="UI/Pause/PauseMenu" unique_id=1159512338]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.074
+anchor_bottom = 0.066
+offset_left = 32.0
+offset_top = 148.5
+offset_right = 219.744
+offset_bottom = 208.26599
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_ftayb")
+text = "volume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResumeButton" type="TextureButton" parent="UI/Pause/PauseMenu" unique_id=272010703]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = 21.5
+offset_right = 152.5
+offset_bottom = 104.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_emkp0")
+texture_hover = SubResource("AtlasTexture_1u8gm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("14_hp22v")
+
+[node name="ResumeLabel" type="Label" parent="UI/Pause/PauseMenu/ResumeButton" unique_id=687205305]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 45
+text = "resume"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenuButton" type="TextureButton" parent="UI/Pause/PauseMenu" unique_id=683489569]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 210.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_hx6kw")
+texture_pressed = SubResource("AtlasTexture_phk8k")
+texture_hover = SubResource("AtlasTexture_phk8k")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("15_ilt6x")
+
+[node name="BackToMainMenuLabel" type="Label" parent="UI/Pause/PauseMenu/BackToMainMenuButton" unique_id=2037110654]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 45
+text = "main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOver" type="Node" parent="UI" unique_id=416603141]
+script = ExtResource("16_ccpg8")
+
+[node name="GameOverMenu" type="Panel" parent="UI/GameOver" unique_id=49363645]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -272.0
+offset_top = -274.5
+offset_right = 272.0
+offset_bottom = 274.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_rmw0n")
+
+[node name="GameOverLabel" type="Label" parent="UI/GameOver/GameOverMenu" unique_id=24418354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 54.5
+offset_right = -28.0
+offset_bottom = -367.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 69
+text = "GAME OVER :("
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="UI/GameOver/GameOverMenu" unique_id=1207383211]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.5
+offset_top = -41.5
+offset_right = 152.5
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_emkp0")
+texture_hover = SubResource("AtlasTexture_1u8gm")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("17_hfg0j")
+
+[node name="RestartLabel" type="Label" parent="UI/GameOver/GameOverMenu/RestartButton" unique_id=20120466]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 45
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BackToMainMenuButton" type="TextureButton" parent="UI/GameOver/GameOverMenu" unique_id=1917094006]
+process_mode = 3
+texture_filter = 1
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -152.0
+offset_top = 53.0
+offset_right = 152.0
+offset_bottom = 135.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = SubResource("AtlasTexture_hx6kw")
+texture_pressed = SubResource("AtlasTexture_phk8k")
+texture_hover = SubResource("AtlasTexture_phk8k")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("15_ilt6x")
+
+[node name="BackToMainMenuLabel" type="Label" parent="UI/GameOver/GameOverMenu/BackToMainMenuButton" unique_id=157119813]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = -2.0
+offset_right = 7.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 45
+text = "main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExperienceBar" type="Node" parent="UI" unique_id=185867026]
+script = ExtResource("18_u70fl")
+
+[node name="TextureRect" type="NinePatchRect" parent="UI/ExperienceBar" unique_id=1885624678]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -265.0
+offset_right = -133.0
+offset_bottom = 49.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_6b6w4")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/ExperienceBar" unique_id=185245757]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -242.0
+offset_top = 18.0
+offset_right = -20.0
+offset_bottom = 83.0
+grow_horizontal = 0
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/ExperienceBar/VBoxContainer" unique_id=409915072]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="LevelLabel" type="Label" parent="UI/ExperienceBar/VBoxContainer/HBoxContainer" unique_id=738756258]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 2
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 15
+
+[node name="EXPLabel" type="Label" parent="UI/ExperienceBar/VBoxContainer/HBoxContainer" unique_id=349651420]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 15
+
+[node name="EXPBar" type="ProgressBar" parent="UI/ExperienceBar/VBoxContainer" unique_id=1555509888]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.9019608, 0.4627451, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_jah84")
+theme_override_styles/fill = SubResource("StyleBoxFlat_mshwm")
+show_percentage = false
+
+[node name="LevelUpAnimation" type="AnimationPlayer" parent="UI/ExperienceBar/VBoxContainer" unique_id=1583355354]
+root_node = NodePath("../HBoxContainer")
 
 [connection signal="body_entered" from="Map/MapBoundary/FallMechanic" to="Map/MapBoundary/FallMechanic" method="_on_body_entered"]
+[connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause" method="_on_resume_button_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause" method="_on_back_to_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver/GameOverMenu/RestartButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver/GameOverMenu/RestartButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver" method="_on_restart_button_pressed"]
+[connection signal="mouse_entered" from="UI/GameOver/GameOverMenu/BackToMainMenuButton" to="UI/GameOver/GameOverMenu/BackToMainMenuButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/GameOver/GameOverMenu/BackToMainMenuButton" to="UI/GameOver/GameOverMenu/BackToMainMenuButton" method="_on_mouse_exited"]
+[connection signal="pressed" from="UI/GameOver/GameOverMenu/BackToMainMenuButton" to="UI/GameOver" method="_on_back_to_main_menu_button_pressed"]
