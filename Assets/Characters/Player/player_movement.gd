@@ -97,16 +97,14 @@ func ranged_attack():
 		can_attack = true
 		return
 	var arrow = arrow_scene.instantiate()
-	var direction := 1
-	if player_animation.sprite.flip_h:
-		direction = -1
-		
+	var mouse_pos = get_global_mouse_position()
+	var spawn_offset_x = abs(arrow_spawn_point.position.x) if mouse_pos.x >= global_position.x else -abs(arrow_spawn_point.position.x)
+	var spawn_pos = global_position + Vector2(spawn_offset_x, arrow_spawn_point.position.y)
+	var direction = (mouse_pos - spawn_pos).normalized()
 	get_parent().add_child(arrow)
-	# Place arrow in front of player depending on facing direction
-	var spawn_offset_x: float = abs(arrow_spawn_point.position.x) * float(direction)
-	arrow.global_position = global_position + Vector2(spawn_offset_x, arrow_spawn_point.position.y)
+	arrow.global_position = spawn_pos
 	arrow.setup(direction, get_attack_damage())
-	
+	arrow.rotation = direction.angle()
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
@@ -149,10 +147,10 @@ func apply_selected_class() -> void:
 	if player_class_data == null:
 		return
 		
-	if player_class_data.selected_class == null:
+	if GameState.selected_class == null:
 		return
 	
-	current_class = player_class_data.selected_class
+	current_class = GameState.selected_class
 	health = current_class.max_health
 	speed = current_class.speed
 	jump_power = current_class.jump_power

@@ -10,7 +10,7 @@ var can_move: bool = false:
 	set(value):
 		can_move = value
  
-var health = 100:
+var health = 50:
 	set(value):
 		health = value
 		progress_bar.value = value
@@ -19,15 +19,14 @@ var health = 100:
 			find_child("FiniteStateMachine").change_state("Death")
 
 func _ready():
-	pass
+	progress_bar.max_value = health
+	progress_bar.value = health
  
 func _process(_delta):
 	if player == null:
 		player = get_tree().get_first_node_in_group("player")
 		return
 	direction = player.global_position - global_position
-
-	direction = player.position - position
 	if direction.x < 0:
 		sprite.flip_h = true
 	else:
@@ -36,8 +35,10 @@ func _process(_delta):
 func _physics_process(delta):
 	if not can_move:
 		return
-	velocity = direction.normalized() * 40
-	move_and_collide(velocity * delta)
+	if not is_on_floor():
+		velocity.y += get_gravity().y * delta
+	velocity.x = direction.normalized().x * 40
+	move_and_slide()
  
 func take_damage(amount: int):
 	health -= amount - DEF

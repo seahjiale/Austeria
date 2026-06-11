@@ -3,14 +3,11 @@
 [ext_resource type="Script" uid="uid://3fg7i5fdpapb" path="res://Assets/Characters/GolemBoss/Scripts/GolemBoss.gd" id="1_3yokn"]
 [ext_resource type="Texture2D" uid="uid://bkkf5qs4qk1ix" path="res://Assets/Characters/GolemBoss/weapon PNG/Laser_sheet.png" id="1_b3fhr"]
 [ext_resource type="Script" uid="uid://by25vqmdpavd2" path="res://Assets/Characters/GolemBoss/Scripts/Finite_State_Machine.gd" id="2_8ua0g"]
-[ext_resource type="Script" uid="uid://rocvymlxit5a" path="res://Assets/Characters/GolemBoss/Scripts/State.gd" id="3_27xns"]
 [ext_resource type="Script" uid="uid://cjrd53m5yc45r" path="res://Assets/Characters/GolemBoss/Scripts/Idle.gd" id="3_bqf3m"]
 [ext_resource type="Script" uid="uid://ciimb568wo18b" path="res://Assets/Characters/GolemBoss/Scripts/Follow.gd" id="4_bqf3m"]
 [ext_resource type="Script" uid="uid://by0slmqy34ft" path="res://Assets/Characters/GolemBoss/Scripts/melee_attack.gd" id="6_d22na"]
 [ext_resource type="Script" uid="uid://cst083j1jxeqv" path="res://Assets/Characters/GolemBoss/Scripts/laser_beam.gd" id="7_ljpvt"]
 [ext_resource type="Script" uid="uid://bc0ck74ushgbg" path="res://Assets/Characters/GolemBoss/Scripts/dash.gd" id="8_2hi3x"]
-[ext_resource type="Script" uid="uid://q7tmcrb14jhe" path="res://Assets/Characters/GolemBoss/Scripts/homing_missile.gd" id="8_fne4j"]
-[ext_resource type="PackedScene" uid="uid://kljejanlnece" path="res://Assets/Characters/GolemBoss/bullet.tscn" id="9_80nft"]
 [ext_resource type="Script" uid="uid://cx20s80p58382" path="res://Assets/Characters/GolemBoss/Scripts/death.gd" id="10_fcy0w"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_k52q4"]
@@ -19,12 +16,16 @@ load_path = "res://.godot/imported/Character_sheet.png-43c4b50fa429eba10d956bea9
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fcy0w"]
 size = Vector2(254, 20)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_80nft"]
+radius = 10.428709
+height = 43.70781
+
 [sub_resource type="Animation" id="Animation_bqf3m"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/LaserSprite:frame")
+tracks/0/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -77,7 +78,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -105,7 +106,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -165,7 +166,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -193,7 +194,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -223,7 +224,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -240,7 +241,7 @@ step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Pivot/LaserSprite:frame")
+tracks/0/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -297,7 +298,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -327,7 +328,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -335,6 +336,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FiniteStateMachine/MeleeAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_fcy0w"]
@@ -356,7 +371,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Pivot/LaserSprite:frame")
+tracks/1/path = NodePath("LaserPivot/LaserSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -382,8 +397,8 @@ _data = {
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k52q4"]
-radius = 18.0
-height = 52.0
+radius = 12.0
+height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ua0g"]
 radius = 100.0
@@ -400,19 +415,32 @@ texture = SubResource("CompressedTexture2D_k52q4")
 hframes = 10
 vframes = 10
 
-[node name="Pivot" type="Node2D" parent="." unique_id=289500782]
+[node name="LaserPivot" type="Node2D" parent="." unique_id=289500782]
 position = Vector2(1, -19)
 
-[node name="LaserSprite" type="Sprite2D" parent="Pivot" unique_id=953598739]
+[node name="LaserSprite" type="Sprite2D" parent="LaserPivot" unique_id=953598739]
 position = Vector2(96, 19)
 texture = ExtResource("1_b3fhr")
 vframes = 15
 
-[node name="LaserHitbox" type="Area2D" parent="Pivot" unique_id=1159171184]
+[node name="LaserHitbox" type="Area2D" parent="LaserPivot" unique_id=1159171184]
+monitoring = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pivot/LaserHitbox" unique_id=330714953]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaserPivot/LaserHitbox" unique_id=330714953]
 position = Vector2(117, 0)
 shape = SubResource("RectangleShape2D_fcy0w")
+
+[node name="MeleePivot" type="Node2D" parent="." unique_id=928639886]
+position = Vector2(1, -7)
+
+[node name="MeleeHitbox" type="Area2D" parent="MeleePivot" unique_id=664400986]
+position = Vector2(14, 0)
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MeleePivot/MeleeHitbox" unique_id=1506250450]
+position = Vector2(3.999998, 11)
+rotation = 2.8029988
+shape = SubResource("CapsuleShape2D_80nft")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=457511701]
 libraries/ = SubResource("AnimationLibrary_teyev")
@@ -421,7 +449,6 @@ autoplay = &"idle"
 [node name="UI" type="CanvasLayer" parent="." unique_id=1312280616]
 
 [node name="ProgressBar" type="ProgressBar" parent="UI" unique_id=1534062937]
-visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -502,18 +529,12 @@ script = ExtResource("6_d22na")
 [node name="LaserBeam" type="Node2D" parent="FiniteStateMachine" unique_id=1607810042]
 script = ExtResource("7_ljpvt")
 
-[node name="ArmorBuff" type="Node2D" parent="FiniteStateMachine" unique_id=2102275770]
-script = ExtResource("3_27xns")
-
 [node name="Dash" type="Node2D" parent="FiniteStateMachine" unique_id=495219878]
 script = ExtResource("8_2hi3x")
 
 [node name="Death" type="Node2D" parent="FiniteStateMachine" unique_id=1464103248]
 script = ExtResource("10_fcy0w")
 
-[node name="HomingMissile" type="Node2D" parent="FiniteStateMachine" unique_id=2016936018]
-script = ExtResource("8_fne4j")
-bullet_node = ExtResource("9_80nft")
-
-[connection signal="body_entered" from="Pivot/LaserHitbox" to="FiniteStateMachine/LaserBeam" method="_on_laser_hitbox_body_entered"]
+[connection signal="body_entered" from="LaserPivot/LaserHitbox" to="FiniteStateMachine/LaserBeam" method="_on_laser_hitbox_body_entered"]
+[connection signal="body_entered" from="MeleePivot/MeleeHitbox" to="FiniteStateMachine/MeleeAttack" method="_on_melee_hitbox_body_entered"]
 [connection signal="body_entered" from="PlayerDetection" to="FiniteStateMachine/Idle" method="_on_player_detection_body_entered"]

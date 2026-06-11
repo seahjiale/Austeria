@@ -1,9 +1,9 @@
 extends State
  
-@onready var pivot = $"../../Pivot"
+@onready var pivot = $"../../LaserPivot"
 var can_transition: bool = false
 @onready var game_manager = get_tree().get_first_node_in_group("GameManager")
-@onready var laser_hitbox = $"../../Pivot/LaserHitbox"
+@onready var laser_hitbox = $"../../LaserPivot/LaserHitbox"
 
 var laser_active: bool = false
  
@@ -14,6 +14,10 @@ func enter():
 	await play_animation("laser_cast")
 	await play_animation("laser")
 	can_transition = true
+
+func exit():
+	super.exit()
+	laser_hitbox.monitoring = false
  
 func deal_damage():
 	laser_hitbox.monitoring = true
@@ -34,6 +38,8 @@ func transition():
 		get_parent().change_state("Dash")
 
 func _on_laser_hitbox_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if body == owner:
+		return
+	if body is CharacterBody2D and body.is_in_group("player"):
 		body.get_node("PlayerAnimation").take_damage()
 		game_manager.decrease_health()

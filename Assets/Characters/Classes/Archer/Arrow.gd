@@ -4,23 +4,19 @@ extends Area2D
 @export var damage: int = 1
 @export var lifetime: float = 1.0
 
-var direction: int = 1
+var direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
 
 func _physics_process(delta: float) -> void:
-	global_position.x += direction * speed * delta
+	global_position += direction * speed * delta
 
-func setup(new_direction: int, new_damage: int) -> void:
-	direction = new_direction
+func setup(new_direction: Vector2, new_damage: int) -> void:
+	direction = new_direction.normalized()
 	damage = new_damage
-
-	if direction == -1:
-		scale.x = -abs(scale.x)
-	else:
-		scale.x = abs(scale.x)
+	rotation = direction.angle()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):

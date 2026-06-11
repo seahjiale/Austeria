@@ -9,7 +9,7 @@ func _ready():
 	current_state.enter()
 
 func change_state(state):
+	previous_state = current_state
 	previous_state.exit()        # exit old state first
 	current_state = find_child(state, false) as State
 	current_state.enter()        # then enter new state
-	previous_state = current_state
