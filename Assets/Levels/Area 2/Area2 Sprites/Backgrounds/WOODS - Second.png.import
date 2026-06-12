@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddakgg63kpo7j"
-path="res://.godot/imported/2.png-26b312c339cf792008dfb767ad705764.ctex"
+uid="uid://km1xqwppke7h"
+path="res://.godot/imported/WOODS - Second.png-c78ee74291aa113a7e542c03f8929c6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/BackgroundSprites/cloud_bg/2.png"
-dest_files=["res://.godot/imported/2.png-26b312c339cf792008dfb767ad705764.ctex"]
+source_file="res://Assets/Levels/Area 2/Area2 Sprites/Backgrounds/WOODS - Second.png"
+dest_files=["res://.godot/imported/WOODS - Second.png-c78ee74291aa113a7e542c03f8929c6d.ctex"]
 
 [params]
 

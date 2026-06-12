@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0d0yk2a6jjgn"
-path="res://.godot/imported/3.png-3aea902dacd50f3ecd91627d02aca0fb.ctex"
+uid="uid://ckhnf3to4xs0h"
+path="res://.godot/imported/VINES - Second.png-dcb4cad16dcf7c0009919e84641f5e2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/BackgroundSprites/cloud_bg/3.png"
-dest_files=["res://.godot/imported/3.png-3aea902dacd50f3ecd91627d02aca0fb.ctex"]
+source_file="res://Assets/Levels/Area 2/Area2 Sprites/Backgrounds/VINES - Second.png"
+dest_files=["res://.godot/imported/VINES - Second.png-dcb4cad16dcf7c0009919e84641f5e2f.ctex"]
 
 [params]
 

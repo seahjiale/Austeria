@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db7n5qfyin6u0"
-path="res://.godot/imported/1.png-76b84de47e01fe5d60f7321416b3ea62.ctex"
+uid="uid://bvaa0dnb6y3ts"
+path="res://.godot/imported/GRASS 1-2.png-db9ec38e7665f8166a6bec502e39ac81.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/BackgroundSprites/cloud_bg/1.png"
-dest_files=["res://.godot/imported/1.png-76b84de47e01fe5d60f7321416b3ea62.ctex"]
+source_file="res://Assets/Levels/Area 2/Area2 Sprites/Decorations/GRASS 1-2.png"
+dest_files=["res://.godot/imported/GRASS 1-2.png-db9ec38e7665f8166a6bec502e39ac81.ctex"]
 
 [params]
 

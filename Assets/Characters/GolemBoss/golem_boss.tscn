@@ -401,7 +401,7 @@ radius = 12.0
 height = 58.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8ua0g"]
-radius = 100.0
+radius = 164.02744
 
 [node name="GolemBoss" type="CharacterBody2D" unique_id=1732738187]
 collision_layer = 2
