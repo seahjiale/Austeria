@@ -4,8 +4,9 @@
 
 [resource]
 script = ExtResource("1_y3ujt")
+className = "Warrior"
 max_health = 5
-base_damage = 2
+base_damage = 3
 speed = 5.0
 base_attack_animation = "sword_attack"
 metadata/_custom_type_script = "uid://bv0c7peetjnhs"

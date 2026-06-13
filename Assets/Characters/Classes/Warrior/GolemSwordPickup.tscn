@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ybmom2elcnon"]
+
+[ext_resource type="Script" uid="uid://od1le0n3nt2m" path="res://Assets/Items/Scripts/PickupItem.gd" id="1_n1kq7"]
+[ext_resource type="Resource" uid="uid://d01s0xaw1ro2q" path="res://Assets/Items/Resources/GolemSword.tres" id="2_301fj"]
+[ext_resource type="Resource" uid="uid://c57bt8lkth5w6" path="res://Assets/InventoryPage/Inventory/TestInventory.tres" id="3_3su5l"]
+[ext_resource type="Texture2D" uid="uid://c0umclx4884dj" path="res://Assets/Items/Sprites/Item SpriteSheet.png" id="4_q3v34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_alvcl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xoj8r"]
+atlas = ExtResource("4_q3v34")
+region = Rect2(287.24414, 290.73685, 30.229675, 30.602905)
+
+[node name="GolemSwordPickup" type="Area2D" unique_id=1214405388]
+collision_mask = 7
+script = ExtResource("1_n1kq7")
+item_data = ExtResource("2_301fj")
+inventory_data = ExtResource("3_3su5l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1526945387]
+shape = SubResource("RectangleShape2D_alvcl")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2105850957]
+position = Vector2(-0.5, 1)
+scale = Vector2(1.0333333, 1.0666667)
+texture = SubResource("AtlasTexture_xoj8r")

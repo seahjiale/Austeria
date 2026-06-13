@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_vhhe3")
+className = "Archer"
 speed = 4.0
 attack_type = "ranged"
 metadata/_custom_type_script = "uid://bv0c7peetjnhs"

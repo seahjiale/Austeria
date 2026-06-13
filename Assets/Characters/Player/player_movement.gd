@@ -30,6 +30,9 @@ var is_hurt = false
 var jumps_remaining = 2
 var can_attack: bool = true
 
+func get_current_class() -> CharacterClassData:
+	return current_class
+
 func _ready():
 	apply_selected_class()
 	# checking if it has passed any checkpoints, if yes reset position

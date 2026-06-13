@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://nbn0mjytpfjs" path="res://Assets/Levels/Area 2/Area2 Sprites/Decorations/MUSHROOM 1-1.png" id="27_u70fl"]
 [ext_resource type="Texture2D" uid="uid://c55f3my6g76yf" path="res://Assets/Levels/Area 2/Area2 Sprites/Decorations/MUSHROOM 1-2.png" id="28_djwm6"]
 [ext_resource type="Texture2D" uid="uid://m86i24026h12" path="res://Assets/Levels/Area 2/Area2 Sprites/Decorations/GRASS 3-2.png" id="29_5nj5r"]
+[ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/InventoryPage/Inventory/inventory_window.tscn" id="32_5duu2"]
+[ext_resource type="PackedScene" uid="uid://bqiabba2e0mhg" path="res://Assets/InventoryPage/Equipment/EquipmentWindow.tscn" id="33_per3y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s6m51"]
 texture = ExtResource("4_nhc7y")
@@ -1322,6 +1324,13 @@ texture = ExtResource("26_hfg0j")
 [node name="Mushroom23" type="Sprite2D" parent="Objects" unique_id=1619106834]
 position = Vector2(200, -340)
 texture = ExtResource("26_hfg0j")
+
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=2138876043]
+
+[node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("32_5duu2")]
+visible = false
+
+[node name="EquipmentWindow" parent="Inventory" unique_id=848119363 instance=ExtResource("33_per3y")]
 
 [connection signal="body_entered" from="Map/MapBoundary/FallMechanic" to="Map/MapBoundary/FallMechanic" method="_on_body_entered"]
 [connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]

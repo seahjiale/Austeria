@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3 uid="uid://b55650ctd1g5i"]
+
+[ext_resource type="Texture2D" uid="uid://c0umclx4884dj" path="res://Assets/Items/Sprites/Item SpriteSheet.png" id="1_73oxk"]
+[ext_resource type="Script" uid="uid://ynx732ftaj0r" path="res://Assets/Items/Scripts/WeaponData.gd" id="1_hirsy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nqv3r"]
+atlas = ExtResource("1_73oxk")
+region = Rect2(320.8972, 3168.2173, 30.306091, 31.145264)
+
+[resource]
+script = ExtResource("1_hirsy")
+item_name = "GolemBow"
+item_texture = SubResource("AtlasTexture_nqv3r")
+metadata/_custom_type_script = "uid://ynx732ftaj0r"
