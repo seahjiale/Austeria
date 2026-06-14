@@ -15,7 +15,7 @@ var can_move: bool = false:
 	set(value):
 		can_move = value
  
-var health = 10:
+var health = 30:
 	set(value):
 		health = value
 		progress_bar.value = value
