@@ -1,16 +1,19 @@
 [gd_scene format=3 uid="uid://ctmhpax5c6wqd"]
 
 [ext_resource type="Texture2D" uid="uid://pglfb526a45w" path="res://Assets/Characters/PlantEnemy/PlantSprites/Plant3_last_rows_godot_spritesheet.png" id="1_hmgge"]
-[ext_resource type="Script" uid="uid://bpiqiopboiuom" path="res://Assets/Characters/PlantEnemy/Scripts/PlantEnemy.gd" id="1_i6g8u"]
+[ext_resource type="Script" uid="uid://c0b6rpjeggi74" path="res://Assets/Characters/PlantEnemy/Scripts/PlantEnemy.gd" id="1_i6g8u"]
 [ext_resource type="Script" uid="uid://gwpdfuxp5o5x" path="res://Assets/Characters/PlantEnemy/Scripts/FiniteStateMachine.gd" id="2_2qf41"]
 [ext_resource type="Script" uid="uid://cqxkmblsp0ats" path="res://Assets/Characters/PlantEnemy/Scripts/Idle.gd" id="3_appk6"]
 [ext_resource type="Script" uid="uid://hhs6w3oabrlv" path="res://Assets/Characters/PlantEnemy/Scripts/Death.gd" id="5_0g018"]
 [ext_resource type="Script" uid="uid://5imw12twk3ct" path="res://Assets/Characters/PlantEnemy/Scripts/Run.gd" id="6_0g018"]
 [ext_resource type="Script" uid="uid://di72xyk4na2ig" path="res://Assets/Characters/PlantEnemy/Scripts/Attack.gd" id="7_qtcoc"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtcoc"]
+
 [sub_resource type="Animation" id="Animation_2qf41"]
 resource_name = "Attack"
 length = 0.8750125
+loop_mode = 1
 step = 0.125
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -59,7 +62,7 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_lqa2d"]
 resource_name = "Hurt"
 length = 0.6250125
-step = 0.125
+step = 0.0625
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -133,8 +136,6 @@ _data = {
 &"Run": SubResource("Animation_qtcoc")
 }
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qtcoc"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a5ibf"]
 size = Vector2(28.494823, 17.80257)
 
@@ -152,13 +153,13 @@ texture = ExtResource("1_hmgge")
 hframes = 10
 vframes = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1870861482]
-libraries/ = SubResource("AnimationLibrary_a5ibf")
-autoplay = &"Idle"
-
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=1960040754]
 position = Vector2(2, 1)
 shape = SubResource("CapsuleShape2D_qtcoc")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1870861482]
+libraries/ = SubResource("AnimationLibrary_a5ibf")
+autoplay = &"Idle"
 
 [node name="MeleePivot" type="Node2D" parent="." unique_id=375522521]
 position = Vector2(0, -6)

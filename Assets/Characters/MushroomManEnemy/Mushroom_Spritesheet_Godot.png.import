@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bavwil5ieojh6"
-path="res://.godot/imported/Plant3_Run_without_shadow.png-42af5d77654e13150fdf971a45765bd5.ctex"
+uid="uid://cv8nwis5glrdi"
+path="res://.godot/imported/Mushroom_Spritesheet_Godot.png-36cf9b555d4cfd5952a3370c2b5cc825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Characters/PlantEnemy/PlantSprites/Plant3_Run_without_shadow.png"
-dest_files=["res://.godot/imported/Plant3_Run_without_shadow.png-42af5d77654e13150fdf971a45765bd5.ctex"]
+source_file="res://Assets/Characters/MushroomManEnemy/Mushroom_Spritesheet_Godot.png"
+dest_files=["res://.godot/imported/Mushroom_Spritesheet_Godot.png-36cf9b555d4cfd5952a3370c2b5cc825.ctex"]
 
 [params]
 

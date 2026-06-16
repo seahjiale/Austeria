@@ -9,7 +9,7 @@ func enter():
 	super.enter()
 	can_transition = false
 	owner.can_move = false
-	if owner.direction.x < 0:
+	if owner.direction.x > 0:
 		pivot.scale.x = -1
 	else:
 		pivot.scale.x = 1
@@ -25,7 +25,7 @@ func deal_damage():
 func transition():
 	if can_transition:
 		var horizontal_distance = abs(owner.direction.x)
-		if horizontal_distance > 30:
+		if horizontal_distance > 40:
 			get_parent().change_state("Run")
 			owner.can_move = true
 
