@@ -2,7 +2,36 @@
 
 [ext_resource type="Script" uid="uid://bngsvjo4hlk40" path="res://Assets/Characters/MushroomEnemy/mushroom_enemy.gd" id="1_5gyvg"]
 [ext_resource type="Texture2D" uid="uid://ccacroxatcaqr" path="res://Assets/Characters/MushroomEnemy/Mushroom/Idle (32x32).png" id="1_tv7xb"]
+[ext_resource type="Texture2D" uid="uid://c1x6tefftorfr" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Desappearing (96x96).png" id="2_0dbd5"]
 [ext_resource type="Texture2D" uid="uid://b78lvh4o1881n" path="res://Assets/Characters/MushroomEnemy/Mushroom/Hit.png" id="3_httxq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e1hl"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuf7s"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hda2h"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjdew"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dfhi5"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjyoq"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fve16"]
+atlas = ExtResource("2_0dbd5")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tu7ih"]
 atlas = ExtResource("1_tv7xb")
@@ -82,6 +111,32 @@ region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aeqyt"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e1hl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuf7s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hda2h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjdew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dfhi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjyoq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fve16")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 15.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tu7ih")
@@ -169,7 +224,7 @@ sprite = NodePath("AnimatedSprite2D")
 texture_filter = 1
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-animation = &"take_damage"
+animation = &"Death"
 autoplay = "idle"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]

@@ -14,10 +14,17 @@ func take_damage(amount):
 	
 	if health <= 0:
 		ExpManager.gain_xp(xp_reward)
-		call_deferred("queue_free")
+		die()
 		return
 		
 	sprite.play("take_damage")
 	await sprite.animation_finished
 	sprite.play(default_animation)
+
+func die():
+	set_physics_process(false)
+	
+	sprite.play("Death")
+	await sprite.animation_finished
+	queue_free()
 	

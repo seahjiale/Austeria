@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c68mxmgxusk1d" path="res://Assets/Characters/ChameleonEnemy/Scripts/chameleon_enemy.gd" id="1_yutr5"]
 [ext_resource type="Texture2D" uid="uid://dvpygkojydkl2" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Attack (84x38).png" id="2_1sn0t"]
+[ext_resource type="Texture2D" uid="uid://c1x6tefftorfr" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Desappearing (96x96).png" id="3_hhqno"]
 [ext_resource type="Texture2D" uid="uid://3xevquco8k3u" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Hit (84x38).png" id="3_k4sdf"]
 [ext_resource type="Texture2D" uid="uid://hf1wu05ilut7" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Idle (84x38).png" id="4_hhqno"]
 [ext_resource type="Texture2D" uid="uid://cvhkguuxfu0ik" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Run (84x38).png" id="5_yyhvl"]
@@ -34,6 +35,34 @@ region = Rect2(672, 0, 84, 38)
 [sub_resource type="AtlasTexture" id="AtlasTexture_o6ku7"]
 atlas = ExtResource("2_1sn0t")
 region = Rect2(756, 0, 84, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyhvl"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gndc"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7du5c"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5l1fh"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8af6"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4tf6x"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcykx"]
+atlas = ExtResource("3_hhqno")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ggh2l"]
 atlas = ExtResource("3_k4sdf")
@@ -166,6 +195,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_yyhvl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gndc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7du5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5l1fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8af6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4tf6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcykx")
+}],
+"loop": true,
+"name": &"Death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ggh2l")
 }, {
 "duration": 1.0,
@@ -271,10 +326,9 @@ script = ExtResource("1_yutr5")
 position = Vector2(-9.312501, -15.375)
 scale = Vector2(0.6979167, 0.7697368)
 sprite_frames = SubResource("SpriteFrames_nsbro")
-animation = &"Attack"
+animation = &"Death"
 autoplay = "Idle"
-frame = 5
-frame_progress = 1.0
+frame_progress = 0.59885645
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=472007785]
 position = Vector2(4.75, -13)

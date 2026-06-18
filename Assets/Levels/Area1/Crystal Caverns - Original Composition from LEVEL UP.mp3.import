@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b010kveaqi41j"
+path="res://.godot/imported/Crystal Caverns - Original Composition from LEVEL UP.mp3-eb6e48d49d06b95cba9b40b5e425e714.mp3str"
+
+[deps]
+
+source_file="res://Assets/Levels/Area1/Crystal Caverns - Original Composition from LEVEL UP.mp3"
+dest_files=["res://.godot/imported/Crystal Caverns - Original Composition from LEVEL UP.mp3-eb6e48d49d06b95cba9b40b5e425e714.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

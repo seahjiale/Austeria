@@ -3,7 +3,7 @@ extends Control
 @onready var button_sfx = $VBoxContainer/AudioStreamPlayer2D
 
 func _ready():
-	MusicManager.play_menu_music()
+	MusicManager.play_music(load("res://Assets/Sound/Maplestory Theme Music - Intro.mp3"))
 
 # settings menu
 func _on_settings_button_pressed() -> void:

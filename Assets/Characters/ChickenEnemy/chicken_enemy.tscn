@@ -2,8 +2,37 @@
 
 [ext_resource type="Script" uid="uid://c5b7sr2h0b76g" path="res://Assets/Characters/ChickenEnemy/chicken_enemy.gd" id="1_1yrom"]
 [ext_resource type="Texture2D" uid="uid://bqvxdf06wk1i5" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Hit (32x34).png" id="2_00bj1"]
+[ext_resource type="Texture2D" uid="uid://c1x6tefftorfr" path="res://Assets/Characters/ChameleonEnemy/ChameleonSprite/Desappearing (96x96).png" id="2_i7dup"]
 [ext_resource type="Texture2D" uid="uid://bkcf53k4xlnn" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Idle (32x34).png" id="3_clojl"]
 [ext_resource type="Texture2D" uid="uid://dnjri7wgee8sx" path="res://Assets/Characters/ChickenEnemy/ChickenSprites/Run (32x34).png" id="4_05ysi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5vde"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cij8v"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(96, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtc5k"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(192, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_plrm7"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(288, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmfsx"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(384, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1rkxs"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(480, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4mlc"]
+atlas = ExtResource("2_i7dup")
+region = Rect2(576, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qt8ys"]
 atlas = ExtResource("3_clojl")
@@ -137,6 +166,32 @@ region = Rect2(128, 0, 32, 34)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_r5vde")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cij8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtc5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_plrm7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmfsx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1rkxs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4mlc")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_qt8ys")
 }, {
 "duration": 1.0,
@@ -268,7 +323,7 @@ texture_filter = 1
 position = Vector2(0, -12)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-animation = &"idle"
+animation = &"Death"
 autoplay = "run"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
