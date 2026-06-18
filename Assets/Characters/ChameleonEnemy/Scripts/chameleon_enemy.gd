@@ -71,8 +71,6 @@ func start_attack_cooldown():
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
-
-
 func _on_tongue_hit_box_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		var x_delta = body.position.x - position.x

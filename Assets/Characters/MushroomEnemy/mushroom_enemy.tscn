@@ -224,7 +224,7 @@ sprite = NodePath("AnimatedSprite2D")
 texture_filter = 1
 position = Vector2(0, -17)
 sprite_frames = SubResource("SpriteFrames_aeqyt")
-animation = &"Death"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="PhysicsDetection" type="CollisionShape2D" parent="." unique_id=1825451095]
