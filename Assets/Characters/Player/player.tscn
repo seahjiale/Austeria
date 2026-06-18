@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dem3n4aknu03g" path="res://Assets/Menus/LevelUpAnimation/ring.png" id="13_wyg8a"]
 [ext_resource type="Texture2D" uid="uid://v5k15yj5x5xw" path="res://Assets/Menus/LevelUpAnimation/sparkle.png" id="14_a7576"]
 [ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="15_kgqq7"]
+[ext_resource type="AudioStream" uid="uid://bg1lsiquw78f2" path="res://Assets/Sound/musicholder-sword-sound-260274.mp3" id="16_vnqoj"]
+[ext_resource type="AudioStream" uid="uid://bmfwn7sswkcbx" path="res://Assets/Sound/freesound_gamestudio-bar-increase-cartoon-funny-jump-384919.mp3" id="17_26fvs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1doqv"]
 atlas = ExtResource("3_rg2dv")
@@ -492,6 +494,12 @@ offset_bottom = -25.0
 theme_override_colors/font_color = Color(1, 0.8627451, 0.19607843, 1)
 theme_override_fonts/font = ExtResource("15_kgqq7")
 text = "LEVEL UP!"
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="." unique_id=1381095592]
+stream = ExtResource("16_vnqoj")
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=350092084]
+stream = ExtResource("17_26fvs")
 
 [connection signal="animation_finished" from="PlayerAnimation/AnimatedSprite2D" to="PlayerAnimation" method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Attack/AttackHitBox" to="." method="_on_attack_hit_box_body_entered"]

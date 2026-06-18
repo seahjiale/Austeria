@@ -33,6 +33,10 @@ var can_attack: bool = true
 @onready var level_up_label = $LevelUpEffect/LevelUpLabel
 var level_up_label_start_pos: Vector2
 
+# Basic attack sound effect
+@onready var attack_sound = $AttackSound
+@onready var jump_sound = $JumpSound
+
 func get_current_class() -> CharacterClassData:
 	return current_class
 
@@ -62,9 +66,11 @@ func _physics_process(delta: float) -> void:
 
 	# double-jump logic and animation
 	if Input.is_action_just_pressed("jump") and jumps_remaining > 0:
+		jump_sound.play()
 		velocity.y = jump_power * jump_multiplier
 		jumps_remaining -= 1
 		if jumps_remaining == 0:
+			jump_sound.play()
 			double_jumped.emit()
 	
 	# knockback logic and animation
@@ -212,6 +218,7 @@ func melee_attack():
 	can_attack = false
 	attack_hitbox.position.x = abs(attack_hitbox.position.x) * (-1 if player_animation.sprite.flip_h else 1)
 	attack_hitbox.monitoring = true
+	attack_sound.play()
 	await player_animation.play_attack()
 	attack_hitbox.monitoring = false
 	hit_bodies.clear()

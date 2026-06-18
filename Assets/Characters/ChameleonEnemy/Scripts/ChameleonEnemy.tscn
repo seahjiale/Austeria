@@ -215,9 +215,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tcykx")
 }],
-"loop": true,
+"loop": false,
 "name": &"Death",
-"speed": 10.0
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -326,9 +326,8 @@ script = ExtResource("1_yutr5")
 position = Vector2(-9.312501, -15.375)
 scale = Vector2(0.6979167, 0.7697368)
 sprite_frames = SubResource("SpriteFrames_nsbro")
-animation = &"Death"
+animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.59885645
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=472007785]
 position = Vector2(4.75, -13)
