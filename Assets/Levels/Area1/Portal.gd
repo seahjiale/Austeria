@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var press_f_label: Label = $PressFLabel
-
+@onready var ui: CanvasLayer = $"../../../UI"
 var player_nearby: bool = false
 
 func _on_body_entered(body: Node2D) -> void:
@@ -22,4 +22,5 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):
+		ui.hide()
 		SceneTransition.transition_to("res://Assets/Menus/Class_Menu/class_menu.tscn")

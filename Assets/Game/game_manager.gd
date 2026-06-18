@@ -2,7 +2,6 @@ extends Node
 
 @onready var game_over_ui: Panel = $"../UI/GameOver/GameOverMenu"
 @onready var hearts = $"../UI/Hearts/HBoxContainer".get_children()
-
 var points = 0
 var lives = 3
 var game_over = false
