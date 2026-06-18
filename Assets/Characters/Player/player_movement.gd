@@ -77,8 +77,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
-		play_level_up_effect()
 	if event.is_action_pressed("attack"):
 		attack()
 		

@@ -2,6 +2,11 @@ extends CharacterBody2D
 @onready var sprite = $ChameleonEnemySprite
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var tongue_hitbox = $TongueHitBox
+@export var xp_reward: int = 80
+@onready var game_manager = %GameManager
+
+var can_attack := true
+@export var attack_cooldown := 3.0
 
 var direction : Vector2
 const SPEED = 300.0
@@ -52,10 +57,26 @@ func take_damage(amount: int):
 		find_child("FiniteStateMachine").change_state("Idle")
 	else:
 		_die()
-
+ 
 func _die() -> void:
+	ExpManager.gain_xp(xp_reward)
 	velocity = Vector2.ZERO
 	set_physics_process(false)
 	$HitBox.get_parent().collision_mask = 0
 	$HitBox.get_parent().collision_layer = 0
 	find_child("FiniteStateMachine").change_state("Death")
+
+func start_attack_cooldown():
+	can_attack = false
+	await get_tree().create_timer(attack_cooldown).timeout
+	can_attack = true
+
+func _on_tongue_hit_box_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		var x_delta = body.position.x - position.x
+		body.get_node("PlayerAnimation").take_damage()
+		game_manager.decrease_health()
+		if (x_delta > 0):
+			body.jump_side(100)
+		else:
+			body.jump_side(-100)

@@ -10,4 +10,5 @@ func transition():
 	var distance = owner.direction.length()
 
 	if distance > 0 and owner.direction.x < 0 and owner.direction.x > -50:
-		get_parent().change_state("Attack")
+		if owner.can_attack:
+			get_parent().change_state("Attack")

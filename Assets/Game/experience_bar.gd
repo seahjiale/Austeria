@@ -3,7 +3,6 @@ extends Node
 @onready var level_label  = $VBoxContainer/HBoxContainer/LevelLabel
 @onready var xp_label     = $VBoxContainer/HBoxContainer/EXPLabel
 @onready var xp_bar       = $VBoxContainer/EXPBar
-@onready var levelup_anim = $VBoxContainer/LevelUpAnimation
 
 func _ready() -> void:
 	ExpManager.connect("xp_changed", _on_xp_changed)
@@ -16,7 +15,9 @@ func _on_xp_changed(current, required) -> void:
 
 func _on_level_changed(new_level) -> void:
 	level_label.text = "LV %d" % new_level
-	levelup_anim.play("level_up_flash")
+	var player = get_tree().get_first_node_in_group("player")
+	if player:
+		player.play_level_up_effect()
 
 func _refresh_ui() -> void:
 	level_label.text = "LV %d" % ExpManager.level
