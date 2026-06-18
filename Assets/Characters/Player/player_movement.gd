@@ -30,10 +30,14 @@ var is_hurt = false
 var jumps_remaining = 2
 var can_attack: bool = true
 
+@onready var level_up_label = $LevelUpEffect/LevelUpLabel
+var level_up_label_start_pos: Vector2
+
 func get_current_class() -> CharacterClassData:
 	return current_class
 
 func _ready():
+	level_up_label_start_pos = level_up_label.position
 	apply_selected_class()
 	# checking if it has passed any checkpoints, if yes reset position
 	if GameState.respawn_position != Vector2.ZERO:
@@ -73,9 +77,102 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		play_level_up_effect()
 	if event.is_action_pressed("attack"):
 		attack()
+		
+var level_up_tween: Tween
 
+func play_level_up_effect():
+	var beam = $LevelUpEffect/Beam
+	var ring = $LevelUpEffect/Ring
+	var sparkles = $LevelUpEffect/Sparkles
+	var label = $LevelUpEffect/LevelUpLabel
+
+	var ring_base_scale = Vector2(0.02, 0.02)
+
+	# Start sparkles
+	sparkles.restart()
+	sparkles.emitting = true
+
+	# Reset beam
+	beam.visible = true
+	beam.modulate.a = 0.0
+
+	# Reset ring
+	ring.visible = true
+	ring.modulate.a = 1.0
+	ring.scale = ring_base_scale * 0.7
+
+	# Reset label
+	label.visible = true
+	label.modulate.a = 1.0
+	label.scale = Vector2(0.5, 0.5)
+
+	label.position = level_up_label_start_pos
+
+	if level_up_tween:
+		level_up_tween.kill()
+
+	level_up_tween = create_tween()
+	var tween = level_up_tween
+
+	# Beam fade in
+	tween.parallel().tween_property(
+		beam,
+		"modulate:a",
+		1.0,
+		0.1)
+
+	# Beam fade out
+	tween.parallel().tween_property(
+		beam,
+		"modulate:a",
+		0.0,
+		0.4).set_delay(0.2)
+
+	# Ring expand
+	tween.parallel().tween_property(
+		ring,
+		"scale",
+		ring_base_scale * 1.3,
+		0.5)
+
+	# Ring fade
+	tween.parallel().tween_property(
+		ring,
+		"modulate:a",
+		0.0,
+		0.5)
+
+	# LEVEL UP text pop
+	tween.parallel().tween_property(
+		label,
+		"scale",
+		Vector2(1.0, 1.0),
+		0.2)
+
+	# Float upward
+	tween.parallel().tween_property(
+		label,
+		"position",
+		level_up_label_start_pos + Vector2(0, -25),
+		0.8)
+
+	# Fade text
+	tween.parallel().tween_property(
+		label,
+		"modulate:a",
+		0.0,
+		0.8)
+
+	await tween.finished
+
+	beam.visible = false
+	ring.visible = false
+	label.visible = false
+  
 func jump():
 	velocity.y = jump_power * jump_multiplier
 
