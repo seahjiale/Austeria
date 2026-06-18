@@ -28,3 +28,8 @@ func _xp_for_level(lv: int) -> int:
 
 func get_xp_percent() -> float:
 	return float(current_xp) / float(xp_to_next)
+
+func reset():
+	level = 1
+	current_xp = 0
+	xp_to_next = _xp_for_level(level)

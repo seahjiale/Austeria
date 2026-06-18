@@ -125,10 +125,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 21.0
-offset_right = -19.0
-offset_bottom = -36.0
+offset_left = 37.0
+offset_top = 20.0
+offset_right = -32.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_veq45")
@@ -138,10 +138,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 152.0
-offset_top = 92.0
-offset_right = -26.0
-offset_bottom = -54.0
+offset_left = 138.0
+offset_top = 81.0
+offset_right = -21.0
+offset_bottom = -46.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_31kf0")
@@ -168,10 +168,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 24.0
-offset_top = 22.0
-offset_right = -19.0
-offset_bottom = -36.0
+offset_left = 38.0
+offset_top = 16.0
+offset_right = -38.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("AtlasTexture_veq45")
@@ -181,18 +181,18 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 207.0
-offset_top = 107.0
-offset_right = 37.0
-offset_bottom = -31.0
+offset_left = 208.0
+offset_top = 107.00004
+offset_right = 48.104553
+offset_bottom = -21.345428
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 2.1991148
 texture = SubResource("AtlasTexture_htkgp")
 
-[connection signal="mouse_entered" from="Class_Panel/WarriorButton" to="Class_Panel/WarriorButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Class_Panel/WarriorButton" to="Class_Panel/WarriorButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_mouse_entered"]
+[connection signal="mouse_exited" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_mouse_exited"]
 [connection signal="pressed" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_pressed"]
-[connection signal="mouse_entered" from="Class_Panel/ArcherButton" to="Class_Panel/ArcherButton" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Class_Panel/ArcherButton" to="Class_Panel/ArcherButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Class_Panel/ArcherButton" to="." method="_on_archer_button_mouse_entered"]
+[connection signal="mouse_exited" from="Class_Panel/ArcherButton" to="." method="_on_archer_button_mouse_exited"]
 [connection signal="pressed" from="Class_Panel/ArcherButton" to="." method="_on_archer_button_pressed"]

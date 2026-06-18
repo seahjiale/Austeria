@@ -646,7 +646,7 @@ position = Vector2(672, -368)
 position = Vector2(1444, -50)
 
 [node name="PigEnemy2" parent="SceneObjects/Characters" unique_id=2017166838 instance=ExtResource("4_c8jce")]
-position = Vector2(1665, -47)
+position = Vector2(1648, -49)
 
 [node name="ChickenEnemy" parent="SceneObjects/Characters" unique_id=916798956 instance=ExtResource("5_xb627")]
 position = Vector2(1255, -127)

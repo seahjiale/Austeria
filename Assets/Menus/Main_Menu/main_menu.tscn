@@ -89,17 +89,17 @@ offset_bottom = 142.0
 texture = SubResource("AtlasTexture_pkn5d")
 
 [node name="TopRight" type="TextureRect" parent="GameBanner" unique_id=1001676238]
-offset_left = 663.0
+offset_left = 662.0
 offset_top = -85.0
-offset_right = 869.0
+offset_right = 868.0
 offset_bottom = 135.0
 texture = SubResource("AtlasTexture_jmf8k")
 
 [node name="BottomLeft" type="TextureRect" parent="GameBanner" unique_id=1485654167]
 offset_left = 268.0
-offset_top = 74.0
+offset_top = 73.0
 offset_right = 479.0
-offset_bottom = 237.0
+offset_bottom = 236.0
 texture = SubResource("AtlasTexture_n4qbq")
 
 [node name="BottomMiddle" type="TextureRect" parent="GameBanner" unique_id=447443345]
@@ -110,10 +110,10 @@ offset_bottom = 237.0
 texture = SubResource("AtlasTexture_0ug5g")
 
 [node name="BottomRight" type="TextureRect" parent="GameBanner" unique_id=222686839]
-offset_left = 683.0
-offset_top = 80.0
-offset_right = 862.0
-offset_bottom = 233.0
+offset_left = 681.0
+offset_top = 81.0
+offset_right = 860.0
+offset_bottom = 234.0
 texture = SubResource("AtlasTexture_t77h7")
 
 [node name="GameTitle" type="Label" parent="GameBanner" unique_id=1152979225]

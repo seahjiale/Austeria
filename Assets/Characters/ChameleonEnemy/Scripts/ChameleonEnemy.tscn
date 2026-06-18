@@ -316,6 +316,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnotf"]
 size = Vector2(22.5, 24)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4sdf"]
+size = Vector2(26, 27)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nulql"]
 size = Vector2(31, 7)
 
@@ -332,6 +335,12 @@ autoplay = "Idle"
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=472007785]
 position = Vector2(4.75, -13)
 shape = SubResource("RectangleShape2D_nnotf")
+
+[node name="CollisionArea" type="Area2D" parent="." unique_id=514952572]
+position = Vector2(5, -14)
+
+[node name="Area2D" type="CollisionShape2D" parent="CollisionArea" unique_id=954058567]
+shape = SubResource("RectangleShape2D_k4sdf")
 
 [node name="TongueHitBox" type="Area2D" parent="." unique_id=336673943]
 position = Vector2(-18, -11)
@@ -356,4 +365,5 @@ script = ExtResource("9_itd0w")
 [node name="Death" type="Node2D" parent="FiniteStateMachine" unique_id=1933717319]
 script = ExtResource("10_1sn0t")
 
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_collision_area_body_entered"]
 [connection signal="body_entered" from="TongueHitBox" to="." method="_on_tongue_hit_box_body_entered"]

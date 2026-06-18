@@ -5,6 +5,10 @@ extends Control
 @export var archer_class: CharacterClassData
 @export var next_area_path: String = "res://Assets/Levels/Area 2/Area 2.tscn"
 
+@onready var warrior_class_img = $Class_Panel/WarriorButton/WarriorClass
+@onready var warrior_class_sword_img = $Class_Panel/WarriorButton/Sword
+@onready var archer_class_img = $Class_Panel/ArcherButton/ArcherClass
+@onready var archer_class_bow_img = $Class_Panel/ArcherButton/Bow
 func _ready() -> void:
 	GameState.selected_class = null
 
@@ -15,3 +19,19 @@ func _on_warrior_button_pressed() -> void:
 func _on_archer_button_pressed() -> void:
 	GameState.selected_class = archer_class
 	SceneTransition.transition_to(next_area_path)
+
+func _on_warrior_button_mouse_entered() -> void:
+	warrior_class_img.position.y += 5
+	warrior_class_sword_img.position.y += 5
+
+func _on_warrior_button_mouse_exited() -> void:
+	warrior_class_img.position.y -= 5
+	warrior_class_sword_img.position.y -= 5
+
+func _on_archer_button_mouse_entered() -> void:
+	archer_class_img.position.y += 5
+	archer_class_bow_img.position.y += 5
+
+func _on_archer_button_mouse_exited() -> void:
+	archer_class_img.position.y -= 5
+	archer_class_bow_img.position.y -= 5

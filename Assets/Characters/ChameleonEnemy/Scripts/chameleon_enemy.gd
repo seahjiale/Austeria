@@ -71,7 +71,22 @@ func start_attack_cooldown():
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true
 
+
+
 func _on_tongue_hit_box_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		var x_delta = body.position.x - position.x
+		body.get_node("PlayerAnimation").take_damage()
+		game_manager.decrease_health()
+		if (x_delta > 0):
+			body.jump_side(100)
+		else:
+			body.jump_side(-100)
+
+
+func _on_collision_area_body_entered(body: Node2D) -> void:
+	if not body.is_in_group("player"):
+		return
 	if body is CharacterBody2D:
 		var x_delta = body.position.x - position.x
 		body.get_node("PlayerAnimation").take_damage()

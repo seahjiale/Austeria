@@ -22,4 +22,5 @@ func _gui_input(event):
 		
 func _on_value_changed(new_value):
 	var vol_ratio = new_value / max_value
-	AudioServer.set_bus_volume_db(0, linear_to_db(vol_ratio))
+	var capped_ratio = vol_ratio * 0.6
+	AudioServer.set_bus_volume_db(0, linear_to_db(capped_ratio))
