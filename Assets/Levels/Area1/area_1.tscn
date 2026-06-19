@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://26lrlx2w48qv" path="res://Assets/Menus/skill_menu/Open_book.png" id="37_5rti2"]
 [ext_resource type="Texture2D" uid="uid://hmywa4xjsg4y" path="res://Assets/Menus/skill_menu/Turning_pages_left.png" id="38_lurt5"]
 [ext_resource type="Texture2D" uid="uid://bk2h5nb0ajulg" path="res://Assets/Menus/skill_menu/Turning_pages_right.png" id="39_ogr2l"]
+[ext_resource type="Texture2D" uid="uid://w7q5whx8h55m" path="res://Assets/Menus/skill_menu/sells_full.png" id="41_h3vgr"]
 [ext_resource type="Script" uid="uid://xqhm7syyrcie" path="res://Assets/Menus/skill_menu/Scripts/tooltip.gd" id="41_ogr2l"]
 [ext_resource type="Texture2D" uid="uid://ba8uesrg600y8" path="res://Assets/Menus/skill_menu/info_tileset.png" id="42_ogr2l"]
 [ext_resource type="FontFile" uid="uid://cwy076gjksws" path="res://Assets/Menus/skill_menu/skillanimations/Font/Planes_ValMore.ttf" id="43_abqbe"]
@@ -1041,6 +1042,22 @@ animations = [{
 "speed": 12.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_86f2x"]
+atlas = ExtResource("41_h3vgr")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whx7x"]
+atlas = ExtResource("41_h3vgr")
+region = Rect2(0, 24, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltd82"]
+atlas = ExtResource("41_h3vgr")
+region = Rect2(0, 0, 32, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q24c7"]
+atlas = ExtResource("41_h3vgr")
+region = Rect2(0, 0, 32, 24)
+
 [node name="Area1" type="Node2D" unique_id=1958189425]
 
 [node name="GameManager" type="Node" parent="." unique_id=607846285]
@@ -1712,8 +1729,37 @@ offset_bottom = 544.0
 
 [node name="EquipGrid" type="GridContainer" parent="SkillBook/SkillBookUI/RightPage" unique_id=1147848645]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 21.0
+offset_top = 72.0
+offset_right = 189.0
+offset_bottom = 240.0
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 2
+
+[node name="Slot1" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=2111337562]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = SubResource("AtlasTexture_86f2x")
+stretch_mode = 5
+
+[node name="Slot2" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1051256986]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = SubResource("AtlasTexture_whx7x")
+stretch_mode = 5
+
+[node name="Slot3" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=576582708]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = SubResource("AtlasTexture_ltd82")
+stretch_mode = 5
+
+[node name="Slot4" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1787882720]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = SubResource("AtlasTexture_q24c7")
+stretch_mode = 5
 
 [node name="PageTitle" type="Label" parent="SkillBook/SkillBookUI/RightPage" unique_id=736475830]
 layout_mode = 0
