@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://ln8mftfvxlqv"]
+
+[ext_resource type="Texture2D" uid="uid://b0te533uyloke" path="res://Assets/Menus/skill_menu/skillanimations/2 Icons/Icon_07.png" id="1_ymwba"]
+[ext_resource type="Script" uid="uid://bqxeilfybu4tl" path="res://Assets/Menus/skill_menu/Scripts/skill_data.gd" id="2_emv6l"]
+
+[resource]
+script = ExtResource("2_emv6l")
+id = "rock_spike"
+name = "Rock Spike"
+description = "Summon a sharp rock spike from the ground beneath your enemy."
+icon = ExtResource("1_ymwba")
+type = 2
+level_required = 1
+metadata/_custom_type_script = "uid://bqxeilfybu4tl"
