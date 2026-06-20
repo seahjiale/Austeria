@@ -218,9 +218,11 @@ func melee_attack():
 	can_attack = false
 	attack_hitbox.position.x = abs(attack_hitbox.position.x) * (-1 if player_animation.sprite.flip_h else 1)
 	attack_hitbox.monitoring = true
+	attack_hitbox.monitorable = true
 	attack_sound.play()
 	await player_animation.play_attack()
 	attack_hitbox.monitoring = false
+	attack_hitbox.monitorable = false
 	hit_bodies.clear()
 	
 	await get_tree().create_timer(attack_cooldown).timeout

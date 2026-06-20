@@ -313,6 +313,82 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Animation" id="Animation_k4sdf"]
+resource_name = "Attack"
+length = 0.75
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChameleonEnemySprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChameleonEnemySprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.375, 0.5, 0.625, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FiniteStateMachine/Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.375),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_hhqno"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChameleonEnemySprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Attack"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChameleonEnemySprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yyhvl"]
+_data = {
+&"Attack": SubResource("Animation_k4sdf"),
+&"RESET": SubResource("Animation_hhqno")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nnotf"]
 size = Vector2(22.5, 24)
 
@@ -329,8 +405,11 @@ script = ExtResource("1_yutr5")
 position = Vector2(-9.312501, -15.375)
 scale = Vector2(0.6979167, 0.7697368)
 sprite_frames = SubResource("SpriteFrames_nsbro")
-animation = &"Run"
+animation = &"Attack"
 autoplay = "Idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1137322132]
+libraries/ = SubResource("AnimationLibrary_yyhvl")
 
 [node name="HitBox" type="CollisionShape2D" parent="." unique_id=472007785]
 position = Vector2(4.75, -13)
@@ -344,6 +423,7 @@ shape = SubResource("RectangleShape2D_k4sdf")
 
 [node name="TongueHitBox" type="Area2D" parent="." unique_id=336673943]
 position = Vector2(-18, -11)
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TongueHitBox" unique_id=122488060]
 position = Vector2(-4.5, 0)

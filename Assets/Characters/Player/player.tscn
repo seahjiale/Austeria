@@ -439,7 +439,7 @@ position_smoothing_speed = 8.0
 
 [node name="Attack" type="Node2D" parent="." unique_id=112076025]
 
-[node name="AttackHitBox" type="Area2D" parent="Attack" unique_id=904320841]
+[node name="AttackHitBox" type="Area2D" parent="Attack" unique_id=904320841 groups=["player_hitbox"]]
 position = Vector2(9, -9)
 collision_mask = 7
 monitoring = false

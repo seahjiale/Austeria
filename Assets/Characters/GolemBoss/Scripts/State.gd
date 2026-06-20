@@ -1,7 +1,7 @@
 extends Node2D
 class_name State
 
-@onready var debug = owner.find_child("debug")
+@onready var debug = owner.find_child("Debug")
 @onready var animation_player = owner.find_child("AnimationPlayer")
 
 func _ready() -> void:

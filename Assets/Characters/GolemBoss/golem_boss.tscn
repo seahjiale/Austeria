@@ -495,6 +495,7 @@ text = "Boss Killed"
 horizontal_alignment = 1
 
 [node name="debug" type="Label" parent="." unique_id=1579610449]
+visible = false
 offset_left = -24.0
 offset_top = -50.0
 offset_right = 16.0

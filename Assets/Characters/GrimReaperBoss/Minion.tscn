@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://ds1im2f5n46ku"]
+
+[ext_resource type="Script" uid="uid://rkgefqv0dub2" path="res://Assets/Characters/GrimReaperBoss/Scripts/Minion.gd" id="1_xg7cu"]
+[ext_resource type="Texture2D" uid="uid://ccht3aqmcxh75" path="res://Assets/Characters/GrimReaperBoss/png/summonIdle.png" id="2_3725h"]
+[ext_resource type="Texture2D" uid="uid://bg68bejx4ces8" path="res://Assets/Characters/GrimReaperBoss/png/summonAppear.png" id="3_rbuu5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ax4tm"]
+atlas = ExtResource("2_3725h")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wmcw"]
+atlas = ExtResource("2_3725h")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rskid"]
+atlas = ExtResource("2_3725h")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rcnb"]
+atlas = ExtResource("2_3725h")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_834pt"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amy37"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cudaj"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2riwo"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(0, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhohn"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(50, 50, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f0wt6"]
+atlas = ExtResource("3_rbuu5")
+region = Rect2(100, 50, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w33bb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ax4tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wmcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rskid")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rcnb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_834pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_amy37")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cudaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2riwo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhohn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f0wt6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uv4oq"]
+radius = 5.0
+height = 22.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xg7cu"]
+radius = 7.0
+height = 22.0
+
+[node name="Minion" type="CharacterBody2D" unique_id=1429386201]
+script = ExtResource("1_xg7cu")
+
+[node name="MinionSprite" type="AnimatedSprite2D" parent="." unique_id=1212251317]
+sprite_frames = SubResource("SpriteFrames_w33bb")
+animation = &"Idle"
+autoplay = "default"
+frame = 1
+frame_progress = 0.20000115
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=151307025]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1691967759]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_uv4oq")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=2031949941]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=718415889]
+position = Vector2(-1, 3)
+shape = SubResource("CapsuleShape2D_xg7cu")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
