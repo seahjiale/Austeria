@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgajfronf8o7b"
-path="res://.godot/imported/Close_book_boolmarks.png-8029ab398c04124c98d67fd38b576132.ctex"
+uid="uid://b51rrlx6rg3i0"
+path="res://.godot/imported/pages_apper.png-52006db0b8042b149cb522287425272d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/Close_book_boolmarks.png"
-dest_files=["res://.godot/imported/Close_book_boolmarks.png-8029ab398c04124c98d67fd38b576132.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/pages_apper.png"
+dest_files=["res://.godot/imported/pages_apper.png-52006db0b8042b149cb522287425272d.ctex"]
 
 [params]
 

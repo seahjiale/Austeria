@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ceielkae6xhv5"
-path="res://.godot/imported/bookmarks.png-bd7d230f9be9fa15fba1830ae844531e.ctex"
+uid="uid://ba8uesrg600y8"
+path="res://.godot/imported/info_tileset.png-fa0742c52d0fdade32ba98aad8b8ffb1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/bookmarks.png"
-dest_files=["res://.godot/imported/bookmarks.png-bd7d230f9be9fa15fba1830ae844531e.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/info_tileset.png"
+dest_files=["res://.godot/imported/info_tileset.png-fa0742c52d0fdade32ba98aad8b8ffb1.ctex"]
 
 [params]
 

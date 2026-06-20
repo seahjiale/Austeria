@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://w7q5whx8h55m"
-path="res://.godot/imported/sells_full.png-8c81ded15d5f0fa3e7d1841b99184f34.ctex"
+uid="uid://bgajfronf8o7b"
+path="res://.godot/imported/Close_book_boolmarks.png-a8556c9050dd2b902e2e8742d3b6255f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/sells_full.png"
-dest_files=["res://.godot/imported/sells_full.png-8c81ded15d5f0fa3e7d1841b99184f34.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/Close_book_boolmarks.png"
+dest_files=["res://.godot/imported/Close_book_boolmarks.png-a8556c9050dd2b902e2e8742d3b6255f.ctex"]
 
 [params]
 

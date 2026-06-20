@@ -19,8 +19,9 @@ func _ready() -> void:
 	_setup_equip_slots()
 
 func _load_skills() -> void:
-	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/rock_spike.tres"))
-
+	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/rock_spike/rock_spike.tres"))
+	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/laser_beam/laser_beam.tres"))
+	
 func _build_skill_grid() -> void:
 	skill_grid.columns = 3
 	skill_grid.add_theme_constant_override("h_separation", 8)
@@ -67,22 +68,58 @@ func _setup_equip_slots() -> void:
 		var slot = slots[i]
 		slot.mouse_filter = Control.MOUSE_FILTER_STOP
 		slot.set_meta("index", i)
+		slot.set_meta("is_filled", false)
 		slot.set_meta("equipped_skill", null)
 		slot.set_drag_forwarding(
-			func(_pos, _s): return null,
+			_get_equip_drag_data.bind(slot),
 			_can_drop_on_equip.bind(slot),
 			_drop_on_equip.bind(slot)
 		)
 
-func _can_drop_on_equip(at_position: Vector2, data: Variant, slot: TextureRect) -> bool:
-	return data is SkillData
+func _get_equip_drag_data(_at_position: Vector2, slot: TextureRect) -> Variant:
+	var filled = slot.get_meta("is_filled", false)
+	if not filled:
+		return null
+	var skill = slot.get_meta("equipped_skill")
+	var preview := TextureRect.new()
+	preview.texture = skill.icon
+	preview.custom_minimum_size = Vector2(48, 48)
+	preview.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	preview.modulate.a = 0.8
+	set_drag_preview(preview)
+	_drag_origin = slot
+	return skill
 
-func _drop_on_equip(at_position: Vector2, data: Variant, slot: TextureRect) -> void:
+func _unequip_slot(slot: TextureRect) -> void:
+	var index = slot.get_meta("index")
+	slot.set_meta("is_filled", false)
+	slot.set_meta("equipped_skill", null)
+	for child in slot.get_children():
+		child.queue_free()
+	SkillManager.unequip_skill(index)
+
+func _can_drop_on_equip(at_position: Vector2, data: Variant, slot: TextureRect) -> bool:
+	var filled = slot.get_meta("is_filled", false)
+	return data is SkillData and not filled
+
+func _drop_on_equip(_at_position: Variant, data: Variant, slot: TextureRect) -> void:
+	if not slot.has_meta("index"):
+		return
+	if _drag_origin and _drag_origin != slot:
+		_unequip_slot(_drag_origin)
+	_drag_origin = null
 	_equip_skill_to_slot(data, slot)
+	var index = slot.get_meta("index")
+	SkillManager.equip_skill(index, data)
+	
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_DRAG_END:
+		if _drag_origin and not get_viewport().gui_is_drag_successful():
+			_unequip_slot(_drag_origin)
+		_drag_origin = null
 
 func _equip_skill_to_slot(skill: SkillData, slot: TextureRect) -> void:
-	if not slot.has_meta("original_texture"):
-		slot.set_meta("original_texture", slot.texture)
+	slot.set_meta("is_filled", true)
 	slot.set_meta("equipped_skill", skill)
 	for child in slot.get_children():
 		child.queue_free()

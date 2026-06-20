@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dpi60pdqsgr0k"]
+
+[ext_resource type="Script" uid="uid://bti86crprtwsy" path="res://Assets/Menus/skill_menu/skills/rock_spike/rock_spike.gd" id="1_rwswd"]
+[ext_resource type="Texture2D" uid="uid://rdu6e1gi7mrk" path="res://Assets/Menus/skill_menu/skillanimations/1 Magic/7.png" id="2_04211"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0x4i"]
+atlas = ExtResource("2_04211")
+region = Rect2(0, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsfno"]
+atlas = ExtResource("2_04211")
+region = Rect2(72, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wk7i"]
+atlas = ExtResource("2_04211")
+region = Rect2(144, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jl5ke"]
+atlas = ExtResource("2_04211")
+region = Rect2(216, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxwhq"]
+atlas = ExtResource("2_04211")
+region = Rect2(288, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_altpn"]
+atlas = ExtResource("2_04211")
+region = Rect2(360, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oamp"]
+atlas = ExtResource("2_04211")
+region = Rect2(432, 0, 72, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47e67"]
+atlas = ExtResource("2_04211")
+region = Rect2(504, 0, 72, 72)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s05ci"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0x4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsfno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wk7i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jl5ke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxwhq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_altpn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oamp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47e67")
+}],
+"loop": false,
+"name": &"erupt",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjqss"]
+size = Vector2(55, 25)
+
+[node name="RockSpike" type="Area2D" unique_id=797014314]
+collision_mask = 4
+script = ExtResource("1_rwswd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=876340614]
+position = Vector2(0, -37)
+sprite_frames = SubResource("SpriteFrames_s05ci")
+animation = &"erupt"
+frame = 7
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=981894974]
+position = Vector2(0, -13)
+shape = SubResource("RectangleShape2D_fjqss")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://dlq0u86pas8do"]
+
+[ext_resource type="Script" uid="uid://bqxeilfybu4tl" path="res://Assets/Menus/skill_menu/Scripts/skill_data.gd" id="1_iob0j"]
+[ext_resource type="Texture2D" uid="uid://ckmnrku3pd5om" path="res://Assets/Menus/skill_menu/skillanimations/2 Icons/Icon_03.png" id="1_v3pjq"]
+
+[resource]
+script = ExtResource("1_iob0j")
+id = "laser_beam"
+name = "Laser Beam"
+description = "Fire a piercing beam diagonally downward that cuts through enemies."
+icon = ExtResource("1_v3pjq")
+type = 2
+level_required = 2
+metadata/_custom_type_script = "uid://bqxeilfybu4tl"

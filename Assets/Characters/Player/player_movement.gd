@@ -86,6 +86,15 @@ func _input(event):
 	if event.is_action_pressed("attack"):
 		attack()
 		
+	if event.is_action_pressed("skill_1"):
+		use_skill(0)
+	if event.is_action_pressed("skill_2"):
+		use_skill(1)
+	if event.is_action_pressed("skill_3"):
+		use_skill(2)
+	if event.is_action_pressed("skill_4"):
+		use_skill(3)
+		
 var level_up_tween: Tween
 
 func play_level_up_effect():
@@ -264,3 +273,51 @@ func apply_selected_class() -> void:
 	base_damage = current_class.base_damage
 	attack_type = current_class.attack_type
 	player_animation.base_attack_animation = current_class.base_attack_animation
+
+
+# SKILLS CODE
+func use_skill(slot_index: int) -> void:
+	var skill = SkillManager.get_skill(slot_index)
+	if skill == null:
+		return
+	match skill.id:
+		"rock_spike":
+			use_rock_spike()
+		"laser_beam":
+			use_laser_beam()
+
+@export var rock_spike_scene: PackedScene
+@export var rock_spike_distance: float = 80.0
+var can_use_rock_spike: bool = true
+const ROCK_SPIKE_COOLDOWN: float = 2.0
+
+func use_rock_spike() -> void:
+	if not can_use_rock_spike:
+		return
+	can_use_rock_spike = false
+	var facing := -1 if player_animation.sprite.flip_h else 1
+	var spawn_pos := global_position + Vector2(rock_spike_distance * facing, 0)
+	var spike = rock_spike_scene.instantiate()
+	spike.setup(facing)
+	spike.global_position = spawn_pos
+	get_parent().add_child(spike)
+	await get_tree().create_timer(ROCK_SPIKE_COOLDOWN).timeout
+	can_use_rock_spike = true
+
+@export var laser_beam_scene: PackedScene
+var LASER_DIAGONAL := Vector2(1, 1).normalized()
+var can_use_laser_beam: bool = true
+const LASER_COOLDOWN: float = 2.5
+
+func use_laser_beam() -> void:
+	if not can_use_laser_beam:
+		return
+	can_use_laser_beam = false
+	var facing := -1 if player_animation.sprite.flip_h else 1
+	var dir := Vector2(LASER_DIAGONAL.x * facing, LASER_DIAGONAL.y)
+	var laser = laser_beam_scene.instantiate()
+	laser.setup(dir, get_attack_damage())
+	laser.global_position = global_position + Vector2(0, -40)
+	get_parent().add_child(laser)
+	await get_tree().create_timer(LASER_COOLDOWN).timeout
+	can_use_laser_beam = true

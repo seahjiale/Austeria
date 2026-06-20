@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk2h5nb0ajulg"
-path="res://.godot/imported/Turning_pages_right.png-ab9fe8687f1ad0223a0c76270544bbdd.ctex"
+uid="uid://c1ww5injveji6"
+path="res://.godot/imported/Text2.png-df151fbef0dbc2dcd362dde220c6da3f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/Turning_pages_right.png"
-dest_files=["res://.godot/imported/Turning_pages_right.png-ab9fe8687f1ad0223a0c76270544bbdd.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/Text2.png"
+dest_files=["res://.godot/imported/Text2.png-df151fbef0dbc2dcd362dde220c6da3f.ctex"]
 
 [params]
 

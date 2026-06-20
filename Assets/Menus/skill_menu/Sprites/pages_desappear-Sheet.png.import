@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ww5injveji6"
-path="res://.godot/imported/Text2.png-cfdce572c0a50ec83a73aa7c528813ea.ctex"
+uid="uid://7sdgaoxc2fw2"
+path="res://.godot/imported/pages_desappear-Sheet.png-3ef1342acd0e5db1f39c9a36b83b2275.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/Text2.png"
-dest_files=["res://.godot/imported/Text2.png-cfdce572c0a50ec83a73aa7c528813ea.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/pages_desappear-Sheet.png"
+dest_files=["res://.godot/imported/pages_desappear-Sheet.png-3ef1342acd0e5db1f39c9a36b83b2275.ctex"]
 
 [params]
 

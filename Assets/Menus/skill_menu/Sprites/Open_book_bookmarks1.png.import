@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7sdgaoxc2fw2"
-path="res://.godot/imported/pages_desappear-Sheet.png-b7cb34a333c424ce0c74816981c70af7.ctex"
+uid="uid://3v3jo7u4o577"
+path="res://.godot/imported/Open_book_bookmarks1.png-b11c917367b1b6119a1fe12098f352e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Menus/skill_menu/pages_desappear-Sheet.png"
-dest_files=["res://.godot/imported/pages_desappear-Sheet.png-b7cb34a333c424ce0c74816981c70af7.ctex"]
+source_file="res://Assets/Menus/skill_menu/Sprites/Open_book_bookmarks1.png"
+dest_files=["res://.godot/imported/Open_book_bookmarks1.png-b11c917367b1b6119a1fe12098f352e9.ctex"]
 
 [params]
 
