@@ -48,6 +48,7 @@ func take_damage(amount: int):
 		_die()
 
 func _die() -> void:
+	ExpManager.gain_xp(40)
 	velocity = Vector2.ZERO
 	set_physics_process(false)
 	$HitBox.get_parent().collision_mask = 0

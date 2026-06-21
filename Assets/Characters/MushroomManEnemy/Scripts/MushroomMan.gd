@@ -48,8 +48,9 @@ func take_damage(amount: int):
 		_die()
 
 func _die() -> void:
+	ExpManager.gain_xp(40)
 	velocity = Vector2.ZERO
 	set_physics_process(false)
-	$HitBox.get_parent().collision_mask = 0
-	$HitBox.get_parent().collision_layer = 0
+	$Hitbox.get_parent().collision_mask = 0
+	$Hitbox.get_parent().collision_layer = 0
 	find_child("FiniteStateMachine").change_state("Death")

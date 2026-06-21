@@ -20,6 +20,7 @@ var health = 30:
 		health = value
 		progress_bar.value = value
 		if value <= 0:
+			ExpManager.gain_xp(200)
 			progress_bar.visible = false
 			$Hitbox.set_deferred("disabled", true)
 			find_child("FiniteStateMachine").change_state("Death")
