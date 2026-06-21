@@ -94,6 +94,11 @@ func _input(event):
 		use_skill(2)
 	if event.is_action_pressed("skill_4"):
 		use_skill(3)
+	
+	#delete after finish debugging
+	if event.is_action_pressed("debug_skill_point"):
+		SkillManager.add_skill_point(1)
+		print("Skill points: ", SkillManager.skill_points)
 		
 var level_up_tween: Tween
 
@@ -302,7 +307,7 @@ func use_rock_spike() -> void:
 	spike.global_position = spawn_pos
 	get_parent().add_child(spike)
 	await get_tree().create_timer(ROCK_SPIKE_COOLDOWN).timeout
-	can_use_rock_spike = true
+	can_use_rock_spike = true 
 
 @export var laser_beam_scene: PackedScene
 var LASER_DIAGONAL := Vector2(1, 1).normalized()

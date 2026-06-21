@@ -1716,8 +1716,30 @@ offset_bottom = 541.0
 
 [node name="SkillGrid" type="GridContainer" parent="SkillBook/SkillBookUI/LeftPage" unique_id=100873980]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 9.0
+offset_top = 80.0
+offset_right = 203.0
+offset_bottom = 282.0
+
+[node name="UnlockButton" type="Button" parent="SkillBook/SkillBookUI/LeftPage" unique_id=1353636237]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("43_abqbe")
+icon_alignment = 1
+
+[node name="PointsLabel" type="Label" parent="SkillBook/SkillBookUI/LeftPage" unique_id=1026123741]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 13.0
+offset_right = 199.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("43_abqbe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RightPage" type="Control" parent="SkillBook/SkillBookUI" unique_id=2091749783]
 custom_minimum_size = Vector2(212, 308)

@@ -1,13 +1,9 @@
 extends Node
-
 signal xp_changed(current_xp, required_xp)
 signal level_changed(new_level)
-
 var level: int = 1
 var current_xp: int = 0
 var xp_to_next: int = 100
-
-# XP curve where more exp is required as you level up : base * (level ^ exponent)
 const BASE_XP = 100
 const XP_EXPONENT = 1.5
 
