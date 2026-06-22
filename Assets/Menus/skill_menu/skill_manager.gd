@@ -45,3 +45,24 @@ func try_unlock_skill(skill: SkillData) -> bool:
 	points_changed.emit(skill_points)
 	skill_unlocked.emit(skill)
 	return true
+
+signal skill_used(slot_index: int, cooldown: float)
+signal cooldown_updated(slot_index: int, remaining: float)
+
+var _cooldowns: Array[float] = [0.0, 0.0, 0.0, 0.0]
+var _max_cooldowns: Array[float] = [0.0, 0.0, 0.0, 0.0]
+
+func use_skill(slot_index: int) -> void:
+	var skill = equipped_slots[slot_index]
+	if skill == null or _cooldowns[slot_index] > 0.0:
+		return
+	_max_cooldowns[slot_index] = skill.cooldown
+	_cooldowns[slot_index] = skill.cooldown
+	skill_used.emit(slot_index, skill.cooldown)
+	# TODO: your actual skill firing logic here
+
+func _process(delta: float) -> void:
+	for i in _cooldowns.size():
+		if _cooldowns[i] > 0.0:
+			_cooldowns[i] = maxf(0.0, _cooldowns[i] - delta)
+			cooldown_updated.emit(i, _cooldowns[i])

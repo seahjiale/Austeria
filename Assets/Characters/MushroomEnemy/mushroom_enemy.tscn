@@ -212,7 +212,7 @@ size = Vector2(27, 20)
 size = Vector2(28, 22)
 
 [node name="MushroomEnemy" type="RigidBody2D" unique_id=12949898 node_paths=PackedStringArray("sprite")]
-collision_layer = 4
+collision_layer = 5
 collision_mask = 3
 contact_monitor = true
 max_contacts_reported = 100

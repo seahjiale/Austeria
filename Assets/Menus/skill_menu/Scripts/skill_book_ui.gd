@@ -35,6 +35,7 @@ func _ready() -> void:
 func _load_skills() -> void:
 	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/rock_spike/rock_spike.tres"))
 	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/laser_beam/laser_beam.tres"))
+	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/shadow_walker/shadow_walker.tres"))
 
 
 # INPUT — book open/close + click to dismiss

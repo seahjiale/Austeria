@@ -285,11 +285,16 @@ func use_skill(slot_index: int) -> void:
 	var skill = SkillManager.get_skill(slot_index)
 	if skill == null:
 		return
+	if SkillManager._cooldowns[slot_index] > 0.0:
+		return
+	SkillManager.use_skill(slot_index)
 	match skill.id:
 		"rock_spike":
 			use_rock_spike()
 		"laser_beam":
 			use_laser_beam()
+		"shadow_walker":
+			use_shadow_walker()
 
 @export var rock_spike_scene: PackedScene
 @export var rock_spike_distance: float = 80.0
@@ -297,17 +302,12 @@ var can_use_rock_spike: bool = true
 const ROCK_SPIKE_COOLDOWN: float = 2.0
 
 func use_rock_spike() -> void:
-	if not can_use_rock_spike:
-		return
-	can_use_rock_spike = false
 	var facing := -1 if player_animation.sprite.flip_h else 1
 	var spawn_pos := global_position + Vector2(rock_spike_distance * facing, 0)
 	var spike = rock_spike_scene.instantiate()
 	spike.setup(facing)
 	spike.global_position = spawn_pos
 	get_parent().add_child(spike)
-	await get_tree().create_timer(ROCK_SPIKE_COOLDOWN).timeout
-	can_use_rock_spike = true 
 
 @export var laser_beam_scene: PackedScene
 var LASER_DIAGONAL := Vector2(1, 1).normalized()
@@ -315,14 +315,21 @@ var can_use_laser_beam: bool = true
 const LASER_COOLDOWN: float = 2.5
 
 func use_laser_beam() -> void:
-	if not can_use_laser_beam:
-		return
-	can_use_laser_beam = false
 	var facing := -1 if player_animation.sprite.flip_h else 1
-	var dir := Vector2(LASER_DIAGONAL.x * facing, LASER_DIAGONAL.y)
+	var dir := Vector2(facing, 0)
 	var laser = laser_beam_scene.instantiate()
 	laser.setup(dir, get_attack_damage())
-	laser.global_position = global_position + Vector2(0, -40)
+	laser.global_position = global_position + Vector2(facing + 55, -10)
 	get_parent().add_child(laser)
-	await get_tree().create_timer(LASER_COOLDOWN).timeout
-	can_use_laser_beam = true
+	
+@export var shadow_walker_scene: PackedScene
+@export var shadow_walker_distance: float = 80.0
+var can_use_shadow_walker: bool = true
+const SHADOW_WALKER_COOLDOWN: float = 1.0
+func use_shadow_walker() -> void:
+	var facing := -1 if player_animation.sprite.flip_h else 1
+	var spawn_pos := global_position + Vector2(shadow_walker_distance * facing, -30)
+	var spike = shadow_walker_scene.instantiate()
+	spike.setup(facing)
+	spike.global_position = spawn_pos
+	get_parent().add_child(spike)

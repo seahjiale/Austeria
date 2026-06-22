@@ -11,7 +11,6 @@ func _ready() -> void:
 	monitorable = true
 	
 	body_entered.connect(_on_body_entered)
-	print("direction.x: ", direction.x, " | flip_h will be: ", direction.x < 0)
 	if direction.x < 0:
 		anim.flip_h = true
 	anim.play("slash")
