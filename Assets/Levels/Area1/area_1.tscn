@@ -44,6 +44,8 @@
 [ext_resource type="Script" uid="uid://xqhm7syyrcie" path="res://Assets/Menus/skill_menu/Scripts/tooltip.gd" id="41_ogr2l"]
 [ext_resource type="Texture2D" uid="uid://ba8uesrg600y8" path="res://Assets/Menus/skill_menu/Sprites/info_tileset.png" id="42_ogr2l"]
 [ext_resource type="FontFile" uid="uid://cwy076gjksws" path="res://Assets/Menus/skill_menu/skillanimations/Font/Planes_ValMore.ttf" id="43_abqbe"]
+[ext_resource type="Script" uid="uid://c4nklrqdr7op" path="res://Assets/Menus/skill_menu/Scripts/skill_hud.gd" id="45_hesee"]
+[ext_resource type="Texture2D" uid="uid://b3kthbqo410t1" path="res://Assets/Menus/skill_menu/Sprites/cooldown_square.png" id="46_hesee"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ql8qi"]
 texture = ExtResource("1_3uyhe")
@@ -1058,6 +1060,10 @@ region = Rect2(0, 0, 32, 24)
 atlas = ExtResource("41_h3vgr")
 region = Rect2(0, 0, 32, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ue67a"]
+atlas = ExtResource("4_ql8qi")
+region = Rect2(0, 304, 112, 32)
+
 [node name="Area1" type="Node2D" unique_id=1958189425]
 
 [node name="GameManager" type="Node" parent="." unique_id=607846285]
@@ -1830,6 +1836,198 @@ offset_bottom = 167.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("43_abqbe")
 autowrap_mode = 2
+
+[node name="SkillUI" type="CanvasLayer" parent="." unique_id=766989893]
+
+[node name="SkillHUD" type="Control" parent="SkillUI" unique_id=1106542230]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -385.0
+offset_top = -55.0
+offset_right = 385.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+script = ExtResource("45_hesee")
+
+[node name="SkillBarBackground" type="TextureRect" parent="SkillUI/SkillHUD" unique_id=1799997726]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -259.0
+offset_top = -103.0
+offset_right = 259.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_ue67a")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillUI/SkillHUD" unique_id=464690029]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -203.0
+offset_top = -76.0
+offset_right = 203.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 50
+
+[node name="Slot0" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=1451764794]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=2040477498]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=56970201]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_progress = ExtResource("46_hesee")
+tint_progress = Color(0, 0, 0, 0.7058824)
+
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=42911774]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("43_abqbe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot1" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=2142385374]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1863670850]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1535127937]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_progress = ExtResource("46_hesee")
+tint_progress = Color(0, 0, 0, 0.7058824)
+
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1228352192]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("43_abqbe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=304744578]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=243833988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1307309380]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_progress = ExtResource("46_hesee")
+
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=854755875]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("43_abqbe")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=123828993]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=892635382]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=940180946]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 4
+texture_progress = ExtResource("46_hesee")
+
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=972083509]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("43_abqbe")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="SceneObjects/Map/MapBoundary/FallMechanic" to="SceneObjects/Map/MapBoundary/FallMechanic" method="_on_body_entered"]
 [connection signal="body_entered" from="SceneObjects/Map/Checkpoint1" to="SceneObjects/Map/Checkpoint1" method="_on_body_entered"]

@@ -8,3 +8,4 @@ enum SkillType { ACTIVE, PASSIVE, SPELL }
 @export var description: String
 @export var icon: Texture2D
 @export var type: SkillType
+@export var cooldown: float = 3.0

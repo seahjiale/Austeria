@@ -75,6 +75,7 @@ collision_mask = 4
 script = ExtResource("1_1vkrq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1485917163]
+rotation = -0.7853982
 sprite_frames = SubResource("SpriteFrames_kacfw")
 animation = &"slash"
 frame = 7
@@ -82,6 +83,6 @@ frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147074712]
 position = Vector2(2.5248942, 1.5248942)
-rotation = 2.3561945
+rotation = -1.5707964
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_seyk5")

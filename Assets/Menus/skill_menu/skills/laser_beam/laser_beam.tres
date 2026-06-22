@@ -10,5 +10,5 @@ name = "Laser Beam"
 description = "Fire a piercing beam diagonally downward that cuts through enemies."
 icon = ExtResource("1_v3pjq")
 type = 2
-level_required = 2
+cooldown = 2.5
 metadata/_custom_type_script = "uid://bqxeilfybu4tl"
