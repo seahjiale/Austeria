@@ -293,6 +293,8 @@ func use_skill(slot_index: int) -> void:
 			use_rock_spike()
 		"laser_beam":
 			use_laser_beam()
+		"shadow_walker":
+			use_shadow_walker()
 
 @export var rock_spike_scene: PackedScene
 @export var rock_spike_distance: float = 80.0
@@ -319,3 +321,15 @@ func use_laser_beam() -> void:
 	laser.setup(dir, get_attack_damage())
 	laser.global_position = global_position + Vector2(facing + 55, -10)
 	get_parent().add_child(laser)
+	
+@export var shadow_walker_scene: PackedScene
+@export var shadow_walker_distance: float = 80.0
+var can_use_shadow_walker: bool = true
+const SHADOW_WALKER_COOLDOWN: float = 1.0
+func use_shadow_walker() -> void:
+	var facing := -1 if player_animation.sprite.flip_h else 1
+	var spawn_pos := global_position + Vector2(shadow_walker_distance * facing, -30)
+	var spike = shadow_walker_scene.instantiate()
+	spike.setup(facing)
+	spike.global_position = spawn_pos
+	get_parent().add_child(spike)

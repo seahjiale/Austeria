@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://bdvkbtxeh86eo"]
+
+[ext_resource type="Script" uid="uid://bqxeilfybu4tl" path="res://Assets/Menus/skill_menu/Scripts/skill_data.gd" id="1_0x45m"]
+[ext_resource type="Texture2D" uid="uid://dj3o3s82egc27" path="res://Assets/Menus/skill_menu/skillanimations/2 Icons/Icon_02.png" id="1_j8w4h"]
+
+[resource]
+script = ExtResource("1_0x45m")
+id = "shadow_walker"
+name = "Shadow Walker"
+description = "test"
+icon = ExtResource("1_j8w4h")
+type = 2
+cooldown = 1.0
+metadata/_custom_type_script = "uid://bqxeilfybu4tl"
