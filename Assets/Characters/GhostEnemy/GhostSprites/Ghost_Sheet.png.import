@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b788r3oi6a54p"
-path="res://.godot/imported/Ghost_Death.png-ad48cd5f96c3a4a97dcae28a12c04e05.ctex"
+uid="uid://c825jy4g4dl3c"
+path="res://.godot/imported/Ghost_Sheet.png-64eb1de78ed3d5fefcb138506081ca0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/Area 3/Graveyard [16x16]/Bonus Character/Ghost_Death.png"
-dest_files=["res://.godot/imported/Ghost_Death.png-ad48cd5f96c3a4a97dcae28a12c04e05.ctex"]
+source_file="res://Assets/Characters/GhostEnemy/GhostSprites/Ghost_Sheet.png"
+dest_files=["res://.godot/imported/Ghost_Sheet.png-64eb1de78ed3d5fefcb138506081ca0b.ctex"]
 
 [params]
 

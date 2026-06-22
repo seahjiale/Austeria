@@ -5,7 +5,7 @@ extends State
 func enter():
 	set_physics_process(true)
 	owner.can_move = false
-	animation_player.play("idle")
+	animation_player.play("Idle")
 	progress_bar.visible = false  # hide HP bar in idle
 
 func exit():

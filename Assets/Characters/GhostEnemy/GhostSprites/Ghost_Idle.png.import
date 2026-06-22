@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ouhq1jpu1inc"
-path="res://.godot/imported/Ghost_Hurt.png-37eabd3e1da173d6ae1b3fe67004846e.ctex"
+uid="uid://6yku3y2i1je4"
+path="res://.godot/imported/Ghost_Idle.png-c91b631c36f31ae2f56fba4b9d206390.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/Area 3/Graveyard [16x16]/Bonus Character/Ghost_Hurt.png"
-dest_files=["res://.godot/imported/Ghost_Hurt.png-37eabd3e1da173d6ae1b3fe67004846e.ctex"]
+source_file="res://Assets/Characters/GhostEnemy/GhostSprites/Ghost_Idle.png"
+dest_files=["res://.godot/imported/Ghost_Idle.png-c91b631c36f31ae2f56fba4b9d206390.ctex"]
 
 [params]
 

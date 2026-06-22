@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cgrh7fw4kfw71"
-path="res://.godot/imported/Ghost_Jumping.png-f3a005ca980a897c308c759a1a0d1e0d.ctex"
+path="res://.godot/imported/Ghost_Jumping.png-b834a5cd6dac4089a6af71e23f4d955f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/Area 3/Graveyard [16x16]/Bonus Character/Ghost_Jumping.png"
-dest_files=["res://.godot/imported/Ghost_Jumping.png-f3a005ca980a897c308c759a1a0d1e0d.ctex"]
+source_file="res://Assets/Characters/GhostEnemy/GhostSprites/Ghost_Jumping.png"
+dest_files=["res://.godot/imported/Ghost_Jumping.png-b834a5cd6dac4089a6af71e23f4d955f.ctex"]
 
 [params]
 

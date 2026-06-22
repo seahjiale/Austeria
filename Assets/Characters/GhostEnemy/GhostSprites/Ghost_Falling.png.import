@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b1ibqpmc6obex"
-path="res://.godot/imported/Ghost_Walk.png-827399e7d9fb2cd4f38100e380e9944c.ctex"
+uid="uid://or4c7lst3cyu"
+path="res://.godot/imported/Ghost_Falling.png-6fd2c975a56486a7fea6cc1f8beb1817.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Levels/Area 3/Graveyard [16x16]/Bonus Character/Ghost_Walk.png"
-dest_files=["res://.godot/imported/Ghost_Walk.png-827399e7d9fb2cd4f38100e380e9944c.ctex"]
+source_file="res://Assets/Characters/GhostEnemy/GhostSprites/Ghost_Falling.png"
+dest_files=["res://.godot/imported/Ghost_Falling.png-6fd2c975a56486a7fea6cc1f8beb1817.ctex"]
 
 [params]
 

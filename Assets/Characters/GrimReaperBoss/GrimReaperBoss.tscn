@@ -696,7 +696,7 @@ _data = {
 height = 56.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jjap2"]
-size = Vector2(224, 207)
+size = Vector2(346, 229)
 
 [node name="GrimReaperBoss" type="CharacterBody2D" unique_id=261792373]
 collision_layer = 2
@@ -759,7 +759,6 @@ text = "debug"
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetection" unique_id=469799981]
-position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_jjap2")
 
 [node name="FiniteStateMachine" type="Node2D" parent="." unique_id=1090270582]
