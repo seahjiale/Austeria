@@ -18,6 +18,15 @@
 [ext_resource type="Script" uid="uid://dehld5ifcui24" path="res://Assets/Game/game_over.gd" id="15_5brjt"]
 [ext_resource type="Script" uid="uid://bb48eit83yo0h" path="res://Assets/Game/restart_button.gd" id="16_kq8kv"]
 [ext_resource type="Script" uid="uid://ceau380suw6ab" path="res://Assets/Game/experience_bar.gd" id="17_ohgwc"]
+[ext_resource type="PackedScene" uid="uid://b2eqv6orr5orc" path="res://Assets/Characters/SkeletonEnemy/skeleton_enemy.tscn" id="19_5brjt"]
+[ext_resource type="Texture2D" uid="uid://8mdhonouwgp7" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Background/Sky.png" id="19_185mf"]
+[ext_resource type="Texture2D" uid="uid://cds0coenb43t3" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Background/Moon.png" id="20_oou7t"]
+[ext_resource type="Texture2D" uid="uid://yqd8564wl6vl" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Background/Cloud 2.png" id="21_oou7t"]
+[ext_resource type="Texture2D" uid="uid://cb4ec6jik6nci" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Background/Cloud 3.png" id="21_veupp"]
+[ext_resource type="Texture2D" uid="uid://b34ffh1lk18sv" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Mountain/Mountain 2.png" id="23_us2hl"]
+[ext_resource type="Texture2D" uid="uid://dm8j25v0sn3ut" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Mountain/Mountain.png" id="24_xywl7"]
+[ext_resource type="Texture2D" uid="uid://ch15d3nakyhur" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Props&Objects/Trees.png" id="25_b58rq"]
+[ext_resource type="Texture2D" uid="uid://cjkopn0chk02" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Props&Objects/Grass.png" id="26_5brjt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6717h"]
 texture = ExtResource("1_6717h")
@@ -323,12 +332,6 @@ tile_map_data = PackedByteArray("AABnAPj/AgAAAAUAAABnAPn/AgAAAAYAAABnAPr/AgAAAAc
 tile_set = SubResource("TileSet_k4ktw")
 
 [node name="Player" parent="." unique_id=1059602613 instance=ExtResource("2_xslli")]
-
-[node name="GrimReaperBoss" parent="." unique_id=261792373 instance=ExtResource("2_k4ktw")]
-position = Vector2(2318, -33)
-
-[node name="GhostEnemy" parent="." unique_id=1569373175 instance=ExtResource("4_gsf2g")]
-position = Vector2(200, -60)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2046556215]
 layer = 10
@@ -702,6 +705,123 @@ show_percentage = false
 
 [node name="LevelUpAnimation" type="AnimationPlayer" parent="UI/ExperienceBar/VBoxContainer" unique_id=1842555172]
 root_node = NodePath("../HBoxContainer")
+
+[node name="Enemies" type="Node2D" parent="." unique_id=2129909067]
+
+[node name="GhostEnemy" parent="Enemies" unique_id=1569373175 instance=ExtResource("4_gsf2g")]
+position = Vector2(846, -201)
+
+[node name="GrimReaperBoss" parent="Enemies" unique_id=261792373 instance=ExtResource("2_k4ktw")]
+position = Vector2(2318, -33)
+
+[node name="SkeletonEnemy" parent="Enemies" unique_id=2007542240 instance=ExtResource("19_5brjt")]
+position = Vector2(273, -30)
+
+[node name="SkeletonEnemy2" parent="Enemies" unique_id=1355438349 instance=ExtResource("19_5brjt")]
+position = Vector2(1239, -363)
+
+[node name="GhostEnemy2" parent="Enemies" unique_id=378154653 instance=ExtResource("4_gsf2g")]
+position = Vector2(684, -105)
+
+[node name="GhostEnemy3" parent="Enemies" unique_id=906606792 instance=ExtResource("4_gsf2g")]
+position = Vector2(1110, -237)
+
+[node name="GhostEnemy4" parent="Enemies" unique_id=18223948 instance=ExtResource("4_gsf2g")]
+position = Vector2(1660, -384)
+
+[node name="SkeletonEnemy3" parent="Enemies" unique_id=1688985408 instance=ExtResource("19_5brjt")]
+position = Vector2(1561, -333)
+
+[node name="SkeletonEnemy4" parent="Enemies" unique_id=1988525329 instance=ExtResource("19_5brjt")]
+position = Vector2(1838, 36)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1773600498]
+
+[node name="Sky" type="Parallax2D" parent="ParallaxBackground" unique_id=1473031789]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky" unique_id=1645320841]
+position = Vector2(576, 327.75)
+scale = Vector2(3.5906253, 3.641667)
+texture = ExtResource("19_185mf")
+
+[node name="Moon" type="Parallax2D" parent="ParallaxBackground" unique_id=14140989]
+scroll_scale = Vector2(1.02, 1.02)
+scroll_offset = Vector2(0.02, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Moon" unique_id=1343602024]
+z_index = 1
+position = Vector2(789.98, 323)
+scale = Vector2(3.5906248, 3.5722222)
+texture = ExtResource("20_oou7t")
+
+[node name="Cloud 3" type="Parallax2D" parent="ParallaxBackground" unique_id=194283383]
+scroll_scale = Vector2(1.04, 1.04)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cloud 3" unique_id=1197396053]
+position = Vector2(580.99994, 282.5)
+scale = Vector2(4.4125, 4.1277776)
+texture = ExtResource("21_veupp")
+
+[node name="Cloud 2" type="Parallax2D" parent="ParallaxBackground" unique_id=275570878]
+scroll_scale = Vector2(1.08, 1.08)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Cloud 2" unique_id=801339548]
+position = Vector2(577, 312.50003)
+scale = Vector2(3.8999996, 4.1722226)
+texture = ExtResource("21_oou7t")
+
+[node name="Mountain 2" type="Parallax2D" parent="ParallaxBackground" unique_id=327756457]
+scroll_scale = Vector2(1.12, 1.12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountain 2" unique_id=1316042834]
+position = Vector2(580, 326.5)
+scale = Vector2(4.1375003, 3.561111)
+texture = ExtResource("23_us2hl")
+
+[node name="Mountain" type="Parallax2D" parent="ParallaxBackground" unique_id=354315865]
+scroll_scale = Vector2(1.2, 1.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Mountain" unique_id=41941412]
+position = Vector2(598, 277.75)
+scale = Vector2(4.6437497, 4.2027774)
+texture = ExtResource("24_xywl7")
+
+[node name="Objects" type="Node2D" parent="." unique_id=1960883997]
+
+[node name="Trees" type="Sprite2D" parent="Objects" unique_id=1480006853]
+position = Vector2(479.5, -44)
+scale = Vector2(1.890625, 1.7916666)
+texture = ExtResource("25_b58rq")
+
+[node name="Trees2" type="Sprite2D" parent="Objects" unique_id=1493539032]
+position = Vector2(64.03682, -41.665527)
+rotation = 3.1415927
+scale = Vector2(1.6574006, -1.694397)
+texture = ExtResource("25_b58rq")
+
+[node name="Grass" type="Sprite2D" parent="Objects" unique_id=1146796564]
+position = Vector2(1180.5, -249.25)
+scale = Vector2(1.0625011, 2.2395828)
+texture = ExtResource("26_5brjt")
+
+[node name="Trees3" type="Sprite2D" parent="Objects" unique_id=1670347211]
+position = Vector2(982, -170)
+texture = ExtResource("25_b58rq")
+
+[node name="Trees4" type="Sprite2D" parent="Objects" unique_id=1331821685]
+position = Vector2(1703, -309.00003)
+scale = Vector2(2.09375, 2.1666667)
+texture = ExtResource("25_b58rq")
+
+[node name="Grass2" type="Sprite2D" parent="Objects" unique_id=609506264]
+position = Vector2(1845, 30.5)
+scale = Vector2(1.425, 1.3125)
+texture = ExtResource("26_5brjt")
+
+[node name="Grass3" type="Sprite2D" parent="Objects" unique_id=1848645398]
+position = Vector2(2006, 29)
+scale = Vector2(-1.375, 1.375)
+texture = ExtResource("26_5brjt")
 
 [connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_exited"]

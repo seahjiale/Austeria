@@ -92,8 +92,8 @@ radius = 5.0
 height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xg7cu"]
-radius = 7.0
-height = 22.0
+radius = 9.0
+height = 24.0
 
 [node name="Minion" type="CharacterBody2D" unique_id=1429386201]
 script = ExtResource("1_xg7cu")
