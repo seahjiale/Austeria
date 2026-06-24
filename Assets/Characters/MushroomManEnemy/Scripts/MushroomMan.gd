@@ -42,7 +42,7 @@ func take_damage(amount: int):
 	if health > 0:
 		animation_player.play("Hurt")
 		await animation_player.animation_finished
-		find_child("FiniteStateMachine").change_state("Run")
+		find_child("FiniteStateMachine").change_state("Idle")
 		
 	else:
 		_die()

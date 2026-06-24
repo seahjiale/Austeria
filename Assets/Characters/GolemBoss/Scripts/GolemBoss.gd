@@ -6,6 +6,7 @@ extends CharacterBody2D
 }
 
 @onready var sprite = $GolemSprite
+@onready var portal = $"../../Portal"
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var progress_bar = $UI/ProgressBar
 const SPEED = 300
@@ -25,6 +26,9 @@ var health = 30:
 			$Hitbox.set_deferred("disabled", true)
 			find_child("FiniteStateMachine").change_state("Death")
 			drop_weapon()
+			if portal:
+				portal.visible = true
+				portal.set_process(true)
 
 func _ready():
 	progress_bar.max_value = health

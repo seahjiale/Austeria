@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://u1d3y71vub36" path="res://Assets/Characters/SkeletonEnemy/Scripts/skeleton_enemy.gd" id="1_kk3iy"]
 [ext_resource type="Texture2D" uid="uid://bci4vwyo2bu8u" path="res://Assets/Characters/SkeletonEnemy/Skeleton/Death.png" id="2_ji1y0"]
 [ext_resource type="Texture2D" uid="uid://doofgo158cm77" path="res://Assets/Characters/SkeletonEnemy/Skeleton/Idle.png" id="3_dclwr"]
+[ext_resource type="Texture2D" uid="uid://dh1uvxo5cen16" path="res://Assets/Characters/SkeletonEnemy/Skeleton/Take Hit.png" id="4_1jei8"]
 [ext_resource type="Texture2D" uid="uid://6hct4u757gj" path="res://Assets/Characters/SkeletonEnemy/Skeleton/Walk.png" id="4_frvkw"]
 [ext_resource type="Script" uid="uid://6pd8r2jv11n4" path="res://Assets/Characters/SkeletonEnemy/Scripts/finite_state_machine.gd" id="5_dclwr"]
 [ext_resource type="Script" uid="uid://l4dfi7csiu8c" path="res://Assets/Characters/SkeletonEnemy/Scripts/idle.gd" id="6_frvkw"]
@@ -57,6 +58,22 @@ region = Rect2(300, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fr7c3"]
 atlas = ExtResource("2_ji1y0")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur58t"]
+atlas = ExtResource("4_1jei8")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c2qv8"]
+atlas = ExtResource("4_1jei8")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bsgog"]
+atlas = ExtResource("4_1jei8")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e7hr"]
+atlas = ExtResource("4_1jei8")
 region = Rect2(450, 0, 150, 150)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_47iyx"]
@@ -137,6 +154,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur58t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c2qv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bsgog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e7hr")
+}],
+"loop": true,
+"name": &"Hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -246,6 +280,35 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_yerrd"]
+resource_name = "Hurt"
+length = 0.5000125
+step = 0.125
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SkeletonSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Hurt"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SkeletonSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.125, 0.25, 0.375),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
 [sub_resource type="Animation" id="Animation_dclwr"]
 resource_name = "Idle"
 length = 0.5000125
@@ -337,6 +400,7 @@ tracks/1/keys = {
 _data = {
 &"Attack": SubResource("Animation_kd2wa"),
 &"Death": SubResource("Animation_ji1y0"),
+&"Hurt": SubResource("Animation_yerrd"),
 &"Idle": SubResource("Animation_dclwr"),
 &"RESET": SubResource("Animation_frvkw"),
 &"Walk": SubResource("Animation_hpvnc")

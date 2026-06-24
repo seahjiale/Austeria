@@ -11,7 +11,7 @@ var can_move: bool = false:
 	set(value):
 		can_move = value
 
-var health = 6:
+var health = 12:
 	set(value):
 		health = value
 		if value <= 0:
@@ -49,7 +49,7 @@ func take_damage(amount: int):
 		animation_player.play("Hurt")
 		await animation_player.animation_finished
 		if not is_dead:
-			find_child("FiniteStateMachine").change_state("Walk")
+			find_child("FiniteStateMachine").change_state("Idle")
 	else:
 		_die()
 
