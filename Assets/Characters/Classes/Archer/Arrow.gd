@@ -7,6 +7,7 @@ extends Area2D
 var direction: Vector2 = Vector2.RIGHT
 
 func _ready() -> void:
+	add_to_group("player_attack")
 	await get_tree().create_timer(lifetime).timeout
 	queue_free()
 
@@ -17,6 +18,9 @@ func setup(new_direction: Vector2, new_damage: int) -> void:
 	direction = new_direction.normalized()
 	damage = new_damage
 	rotation = direction.angle()
+
+func get_attack_damage() -> int:
+	return damage
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.has_method("take_damage"):

@@ -10,12 +10,13 @@ func equip_item(item: ItemData) -> bool:
 	if not can_equip(item):
 		return false
 
-	var weapon := item as WeaponData
+	var weapon: WeaponData = item as WeaponData
 	equipment_data.equipped_weapon = weapon
 
 	var player = get_tree().get_first_node_in_group("player")
 	if player != null:
 		player.equip_weapon(weapon)
+		print("Equipped weapon: ", weapon.item_name, " damage:", weapon.damage)
 	else:
 		print("No player found in group 'player'.")
 

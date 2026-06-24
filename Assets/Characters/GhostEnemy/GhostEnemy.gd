@@ -57,7 +57,7 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	if area.is_in_group("player_hitbox"):
+	if area.is_in_group("player_hitbox") or area.is_in_group("player_attack"):
 		var damage = player.get_attack_damage() if player.has_method("get_attack_damage") else 1
 		take_damage(damage) # Replace with function body.
 

@@ -28,6 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://dm8j25v0sn3ut" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Parallax Background/Mountain/Mountain.png" id="24_xywl7"]
 [ext_resource type="Texture2D" uid="uid://ch15d3nakyhur" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Props&Objects/Trees.png" id="25_b58rq"]
 [ext_resource type="Texture2D" uid="uid://cjkopn0chk02" path="res://Assets/Levels/Area 3/Graveyard [16x16]/Props&Objects/Grass.png" id="26_5brjt"]
+[ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/InventoryPage/Inventory/inventory_window.tscn" id="29_52240"]
+[ext_resource type="PackedScene" uid="uid://bqiabba2e0mhg" path="res://Assets/InventoryPage/Equipment/EquipmentWindow.tscn" id="30_j8jrj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6717h"]
 texture = ExtResource("1_6717h")
@@ -842,6 +844,13 @@ texture = ExtResource("26_5brjt")
 position = Vector2(2006, 29)
 scale = Vector2(-1.375, 1.375)
 texture = ExtResource("26_5brjt")
+
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=1594733289]
+
+[node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("29_52240")]
+visible = false
+
+[node name="EquipmentWindow" parent="Inventory" unique_id=848119363 instance=ExtResource("30_j8jrj")]
 
 [connection signal="body_entered" from="Map/TileMapLayer/FallMechanic" to="Map/TileMapLayer/FallMechanic" method="_on_body_entered"]
 [connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]

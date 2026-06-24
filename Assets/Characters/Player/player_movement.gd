@@ -41,6 +41,8 @@ func get_current_class() -> CharacterClassData:
 	return current_class
 
 func _ready():
+	if GameState.equipped_weapon != null:
+		equip_weapon(GameState.equipped_weapon)
 	level_up_label_start_pos = level_up_label.position
 	apply_selected_class()
 	# checking if it has passed any checkpoints, if yes reset position
@@ -244,16 +246,19 @@ func melee_attack():
 
 func equip_weapon(weapon: WeaponData) -> void:
 	equipped_weapon = weapon
+	GameState.equipped_weapon = weapon
 	player_animation.equip_weapon(weapon)
 	if weapon == null:
 		print("Weapon unequipped")
 	else:
-		print("Equipped weapon: ", weapon.item_name)
+		print("Equipped weapon: ", weapon.item_name, " damage:", weapon.damage)
 
 func get_attack_damage() -> int:
+	var weapon_damage = 0
 	if equipped_weapon != null:
-		return equipped_weapon.damage
-	return base_damage
+		weapon_damage = equipped_weapon.damage
+		print("Weapon damage from resource: ", weapon_damage)
+	return base_damage + weapon_damage
 
 var hit_bodies: Array = []
 

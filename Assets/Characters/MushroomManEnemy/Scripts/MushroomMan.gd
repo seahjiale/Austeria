@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var animation_player = $AnimationPlayer
 var direction : Vector2
+var is_dead: bool = false
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var can_move: bool = false:
@@ -38,6 +39,8 @@ func _physics_process(delta):
 	move_and_slide()
 
 func take_damage(amount: int):
+	if is_dead:
+		return
 	health -= amount
 	if health > 0:
 		animation_player.play("Hurt")
@@ -48,6 +51,7 @@ func take_damage(amount: int):
 		_die()
 
 func _die() -> void:
+	is_dead = true
 	ExpManager.gain_xp(40)
 	velocity = Vector2.ZERO
 	set_physics_process(false)
