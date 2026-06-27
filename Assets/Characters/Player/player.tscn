@@ -10,8 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://dc6ekx0qettcv" path="res://Assets/Characters/Player/PlayerSprites/Fall (32x32).png" id="4_o2bcq"]
 [ext_resource type="Texture2D" uid="uid://cji5rm6clslkc" path="res://Assets/Characters/Player/PlayerSprites/Hit (32x32).png" id="4_rg2dv"]
 [ext_resource type="PackedScene" uid="uid://dpi60pdqsgr0k" path="res://Assets/Menus/skill_menu/skills/rock_spike/RockSpike.tscn" id="4_xjtj3"]
-[ext_resource type="PackedScene" uid="uid://dunpldvg0vdo2" path="res://Assets/Menus/skill_menu/skills/laser_beam/LaserBeam.tscn" id="5_u1g48"]
-[ext_resource type="PackedScene" uid="uid://ckv7657m5c6an" path="res://Assets/Menus/skill_menu/skills/shadow_walker/ShadowWalker.tscn" id="6_moc1b"]
+[ext_resource type="PackedScene" uid="uid://dunpldvg0vdo2" path="res://Assets/Menus/skill_menu/skills/god_fist/GodFist.tscn" id="5_u1g48"]
+[ext_resource type="PackedScene" uid="uid://ckv7657m5c6an" path="res://Assets/Menus/skill_menu/skills/shadow_orb/ShadowOrb.tscn" id="6_moc1b"]
 [ext_resource type="Texture2D" uid="uid://cqms1hw33gdh" path="res://Assets/Characters/Player/PlayerSprites/Jump (32x32).png" id="6_rg2dv"]
 [ext_resource type="Texture2D" uid="uid://clw3sfvmtywrv" path="res://Assets/Characters/Player/PlayerSprites/Run (32x32).png" id="7_rc8y2"]
 [ext_resource type="Texture2D" uid="uid://b372c05lfhyyt" path="res://Assets/Menus/LevelUpAnimation/beam.png" id="12_yay70"]
@@ -415,8 +415,8 @@ player_class_data = ExtResource("2_5ae3s")
 speed = 4.0
 rock_spike_scene = ExtResource("4_xjtj3")
 rock_spike_distance = 40.0
-laser_beam_scene = ExtResource("5_u1g48")
-shadow_walker_scene = ExtResource("6_moc1b")
+god_fist_scene = ExtResource("5_u1g48")
+shadow_orb_scene = ExtResource("6_moc1b")
 
 [node name="PlayerAnimation" type="Node2D" parent="." unique_id=23722242 node_paths=PackedStringArray("player_movement", "sprite")]
 script = ExtResource("2_38rej")

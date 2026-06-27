@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://bdvkbtxeh86eo"]
+
+[ext_resource type="Texture2D" uid="uid://cwds0nfhyn45a" path="res://Assets/Menus/skill_menu/skills/shadow_orb/fb774.png" id="1_3i4q0"]
+[ext_resource type="Script" uid="uid://bqxeilfybu4tl" path="res://Assets/Menus/skill_menu/Scripts/skill_data.gd" id="2_spvep"]
+
+[resource]
+script = ExtResource("2_spvep")
+id = "shadow_orb"
+name = "Shadow Orb"
+description = "Summons a large shadow orb that bursts enemies."
+icon = ExtResource("1_3i4q0")
+type = 2
+cooldown = 1.0
+metadata/_custom_type_script = "uid://bqxeilfybu4tl"

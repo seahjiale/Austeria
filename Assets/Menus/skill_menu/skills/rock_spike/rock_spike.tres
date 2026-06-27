@@ -10,5 +10,5 @@ name = "Rock Spike"
 description = "Summon a sharp rock spike from the ground beneath your enemy."
 icon = ExtResource("1_ymwba")
 type = 2
-cooldown = 2.0
+cooldown = 1.7149999999999999
 metadata/_custom_type_script = "uid://bqxeilfybu4tl"

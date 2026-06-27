@@ -296,10 +296,10 @@ func use_skill(slot_index: int) -> void:
 	match skill.id:
 		"rock_spike":
 			use_rock_spike()
-		"laser_beam":
-			use_laser_beam()
-		"shadow_walker":
-			use_shadow_walker()
+		"god_fist":
+			use_god_fist()
+		"shadow_orb":
+			use_shadow_orb()
 
 @export var rock_spike_scene: PackedScene
 @export var rock_spike_distance: float = 80.0
@@ -314,27 +314,26 @@ func use_rock_spike() -> void:
 	spike.global_position = spawn_pos
 	get_parent().add_child(spike)
 
-@export var laser_beam_scene: PackedScene
-var LASER_DIAGONAL := Vector2(1, 1).normalized()
-var can_use_laser_beam: bool = true
-const LASER_COOLDOWN: float = 2.5
-
-func use_laser_beam() -> void:
+@export var god_fist_scene: PackedScene
+@export var god_fist_distance: float = 80.0
+var can_use_god_fist: bool = true
+const GOD_FIST_COOLDOWN: float = 5.0
+func use_god_fist() -> void:
 	var facing := -1 if player_animation.sprite.flip_h else 1
-	var dir := Vector2(facing, 0)
-	var laser = laser_beam_scene.instantiate()
-	laser.setup(dir, get_attack_damage())
-	laser.global_position = global_position + Vector2(facing + 55, -10)
-	get_parent().add_child(laser)
+	var spawn_pos := global_position + Vector2(god_fist_distance * facing, -30)
+	var fist = god_fist_scene.instantiate()
+	fist.setup(facing)
+	fist.global_position = spawn_pos
+	get_parent().add_child(fist)
 	
-@export var shadow_walker_scene: PackedScene
-@export var shadow_walker_distance: float = 80.0
-var can_use_shadow_walker: bool = true
-const SHADOW_WALKER_COOLDOWN: float = 1.0
-func use_shadow_walker() -> void:
+@export var shadow_orb_scene: PackedScene
+@export var shadow_orb_distance: float = 80.0
+var can_use_shadow_orb: bool = true
+const SHADOW_ORB_COOLDOWN: float = 1.0
+func use_shadow_orb() -> void:
 	var facing := -1 if player_animation.sprite.flip_h else 1
-	var spawn_pos := global_position + Vector2(shadow_walker_distance * facing, -30)
-	var spike = shadow_walker_scene.instantiate()
-	spike.setup(facing)
-	spike.global_position = spawn_pos
-	get_parent().add_child(spike)
+	var spawn_pos := global_position + Vector2(shadow_orb_distance * facing, -30)
+	var orb = shadow_orb_scene.instantiate()
+	orb.setup(facing)
+	orb.global_position = spawn_pos
+	get_parent().add_child(orb)

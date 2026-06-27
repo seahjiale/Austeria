@@ -34,8 +34,8 @@ func _ready() -> void:
 
 func _load_skills() -> void:
 	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/rock_spike/rock_spike.tres"))
-	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/laser_beam/laser_beam.tres"))
-	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/shadow_walker/shadow_walker.tres"))
+	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/god_fist/god_fist.tres"))
+	all_skills.append(preload("res://Assets/Menus/skill_menu/skills/shadow_orb/shadow_orb.tres"))
 
 
 # INPUT — book open/close + click to dismiss
@@ -119,13 +119,13 @@ func _build_skill_grid() -> void:
 		child.queue_free()
 
 	skill_grid.columns = 3
-	skill_grid.add_theme_constant_override("h_separation", 8)
+	skill_grid.add_theme_constant_override("h_separation", 20)
 	skill_grid.add_theme_constant_override("v_separation", 8)
 
 	for skill in all_skills:
 		var slot := TextureRect.new()
 		slot.texture = skill.icon
-		slot.custom_minimum_size = Vector2(64, 64)
+		slot.custom_minimum_size = Vector2(50, 50)
 		slot.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		slot.mouse_filter = Control.MOUSE_FILTER_STOP
 		slot.set_meta("skill", skill)

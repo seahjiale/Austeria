@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="SkillData" format=3 uid="uid://dlq0u86pas8do"]
+
+[ext_resource type="Texture2D" uid="uid://boq1fgoht5xdv" path="res://Assets/Menus/skill_menu/skills/god_fist/fb1160.png" id="1_37ckq"]
+[ext_resource type="Script" uid="uid://bqxeilfybu4tl" path="res://Assets/Menus/skill_menu/Scripts/skill_data.gd" id="2_sbixk"]
+
+[resource]
+script = ExtResource("2_sbixk")
+id = "god_fist"
+name = "God Fist"
+description = "Summons a powerful combo fist attack."
+icon = ExtResource("1_37ckq")
+type = 2
+cooldown = 5.0
+metadata/_custom_type_script = "uid://bqxeilfybu4tl"
