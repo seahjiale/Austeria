@@ -5,6 +5,8 @@ extends State
 func enter():
 	super.enter()
 	owner.can_move = false
+	owner.can_attack = false
+	owner.find_child("ChameleonEnemySprite").stop()
 	animation_player.play("Attack")
 	await animation_player.animation_finished
 	owner.start_attack_cooldown()

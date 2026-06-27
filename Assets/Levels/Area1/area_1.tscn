@@ -1078,7 +1078,7 @@ script = ExtResource("1_ttsc2")
 position = Vector2(-144, 0)
 
 [node name="MushroomEnemy" parent="SceneObjects/Characters" unique_id=12949898 instance=ExtResource("2_7fk0h")]
-position = Vector2(700, -193)
+position = Vector2(804, -433)
 
 [node name="MushroomEnemy2" parent="SceneObjects/Characters" unique_id=774131767 instance=ExtResource("2_7fk0h")]
 position = Vector2(1066, -336)
@@ -1105,7 +1105,7 @@ position = Vector2(1257, -48)
 position = Vector2(1619, -129)
 
 [node name="ChameleonEnemy" parent="SceneObjects/Characters" unique_id=228528805 instance=ExtResource("6_306j6")]
-position = Vector2(796, -431)
+position = Vector2(778, -192)
 
 [node name="ChameleonEnemy2" parent="SceneObjects/Characters" unique_id=1524885477 instance=ExtResource("6_306j6")]
 position = Vector2(1338, -207)
@@ -1235,21 +1235,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="InventoryAndSkillText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1506483172]
-offset_left = 860.0
-offset_top = -523.0
-offset_right = 1071.0
-offset_bottom = -476.0
+offset_left = 808.0
+offset_top = -530.0
+offset_right = 953.0
+offset_bottom = -483.0
 
 [node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/InventoryAndSkillText" unique_id=1258731555]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 9.0
-offset_right = 209.0
-offset_bottom = 54.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_8wi1m")
-text = "press I to open inventory
-press B to open skillbook
-"
+text = "'I' for inventory
+'B' for skillbook"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Checkpoint1" type="Area2D" parent="SceneObjects/Map" unique_id=1236589979]
 position = Vector2(47, 1)

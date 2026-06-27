@@ -9,6 +9,8 @@ func _ready():
 	current_state.enter()
 
 func change_state(state):
+	if current_state.name == state:
+		return
 	previous_state = current_state
 	previous_state.exit()        # exit old state first
 	current_state = find_child(state, false) as State
