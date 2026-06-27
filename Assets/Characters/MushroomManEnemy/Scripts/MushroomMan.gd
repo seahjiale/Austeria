@@ -51,6 +51,8 @@ func take_damage(amount: int):
 		_die()
 
 func _die() -> void:
+	if is_dead:
+		return
 	is_dead = true
 	ExpManager.gain_xp(40)
 	velocity = Vector2.ZERO

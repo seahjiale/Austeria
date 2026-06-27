@@ -748,6 +748,7 @@ theme_override_font_sizes/font_size = 11
 text = "Undead Executioner"
 
 [node name="Debug" type="Label" parent="." unique_id=163038908]
+visible = false
 offset_left = -24.0
 offset_top = -42.0
 offset_right = 17.0

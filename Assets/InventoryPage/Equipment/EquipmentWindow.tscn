@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bhryftqfrxv1x" path="res://Assets/InventoryPage/Equipment/EquipmentSlot.gd" id="1_m3ce3"]
 [ext_resource type="Resource" uid="uid://bteogetwv6emg" path="res://Assets/InventoryPage/Equipment/PlayerEquipment.tres" id="2_hek1l"]
 [ext_resource type="Texture2D" uid="uid://crkoec41c87cw" path="res://Assets/InventoryPage/Sprites/InventorySpritesheet.png" id="4_8pyf4"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="5_8kx1s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8kx1s"]
 atlas = ExtResource("4_8pyf4")
@@ -67,3 +68,15 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 texture = SubResource("AtlasTexture_8pyf4")
+
+[node name="Label" type="Label" parent="Panel/WindowSprite" unique_id=1261785453]
+layout_mode = 0
+offset_left = 67.0
+offset_top = 11.0
+offset_right = 177.0
+offset_bottom = 62.0
+theme_override_fonts/font = ExtResource("5_8kx1s")
+theme_override_font_sizes/font_size = 25
+text = "Drag and 
+drop"
+horizontal_alignment = 1
