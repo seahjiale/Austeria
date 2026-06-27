@@ -30,7 +30,7 @@ func _process(_delta):
 	else:
 		sprite.flip_h = false
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	if not can_move:
 		return
 	$RayCast2D.position.x = abs($RayCast2D.position.x) * (-1 if sprite.flip_h else 1)

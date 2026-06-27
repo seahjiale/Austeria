@@ -1,31 +1,31 @@
 [gd_scene format=3 uid="uid://dcsgawp0drqf8"]
 
-[ext_resource type="Texture2D" uid="uid://crkoec41c87cw" path="res://Assets/InventoryPage/Sprites/InventorySpritesheet.png" id="1_mtfvv"]
+[ext_resource type="Texture2D" uid="uid://wrbi2wdrqv2g" path="res://Assets/Menus/game_menu_sprites/emojis-free/emoji style ui/Inventory_Blocks_Spritesheet.png" id="1_1qjtw"]
 [ext_resource type="Script" uid="uid://dxcekcjvd4w2q" path="res://Assets/InventoryPage/Inventory/Slot.gd" id="2_b13qe"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jwcrb"]
-atlas = ExtResource("1_mtfvv")
-region = Rect2(383.4796, 31.843021, 33.05786, 32.396717)
+[sub_resource type="AtlasTexture" id="AtlasTexture_wk4t3"]
+atlas = ExtResource("1_1qjtw")
+region = Rect2(104.86305, 56.89403, 30.269272, 32.294025)
 
 [node name="Slot" type="TextureRect" unique_id=1300633949]
-offset_right = 65.0
-offset_bottom = 67.0
+offset_right = 74.0
+offset_bottom = 75.0
 mouse_filter = 0
-texture = SubResource("AtlasTexture_jwcrb")
+texture = SubResource("AtlasTexture_wk4t3")
 script = ExtResource("2_b13qe")
 
 [node name="ItemTexture" type="TextureRect" parent="." unique_id=1481526280]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.31500003
-anchor_top = 0.39200002
-anchor_right = 0.592
-anchor_bottom = 0.68600005
-offset_left = -12.600001
-offset_top = -15.68
-offset_right = 16.32
-offset_bottom = 12.559998
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.5
+offset_top = -4.875
+offset_right = 5.5
+offset_bottom = 4.875
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -36,8 +36,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.069
-offset_right = -3.0
-offset_bottom = -6.760002
+offset_left = 47.0
+offset_top = 34.0
+offset_right = -8.0
+offset_bottom = -14.623001
 grow_horizontal = 2
 grow_vertical = 2
 text = "1"

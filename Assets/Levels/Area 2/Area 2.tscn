@@ -1839,7 +1839,6 @@ texture = ExtResource("26_hfg0j")
 [node name="Inventory" type="CanvasLayer" parent="." unique_id=2138876043]
 
 [node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("32_5duu2")]
-visible = false
 
 [node name="EquipmentWindow" parent="Inventory" unique_id=848119363 instance=ExtResource("33_per3y")]
 

@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6vjg2s30mt28" path="res://Assets/Characters/ChameleonEnemy/Scripts/ChameleonEnemy.tscn" id="6_306j6"]
 [ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/Setting menu.png" id="8_xl8b6"]
 [ext_resource type="Script" uid="uid://ehu31lfm65of" path="res://Assets/Game/pause.gd" id="8_ys1tx"]
+[ext_resource type="Texture2D" uid="uid://dy4ln1nik3b3b" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/Dialouge UI/dialog box small.png" id="9_bomn4"]
 [ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="9_ys1tx"]
 [ext_resource type="Script" uid="uid://c24xw72xglybq" path="res://Assets/Levels/Area1/Portal.gd" id="10_2a1mf"]
 [ext_resource type="Script" uid="uid://8sx3xso5lb3y" path="res://Assets/Menus/Settings_Menu/volume_progress_bar.gd" id="10_ttsc2"]
@@ -470,6 +471,18 @@ sources/0 = SubResource("TileSetAtlasSource_ql8qi")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3uyhe"]
 size = Vector2(34, 443.5)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ufl6j"]
+texture = ExtResource("9_bomn4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfwm8"]
+texture = ExtResource("9_bomn4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_53khx"]
+texture = ExtResource("9_bomn4")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlbbl"]
+texture = ExtResource("9_bomn4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_msn23"]
 size = Vector2(1, 142)
@@ -1143,47 +1156,58 @@ position = Vector2(-212, -102)
 position = Vector2(2003, -148)
 shape = SubResource("RectangleShape2D_3uyhe")
 
-[node name="TutorialTexts" type="Node2D" parent="SceneObjects/Map" unique_id=643585830]
+[node name="TutorialTexts" type="Node2D" parent="SceneObjects/Map" unique_id=1005751373]
 
-[node name="MovingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1931499178]
+[node name="MovingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1719548211]
 texture_filter = 1
-offset_left = -183.0
-offset_top = -65.0
-offset_right = -66.0
-offset_bottom = -22.0
-metadata/_edit_use_anchors_ = true
+offset_left = -193.0
+offset_top = -82.0
+offset_right = -61.0
+offset_bottom = -23.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ufl6j")
 
-[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/MovingText" unique_id=1034518925]
+[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/MovingText" unique_id=1478338089]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = -2.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
 theme_override_font_sizes/font_size = 15
 text = "A to move left
-D to move right"
+D to move right "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="JumpingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1807470247]
 texture_filter = 1
 offset_left = 68.0
-offset_top = -66.0
-offset_right = 165.0
+offset_top = -83.0
+offset_right = 183.0
 offset_bottom = -24.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_ufl6j")
 
 [node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/JumpingText" unique_id=235469025]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -2.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
 theme_override_font_sizes/font_size = 15
-text = "Spacebar to 
+text = "Spacebar to
 jump"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -1191,17 +1215,23 @@ vertical_alignment = 1
 [node name="DoubleJumpText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1047459450]
 texture_filter = 1
 offset_left = 274.0
-offset_top = -134.0
-offset_right = 371.0
+offset_top = -149.0
+offset_right = 383.0
 offset_bottom = -92.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_yfwm8")
 
 [node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/DoubleJumpText" unique_id=808952065]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 9.0
+offset_right = -3.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
 theme_override_font_sizes/font_size = 15
 text = "double
@@ -1209,24 +1239,26 @@ jump"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DoubleJumpText2" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=2085923933]
+[node name="AttackText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=2085923933]
 texture_filter = 1
-offset_left = 577.0
+offset_left = 550.0
 offset_top = -271.0
-offset_right = 674.0
-offset_bottom = -229.0
+offset_right = 667.0
+offset_bottom = -216.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_53khx")
 
-[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/DoubleJumpText2" unique_id=970168605]
+[node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/AttackText" unique_id=970168605]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 2.0
-offset_top = -1.0
-offset_right = 2.0
-offset_bottom = -1.0
+offset_left = 7.0
+offset_top = 8.0
+offset_right = -3.0
+offset_bottom = -7.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
 theme_override_font_sizes/font_size = 15
 text = "left click
@@ -1236,18 +1268,25 @@ vertical_alignment = 1
 
 [node name="InventoryAndSkillText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1506483172]
 offset_left = 808.0
-offset_top = -530.0
-offset_right = 953.0
+offset_top = -545.0
+offset_right = 982.0
 offset_bottom = -483.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_mlbbl")
 
 [node name="Label" type="Label" parent="SceneObjects/Map/TutorialTexts/InventoryAndSkillText" unique_id=1258731555]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 8.0
+offset_right = -4.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 15
 text = "'I' for inventory
 'B' for skillbook"
 horizontal_alignment = 1
@@ -1709,9 +1748,12 @@ script = ExtResource("28_me1nw")
 [node name="Inventory" type="CanvasLayer" parent="." unique_id=1324672093]
 
 [node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("29_xb627")]
-visible = false
+offset_left = -1.0
+offset_right = -1.0
 
 [node name="EquipmentWindow" parent="Inventory" unique_id=848119363 instance=ExtResource("34_t46mg")]
+offset_left = -10.0
+offset_right = -10.0
 
 [node name="SkillBook" type="CanvasLayer" parent="." unique_id=2136810862]
 

@@ -16,7 +16,7 @@ var can_move: bool = false:
 	set(value):
 		can_move = value
 
-var health = 6:
+var health = 4:
 	set(value):
 		health = value
 		if value <= 0:
