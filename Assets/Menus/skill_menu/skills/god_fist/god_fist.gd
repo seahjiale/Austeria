@@ -7,6 +7,7 @@ var facing: int = 1
 @onready var anim_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready() -> void:
+	add_to_group("player_attack")
 	monitoring = true
 	monitorable = true
 	body_entered.connect(_on_body_entered)
