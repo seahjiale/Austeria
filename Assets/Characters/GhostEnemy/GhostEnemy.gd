@@ -66,6 +66,7 @@ func _on_player_detection_body_entered(body: Node2D) -> void:
 		player_detected = true # Replace with function body.
 
 func _die() -> void:
+	ExpManager.gain_xp(30)
 	velocity = Vector2.ZERO
 	set_physics_process(false)
 	$Hitbox.monitoring = false

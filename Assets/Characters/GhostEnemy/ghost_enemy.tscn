@@ -353,9 +353,11 @@ height = 31.976412
 radius = 144.00348
 
 [node name="GhostEnemy" type="CharacterBody2D" unique_id=1569373175]
+collision_layer = 5
 script = ExtResource("1_xixyv")
 
 [node name="GhostSprite" type="AnimatedSprite2D" parent="." unique_id=1068872757]
+light_mask = 5
 sprite_frames = SubResource("SpriteFrames_728ff")
 animation = &"Idle"
 

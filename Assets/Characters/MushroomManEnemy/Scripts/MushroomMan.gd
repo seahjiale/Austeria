@@ -33,9 +33,14 @@ func _process(_delta):
 func _physics_process(delta):
 	if not can_move:
 		return
-	if not is_on_floor():
-		velocity.y += get_gravity().y * delta
-	velocity.x = direction.normalized().x * 40
+	$RayCast2D.position.x = abs($RayCast2D.position.x) * (1 if sprite.flip_h else -1)
+	var edge_ahead = $RayCast2D.is_colliding()
+	if edge_ahead:
+		if not is_on_floor():
+			velocity.y += get_gravity().y * delta
+		velocity.x = direction.normalized().x * 40
+	else:
+		velocity.x = 0
 	move_and_slide()
 
 func take_damage(amount: int):
@@ -45,7 +50,8 @@ func take_damage(amount: int):
 	if health > 0:
 		animation_player.play("Hurt")
 		await animation_player.animation_finished
-		find_child("FiniteStateMachine").change_state("Idle")
+		if not is_dead:
+			find_child("FiniteStateMachine").change_state("Idle")
 		
 	else:
 		_die()

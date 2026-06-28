@@ -195,4 +195,7 @@ script = ExtResource("6_0g018")
 [node name="Attack" type="Node2D" parent="FiniteStateMachine" unique_id=528298923]
 script = ExtResource("7_qtcoc")
 
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=600627364]
+position = Vector2(15, 7)
+
 [connection signal="body_entered" from="MeleePivot/MeleeHitbox" to="FiniteStateMachine/Attack" method="_on_melee_hitbox_body_entered"]

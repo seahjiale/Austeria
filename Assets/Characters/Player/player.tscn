@@ -325,7 +325,7 @@ radius = 7.0
 height = 18.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2k6ke"]
-size = Vector2(24, 17)
+size = Vector2(32, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h6pe1"]
 atlas = ExtResource("3_rc8y2")
@@ -453,13 +453,13 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Attack/AttackHitBox" unique_id=175533258]
-position = Vector2(3, -0.5)
+position = Vector2(7, -1)
 shape = SubResource("RectangleShape2D_2k6ke")
 
 [node name="AttackSprite" type="AnimatedSprite2D" parent="Attack" unique_id=861401798]
 visible = false
-position = Vector2(6.4499984, -6.0000005)
-scale = Vector2(0.31989527, 0.2)
+position = Vector2(11.536285, -6.0000005)
+scale = Vector2(0.37330225, 0.2)
 sprite_frames = SubResource("SpriteFrames_rc8y2")
 animation = &"sword_attack"
 
