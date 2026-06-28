@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://gbccd3mvc01m" path="res://Assets/Game/game_manager.gd" id="3_cyp5v"]
 [ext_resource type="Script" uid="uid://dgewvta5c6x3h" path="res://Assets/Levels/Area 2/fall_mechanic.gd" id="4_emkp0"]
 [ext_resource type="Texture2D" uid="uid://dsc5kw5sx6p33" path="res://Assets/Levels/Area 2/Area2 Sprites/Tiles/Tilesheet - WOODS.png" id="4_nhc7y"]
+[ext_resource type="Script" uid="uid://dopaujq4dwd3o" path="res://Assets/Levels/Area1/checkpoint_1.gd" id="5_c4ygx"]
 [ext_resource type="PackedScene" uid="uid://bd5smpeq0kk64" path="res://Assets/Characters/GolemBoss/golem_boss.tscn" id="5_cyp5v"]
 [ext_resource type="Texture2D" uid="uid://bycfpisoqqmy1" path="res://Assets/Menus/game_menu_sprites/emojis-free/emoji style ui/Inventory_Light_Herat_Spritesheet.png" id="6_nhc7y"]
 [ext_resource type="Script" uid="uid://ehu31lfm65of" path="res://Assets/Game/pause.gd" id="7_s6m51"]
@@ -719,6 +720,9 @@ sources/5 = SubResource("TileSetAtlasSource_s6m51")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ullrv"]
 size = Vector2(34, 614.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mpbaa"]
+size = Vector2(1, 308)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nhc7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s6m51"]
@@ -1097,7 +1101,7 @@ region = Rect2(272, 816, 272, 272)
 atlas = ExtResource("42_lapyr")
 region = Rect2(544, 816, 272, 272)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2w3re"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c4ygx"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -1290,23 +1294,23 @@ animations = [{
 "speed": 12.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ownnj"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpbaa"]
 atlas = ExtResource("44_nldlu")
 region = Rect2(0, 0, 32, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kxarl"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ck15f"]
 atlas = ExtResource("44_nldlu")
 region = Rect2(0, 24, 32, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pglf2"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lapyr"]
 atlas = ExtResource("44_nldlu")
 region = Rect2(0, 0, 32, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ht4cu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn1am"]
 atlas = ExtResource("44_nldlu")
 region = Rect2(0, 0, 32, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q4q4p"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nldlu"]
 atlas = ExtResource("6_nhc7y")
 region = Rect2(0, 304, 112, 32)
 
@@ -1353,6 +1357,14 @@ position = Vector2(-212, -102)
 [node name="RightBorderCollision" type="CollisionShape2D" parent="Map/MapBoundary/RightBorder" unique_id=479872692]
 position = Vector2(1993, -114)
 shape = SubResource("RectangleShape2D_ullrv")
+
+[node name="Checkpoint1" type="Area2D" parent="Map" unique_id=1774511245]
+position = Vector2(458, -177)
+script = ExtResource("5_c4ygx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Checkpoint1" unique_id=1510715766]
+position = Vector2(2.5, -144)
+shape = SubResource("RectangleShape2D_mpbaa")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=890948528]
 layer = 10
@@ -1888,9 +1900,9 @@ scale = Vector2(1.03125, 1)
 sprite_frames = SubResource("SpriteFrames_kh0ct")
 animation = &"new_animation"
 
-[node name="SkillBook" type="CanvasLayer" parent="." unique_id=259751420]
+[node name="SkillBook" type="CanvasLayer" parent="." unique_id=557497499]
 
-[node name="SkillBookUI" type="Control" parent="SkillBook" unique_id=910369183]
+[node name="SkillBookUI" type="Control" parent="SkillBook" unique_id=1897281372]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -1899,29 +1911,29 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("38_kh0ct")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SkillBook/SkillBookUI" unique_id=726470640]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="SkillBook/SkillBookUI" unique_id=1370194593]
 
-[node name="BookSprite" type="AnimatedSprite2D" parent="SkillBook/SkillBookUI" unique_id=1780083076]
+[node name="BookSprite" type="AnimatedSprite2D" parent="SkillBook/SkillBookUI" unique_id=1218799910]
 position = Vector2(576, 324)
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_2w3re")
+sprite_frames = SubResource("SpriteFrames_c4ygx")
 animation = &"close"
 
-[node name="LeftPage" type="Control" parent="SkillBook/SkillBookUI" unique_id=208890954]
+[node name="LeftPage" type="Control" parent="SkillBook/SkillBookUI" unique_id=525439432]
 anchors_preset = 0
 offset_left = 352.0
 offset_top = 233.0
-offset_right = 564.0
+offset_right = 562.0
 offset_bottom = 541.0
 
-[node name="SkillGrid" type="GridContainer" parent="SkillBook/SkillBookUI/LeftPage" unique_id=615590716]
+[node name="SkillGrid" type="GridContainer" parent="SkillBook/SkillBookUI/LeftPage" unique_id=1538728314]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 80.0
-offset_right = 203.0
+offset_top = 67.0
+offset_right = 208.0
 offset_bottom = 282.0
 
-[node name="UnlockButton" type="Button" parent="SkillBook/SkillBookUI/LeftPage" unique_id=392155288]
+[node name="UnlockButton" type="Button" parent="SkillBook/SkillBookUI/LeftPage" unique_id=763330790]
 visible = false
 layout_mode = 0
 offset_right = 8.0
@@ -1930,7 +1942,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("43_cn1am")
 icon_alignment = 1
 
-[node name="PointsLabel" type="Label" parent="SkillBook/SkillBookUI/LeftPage" unique_id=356843355]
+[node name="PointsLabel" type="Label" parent="SkillBook/SkillBookUI/LeftPage" unique_id=183840374]
 layout_mode = 0
 offset_left = 8.0
 offset_top = 13.0
@@ -1941,7 +1953,7 @@ theme_override_fonts/font = ExtResource("43_cn1am")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RightPage" type="Control" parent="SkillBook/SkillBookUI" unique_id=1470908987]
+[node name="RightPage" type="Control" parent="SkillBook/SkillBookUI" unique_id=209775417]
 custom_minimum_size = Vector2(212, 308)
 anchors_preset = 0
 offset_left = 587.0
@@ -1949,7 +1961,7 @@ offset_top = 236.0
 offset_right = 799.0
 offset_bottom = 544.0
 
-[node name="EquipGrid" type="GridContainer" parent="SkillBook/SkillBookUI/RightPage" unique_id=414062496]
+[node name="EquipGrid" type="GridContainer" parent="SkillBook/SkillBookUI/RightPage" unique_id=752078100]
 layout_mode = 0
 offset_left = 21.0
 offset_top = 72.0
@@ -1959,42 +1971,114 @@ theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="Slot1" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=10887563]
+[node name="Slot1" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=169130033]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = SubResource("AtlasTexture_ownnj")
+texture = SubResource("AtlasTexture_mpbaa")
 stretch_mode = 5
 
-[node name="Slot2" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=767558949]
+[node name="Label" type="Label" parent="SkillBook/SkillBookUI/RightPage/EquipGrid/Slot1" unique_id=1018046828]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot2" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=719351441]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = SubResource("AtlasTexture_kxarl")
+texture = SubResource("AtlasTexture_ck15f")
 stretch_mode = 5
 
-[node name="Slot3" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1411466560]
+[node name="Label" type="Label" parent="SkillBook/SkillBookUI/RightPage/EquipGrid/Slot2" unique_id=2051571135]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot3" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1547520549]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = SubResource("AtlasTexture_pglf2")
+texture = SubResource("AtlasTexture_lapyr")
 stretch_mode = 5
 
-[node name="Slot4" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1831922055]
+[node name="Label" type="Label" parent="SkillBook/SkillBookUI/RightPage/EquipGrid/Slot3" unique_id=1576268988]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Slot4" type="TextureRect" parent="SkillBook/SkillBookUI/RightPage/EquipGrid" unique_id=1807052758]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
-texture = SubResource("AtlasTexture_ht4cu")
+texture = SubResource("AtlasTexture_cn1am")
 stretch_mode = 5
 
-[node name="PageTitle" type="Label" parent="SkillBook/SkillBookUI/RightPage" unique_id=2125027635]
+[node name="Label" type="Label" parent="SkillBook/SkillBookUI/RightPage/EquipGrid/Slot4" unique_id=1671430598]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 1.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.39215687, 0.28627452, 0.29411766, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PageTitle" type="Label" parent="SkillBook/SkillBookUI/RightPage" unique_id=351883930]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 
-[node name="Tooltip" type="Control" parent="SkillBook/SkillBookUI" unique_id=1872688713]
+[node name="Tooltip" type="Control" parent="SkillBook/SkillBookUI" unique_id=1900420143]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("45_au107")
 
-[node name="Background" type="NinePatchRect" parent="SkillBook/SkillBookUI/Tooltip" unique_id=208405779]
+[node name="Background" type="NinePatchRect" parent="SkillBook/SkillBookUI/Tooltip" unique_id=972449448]
 custom_minimum_size = Vector2(300, 180)
 layout_mode = 0
 offset_right = 191.0
@@ -2002,14 +2086,14 @@ offset_bottom = 105.0
 texture = ExtResource("46_s0hs6")
 region_rect = Rect2(0, 88, 128, 80)
 
-[node name="Icon" type="TextureRect" parent="SkillBook/SkillBookUI/Tooltip" unique_id=1572799071]
+[node name="Icon" type="TextureRect" parent="SkillBook/SkillBookUI/Tooltip" unique_id=236436587]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 20.0
 offset_right = 110.0
 offset_bottom = 88.0
 
-[node name="SkillName" type="Label" parent="SkillBook/SkillBookUI/Tooltip" unique_id=70351595]
+[node name="SkillName" type="Label" parent="SkillBook/SkillBookUI/Tooltip" unique_id=1274945558]
 layout_mode = 0
 offset_left = 128.0
 offset_top = 37.0
@@ -2021,7 +2105,7 @@ theme_override_font_sizes/font_size = 20
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="SkillDesc" type="Label" parent="SkillBook/SkillBookUI/Tooltip" unique_id=408326565]
+[node name="SkillDesc" type="Label" parent="SkillBook/SkillBookUI/Tooltip" unique_id=765288061]
 layout_mode = 0
 offset_left = 32.0
 offset_top = 101.0
@@ -2031,9 +2115,9 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("43_cn1am")
 autowrap_mode = 2
 
-[node name="SkillUI" type="CanvasLayer" parent="." unique_id=15071107]
+[node name="SkillUI" type="CanvasLayer" parent="." unique_id=1777485405]
 
-[node name="SkillHUD" type="Control" parent="SkillUI" unique_id=168109102]
+[node name="SkillHUD" type="Control" parent="SkillUI" unique_id=1519444550]
 layout_mode = 3
 anchors_preset = 7
 anchor_left = 0.5
@@ -2048,7 +2132,7 @@ grow_vertical = 0
 size_flags_vertical = 8
 script = ExtResource("47_xy810")
 
-[node name="SkillBarBackground" type="TextureRect" parent="SkillUI/SkillHUD" unique_id=455503890]
+[node name="SkillBarBackground" type="TextureRect" parent="SkillUI/SkillHUD" unique_id=1923934386]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2060,9 +2144,9 @@ offset_top = -103.0
 offset_right = 259.0
 grow_horizontal = 2
 grow_vertical = 0
-texture = SubResource("AtlasTexture_q4q4p")
+texture = SubResource("AtlasTexture_nldlu")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="SkillUI/SkillHUD" unique_id=1270561876]
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillUI/SkillHUD" unique_id=1147917117]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -2077,11 +2161,26 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 50
 
-[node name="Slot0" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=1944715125]
+[node name="Slot0" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=1056064436]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=772533395]
+[node name="Slot" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=767683269]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=55929812]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2091,7 +2190,7 @@ grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=875452047]
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=265466819]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2103,7 +2202,7 @@ fill_mode = 4
 texture_progress = ExtResource("48_5hnjr")
 tint_progress = Color(0, 0, 0, 0.7058824)
 
-[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=1451050280]
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot0" unique_id=1478189238]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2114,11 +2213,26 @@ theme_override_fonts/font = ExtResource("43_cn1am")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot1" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=53184819]
+[node name="Slot1" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=1113672675]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1195563419]
+[node name="Slot" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1008339371]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=936096194]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2128,7 +2242,7 @@ grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1687578835]
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1835098001]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2140,7 +2254,7 @@ fill_mode = 4
 texture_progress = ExtResource("48_5hnjr")
 tint_progress = Color(0, 0, 0, 0.7058824)
 
-[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=1498195795]
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot1" unique_id=492124168]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2151,11 +2265,26 @@ theme_override_fonts/font = ExtResource("43_cn1am")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot2" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=47132481]
+[node name="Slot2" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=17599946]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1641851252]
+[node name="Slot" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1548015105]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "3"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1225236928]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2165,7 +2294,7 @@ grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1932695508]
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=585658665]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2176,7 +2305,7 @@ grow_vertical = 2
 fill_mode = 4
 texture_progress = ExtResource("48_5hnjr")
 
-[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1247774894]
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot2" unique_id=1870077084]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2187,11 +2316,26 @@ theme_override_fonts/font = ExtResource("43_cn1am")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Slot3" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=1056657305]
+[node name="Slot3" type="Control" parent="SkillUI/SkillHUD/HBoxContainer" unique_id=138148978]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 
-[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=28264213]
+[node name="Slot" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=1763393024]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("11_mdwbt")
+theme_override_font_sizes/font_size = 20
+text = "4"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+
+[node name="SkillIcon" type="TextureRect" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=165840646]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2201,7 +2345,7 @@ grow_vertical = 2
 expand_mode = 2
 stretch_mode = 5
 
-[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=1850957563]
+[node name="CooldownSweep" type="TextureProgressBar" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=1266883962]
 modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -2212,7 +2356,7 @@ grow_vertical = 2
 fill_mode = 4
 texture_progress = ExtResource("48_5hnjr")
 
-[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=1398619080]
+[node name="CooldownLabel" type="Label" parent="SkillUI/SkillHUD/HBoxContainer/Slot3" unique_id=276056985]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -2224,6 +2368,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [connection signal="body_entered" from="Map/MapBoundary/FallMechanic" to="Map/MapBoundary/FallMechanic" method="_on_body_entered"]
+[connection signal="body_entered" from="Map/Checkpoint1" to="Map/Checkpoint1" method="_on_body_entered"]
 [connection signal="mouse_entered" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause/PauseMenu/ResumeButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/Pause/PauseMenu/ResumeButton" to="UI/Pause" method="_on_resume_button_pressed"]

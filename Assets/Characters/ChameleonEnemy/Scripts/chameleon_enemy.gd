@@ -11,6 +11,7 @@ var can_attack := true
 var direction : Vector2
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+var is_dead: bool = false
 
 var can_move: bool = false:
 	set(value):
@@ -50,15 +51,18 @@ func disable_tongue_hitbox() -> void:
 	tongue_hitbox.monitoring = false
 
 func take_damage(amount: int):
+	if is_dead:
+		return
 	health -= amount
 	if health > 0:
 		sprite.play("Hurt")
 		await sprite.animation_finished
 		find_child("FiniteStateMachine").change_state("Idle")
-	else:
-		_die()
  
 func _die() -> void:
+	if is_dead:
+		return
+	is_dead = true
 	ExpManager.gain_xp(xp_reward)
 	velocity = Vector2.ZERO
 	set_physics_process(false)

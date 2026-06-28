@@ -23,4 +23,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):
 		ui.hide()
+		$"../../../SkillUI".hide()
+		GameState.current_area = "res://Assets/Levels/Area 2/Area 2.tscn"
 		SceneTransition.transition_to("res://Assets/Menus/Class_Menu/class_menu.tscn")

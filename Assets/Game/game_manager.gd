@@ -9,6 +9,7 @@ var game_over = false
 func _ready() -> void:
 	MusicManager.play_music(load("res://Assets/Levels/Area1/Crystal Caverns - Original Composition from LEVEL UP.mp3"))
 	$"../UI".show()
+	$"../SkillUI".show()
 	# updating hearts after class selection
 	if GameState.selected_class != null:
 		lives = GameState.selected_class.max_health

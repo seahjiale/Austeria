@@ -18,5 +18,4 @@ func _on_restart_button_pressed() -> void:
 	game_over.hide()
 	get_tree().paused = false
 	GameState.reset()
-	ExpManager.reset()
-	SceneTransition.transition_to("res://Assets/Levels/Area1/area_1.tscn")
+	SceneTransition.transition_to(GameState.current_area)

@@ -71,6 +71,7 @@ animations = [{
 size = Vector2(55, 25)
 
 [node name="RockSpike" type="Area2D" unique_id=797014314]
+z_index = 5
 collision_mask = 4
 script = ExtResource("1_rwswd")
 

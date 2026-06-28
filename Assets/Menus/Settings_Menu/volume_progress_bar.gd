@@ -4,9 +4,8 @@ extends TextureProgressBar
 func _ready():
 	min_value = 0
 	max_value = 9
-	# initial start at maximum volume
-	value = 9
 	step = 1
+	value = GameState.music_volume
 	self.value_changed.connect(_on_value_changed)
 	
 func _gui_input(event):
@@ -21,6 +20,7 @@ func _gui_input(event):
 		value = ceil(drag_ratio * max_value)
 		
 func _on_value_changed(new_value):
+	GameState.music_volume = new_value
 	var vol_ratio = new_value / max_value
 	var capped_ratio = vol_ratio * 0.6
 	AudioServer.set_bus_volume_db(0, linear_to_db(capped_ratio))

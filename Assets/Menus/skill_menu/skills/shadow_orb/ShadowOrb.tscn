@@ -127,6 +127,7 @@ animations = [{
 size = Vector2(290.5, 262.25)
 
 [node name="ShadowOrb" type="Area2D" unique_id=2083050063]
+z_index = 5
 script = ExtResource("1_6o4u3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1856291962]
@@ -136,5 +137,6 @@ frame = 15
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=357835510]
+z_index = 5
 position = Vector2(0, 4.875)
 shape = SubResource("RectangleShape2D_ol72v")
