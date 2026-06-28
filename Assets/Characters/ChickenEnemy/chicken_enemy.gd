@@ -31,6 +31,10 @@ func _on_timer_timeout() -> void:
 	sprite.play("idle")
 	
 	await get_tree().create_timer(2.0).timeout
+	print(health)
+	
+	if health <= 0:
+		return
 	
 	direction *= -1
 	sprite.flip_h = !sprite.flip_h

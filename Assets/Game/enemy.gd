@@ -19,7 +19,8 @@ func take_damage(amount):
 		
 	sprite.play("take_damage")
 	await sprite.animation_finished
-	sprite.play(default_animation)
+	if health > 0:
+		sprite.play(default_animation)
 
 func die():
 	set_physics_process(false)
@@ -28,6 +29,7 @@ func die():
 	set_deferred("collision_layer", 0)
 	set_deferred("collision_mask", 1)
 	$Area2D/DamageDetection.set_deferred("disabled", true)
+	sprite.stop()
 	sprite.play("Death")
 	await sprite.animation_finished
 	queue_free()
