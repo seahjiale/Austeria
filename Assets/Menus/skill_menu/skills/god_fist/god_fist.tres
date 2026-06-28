@@ -7,7 +7,7 @@
 script = ExtResource("2_sbixk")
 id = "god_fist"
 name = "God Fist"
-description = "Summons a powerful combo fist attack."
+description = "Summons a powerful 3-hit combo."
 icon = ExtResource("1_37ckq")
 type = 2
 cooldown = 5.0

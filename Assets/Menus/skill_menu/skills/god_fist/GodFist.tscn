@@ -226,7 +226,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bnx3d")
+}],
+"loop": false,
+"name": &"fist1",
+"speed": 20.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nf0sc")
 }, {
@@ -271,7 +276,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_efm2u")
+}],
+"loop": false,
+"name": &"fist2",
+"speed": 20.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_m80p4")
 }, {
@@ -315,27 +325,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_i1a7m")
 }],
 "loop": false,
-"name": &"fist",
+"name": &"fist3",
 "speed": 20.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_seyk5"]
-size = Vector2(582.00006, 588.8629)
+size = Vector2(110.000015, 122.00003)
 
 [node name="GodFist" type="Area2D" unique_id=1089272724]
 collision_mask = 4
 script = ExtResource("1_80l5d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1485917163]
-position = Vector2(-2.0000076, 1)
-scale = Vector2(0.464, 0.5)
+position = Vector2(0, 1.0000076)
+scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_kacfw")
-animation = &"fist"
-frame = 43
+animation = &"fist3"
+frame = 13
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=147074712]
-position = Vector2(-5, 1)
+position = Vector2(-0.9999961, -1.9999998)
 rotation = -1.5707964
 scale = Vector2(0.9999999, 0.9999999)
 shape = SubResource("RectangleShape2D_seyk5")

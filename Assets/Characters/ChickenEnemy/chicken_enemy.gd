@@ -6,8 +6,10 @@ extends "res://Assets/Game/enemy.gd"
 var speed = 30.0
 var direction = -1.0
 var paused = false
+var state = "run"
 	
 func _ready():
+	default_animation = "run"
 	sprite.play("run")
 	timer.start()
 	
@@ -16,6 +18,8 @@ func _process(delta: float) -> void:
 		position.x += direction * speed * delta
 
 func _on_area_2d_body_entered(body) -> void:
+	if is_dead:
+		return
 	if body is CharacterBody2D:
 		var x_delta = body.position.x - position.x
 		body.get_node("PlayerAnimation").take_damage()
@@ -27,17 +31,22 @@ func _on_area_2d_body_entered(body) -> void:
 
 
 func _on_timer_timeout() -> void:
+	if is_dead:
+		return
 	paused = true
+	state = "idle"
 	sprite.play("idle")
 	
 	await get_tree().create_timer(2.0).timeout
-	print(health)
-	
-	if health <= 0:
+	if is_dead:
 		return
 	
+	state = "run"
 	direction *= -1
 	sprite.flip_h = !sprite.flip_h
 	paused = false
 	sprite.play("run")
 	timer.start()
+
+func on_hit():
+	default_animation = state

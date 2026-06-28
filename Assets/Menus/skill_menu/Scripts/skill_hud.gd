@@ -13,6 +13,12 @@ func _ready() -> void:
 	SkillManager.skill_equipped.connect(_on_skill_equipped)
 	SkillManager.skill_unequipped.connect(_on_skill_unequipped)
 	SkillManager.cooldown_updated.connect(_on_cooldown_updated)
+	
+	# when game restarts, equip back the skills into the HUD
+	for i in slots.size():
+		var skill = SkillManager.get_skill(i)
+		if skill:
+			_on_skill_equipped(i, skill)
 
 
 func _init_slot(slot: Control) -> void:

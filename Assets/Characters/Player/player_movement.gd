@@ -248,16 +248,11 @@ func equip_weapon(weapon: WeaponData) -> void:
 	equipped_weapon = weapon
 	GameState.equipped_weapon = weapon
 	player_animation.equip_weapon(weapon)
-	if weapon == null:
-		print("Weapon unequipped")
-	else:
-		print("Equipped weapon: ", weapon.item_name, " damage:", weapon.damage)
 
 func get_attack_damage() -> int:
 	var weapon_damage = 0
 	if equipped_weapon != null:
 		weapon_damage = equipped_weapon.damage
-		print("Weapon damage from resource: ", weapon_damage)
 	return base_damage + weapon_damage
 
 var hit_bodies: Array = []
@@ -318,9 +313,10 @@ func use_rock_spike() -> void:
 @export var god_fist_distance: float = 80.0
 var can_use_god_fist: bool = true
 const GOD_FIST_COOLDOWN: float = 5.0
+
 func use_god_fist() -> void:
 	var facing := -1 if player_animation.sprite.flip_h else 1
-	var spawn_pos := global_position + Vector2(god_fist_distance * facing, -30)
+	var spawn_pos := global_position + Vector2(god_fist_distance * facing, -25)
 	var fist = god_fist_scene.instantiate()
 	fist.setup(facing)
 	fist.global_position = spawn_pos
