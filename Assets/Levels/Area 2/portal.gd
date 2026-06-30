@@ -19,5 +19,6 @@ func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):
 		ui.hide()
 		$"../SkillUI".hide()
+		GameState.respawn_position = Vector2.ZERO
 		GameState.current_area = "res://Assets/Levels/Area 3/Area 3.tscn"
 		SceneTransition.transition_to("res://Assets/Levels/Area 3/Area 3.tscn")
