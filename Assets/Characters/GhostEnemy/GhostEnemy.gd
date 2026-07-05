@@ -22,10 +22,8 @@ func _ready():
 
 func _physics_process(_delta):
 	if is_hurt:
-		move_and_slide()
 		return
 	if player_detected:
-		animation_player.play("Walk")
 		var target_offset = Vector2(0, -10)  # 50 pixels above the player
 		var target_position = player.global_position + target_offset
 		direction = (target_position - global_position).normalized()

@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://e5cjta3g8uba"]
+
+[ext_resource type="Script" uid="uid://pvf4itr04tvn" path="res://Assets/Characters/FlyingDemonEnemy/Scripts/Fireball.gd" id="1_khuij"]
+[ext_resource type="Texture2D" uid="uid://82wccnr8iess" path="res://Assets/Characters/FlyingDemonEnemy/Sprites/fireball sprite.png" id="1_qw812"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qw812"]
+radius = 17.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khuij"]
+atlas = ExtResource("1_qw812")
+region = Rect2(38, 0, 299, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ev1dc"]
+atlas = ExtResource("1_qw812")
+region = Rect2(337, 0, 299, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mhswg"]
+atlas = ExtResource("1_qw812")
+region = Rect2(636, 0, 299, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uw4w"]
+atlas = ExtResource("1_qw812")
+region = Rect2(935, 0, 299, 1024)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h812j"]
+atlas = ExtResource("1_qw812")
+region = Rect2(1234, 0, 299, 1024)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nygjj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khuij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ev1dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mhswg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uw4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h812j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Area2D" type="Area2D" unique_id=1958707211]
+script = ExtResource("1_khuij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=150272500]
+position = Vector2(-1, 0)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_qw812")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1428451877]
+position = Vector2(2, 3.9999962)
+scale = Vector2(0.23996653, 0.234375)
+sprite_frames = SubResource("SpriteFrames_nygjj")
+frame_progress = 0.68876404
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
