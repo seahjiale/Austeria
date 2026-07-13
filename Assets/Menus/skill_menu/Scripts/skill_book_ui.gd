@@ -30,6 +30,7 @@ func _ready() -> void:
 
 	SkillManager.points_changed.connect(_on_points_changed)
 	SkillManager.skill_unlocked.connect(_on_skill_unlocked)
+	SkillManager.manager_reset.connect(_on_manager_reset)
 
 
 func _load_skills() -> void:
@@ -255,3 +256,19 @@ func _on_slot_hovered(slot: TextureRect) -> void:
 
 func _on_slot_unhovered() -> void:
 	tooltip.hide_tooltip()
+
+
+func _on_manager_reset() -> void:
+	_build_skill_grid()
+	_clear_equip_grid()
+	_update_points_label()
+
+func _clear_equip_grid() -> void:
+	var slots = [
+		$RightPage/EquipGrid/Slot1,
+		$RightPage/EquipGrid/Slot2,
+		$RightPage/EquipGrid/Slot3,
+		$RightPage/EquipGrid/Slot4
+	]
+	for slot in slots:
+		_unequip_slot(slot)

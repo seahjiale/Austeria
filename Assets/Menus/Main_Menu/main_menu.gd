@@ -14,6 +14,7 @@ func _on_settings_button_pressed() -> void:
 func _on_play_button_pressed() -> void:
 	GameState.reset()
 	ExpManager.reset()
+	SkillManager.reset()
 	button_sfx.play()
 	SceneTransition.transition_to("res://Assets/Levels/Area1/area_1.tscn")
 	MusicManager.stop_music()

@@ -4,9 +4,18 @@ var equipped_slots: Array = [null, null, null, null]
 
 signal skill_equipped(slot_index: int, skill: SkillData)
 signal skill_unequipped(slot_index: int)
+signal manager_reset
 
 func _ready() -> void:
 	ExpManager.level_changed.connect(_on_level_up)
+	
+func reset() -> void:
+	equipped_slots = [null, null, null, null]
+	skill_points = 0
+	unlocked_skills.clear()
+	_cooldowns = [0.0, 0.0, 0.0, 0.0]
+	_max_cooldowns = [0.0, 0.0, 0.0, 0.0]
+	manager_reset.emit()
 
 func _on_level_up(_new_level: int) -> void:
 	add_skill_point(1)
