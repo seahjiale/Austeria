@@ -3,7 +3,7 @@ extends Control
 @export var player_class_data: PlayerClassData
 @export var warrior_class: CharacterClassData
 @export var archer_class: CharacterClassData
-@export var next_area_path: String = "res://Assets/Levels/Area 2/Area 2.tscn"
+@export var next_area_path: String = "res://Assets/Levels/Area1/area_1.tscn"
 
 @onready var warrior_class_img = $Class_Panel/WarriorButton/WarriorClass
 @onready var warrior_class_sword_img = $Class_Panel/WarriorButton/Sword
