@@ -25,4 +25,4 @@ func _input(event: InputEvent) -> void:
 		ui.hide()
 		$"../../../SkillUI".hide()
 		GameState.current_area = "res://Assets/Levels/Area 2/Area 2.tscn"
-		SceneTransition.transition_to("res://Assets/Menus/Class_Menu/class_menu.tscn")
+		SceneTransition.transition_to("res://Assets/Levels/Area 2/Area 2.tscn")
