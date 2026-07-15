@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://d26dgyra2krty"]
 
 [ext_resource type="Texture2D" uid="uid://diwyypsvbkltn" path="res://Assets/Levels/Area1/Area1_Sprites/Tileset.png" id="1_3uyhe"]
+[ext_resource type="Script" uid="uid://dw4u8uk2npb8j" path="res://Assets/Levels/Area1/area_1.gd" id="1_h7en0"]
 [ext_resource type="Script" uid="uid://gbccd3mvc01m" path="res://Assets/Game/game_manager.gd" id="1_ttsc2"]
 [ext_resource type="PackedScene" uid="uid://ce4g3xeb1pj3n" path="res://Assets/Characters/MushroomEnemy/mushroom_enemy.tscn" id="2_7fk0h"]
 [ext_resource type="PackedScene" uid="uid://bwc2ftghlrav3" path="res://Assets/Characters/Player/player.tscn" id="2_8wi1m"]
@@ -32,6 +33,7 @@
 [ext_resource type="Script" uid="uid://bqkqy4rv7risg" path="res://Assets/Levels/Area1/Background/Clouds/cloud_1.gd" id="23_g3rwo"]
 [ext_resource type="Texture2D" uid="uid://0d0yk2a6jjgn" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/3.png" id="23_sxlx6"]
 [ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Levels/Area1/Background/Clouds/cloud_2.gd" id="25_sxlx6"]
+[ext_resource type="Script" uid="uid://4ggkorhhd17h" path="res://Assets/Levels/Area1/save_game_button.gd" id="25_ufl6j"]
 [ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Levels/Area1/Background/Clouds/big_cloud_2.gd" id="25_xb627"]
 [ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Levels/Area1/Background/Clouds/small_cloud_2.gd" id="28_me1nw"]
 [ext_resource type="PackedScene" uid="uid://d3ms3748j2fig" path="res://Assets/InventoryPage/Inventory/inventory_window.tscn" id="29_xb627"]
@@ -640,6 +642,18 @@ region = Rect2(0, 0, 96, 32)
 atlas = ExtResource("12_xai42")
 region = Rect2(96, 0, 96, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_of4gw"]
+atlas = ExtResource("12_xai42")
+region = Rect2(0, 0, 96.80002, 32.799988)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_alrkp"]
+atlas = ExtResource("12_xai42")
+region = Rect2(95.20001, 0, 96.79999, 32.799988)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivp4d"]
+atlas = ExtResource("12_xai42")
+region = Rect2(95.20001, 0, 96.79999, 32.799988)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2a1mf"]
 texture = ExtResource("8_xl8b6")
 region_rect = Rect2(136, 8, 112, 128)
@@ -1078,6 +1092,7 @@ atlas = ExtResource("4_ql8qi")
 region = Rect2(0, 304, 112, 32)
 
 [node name="Area1" type="Node2D" unique_id=1958189425]
+script = ExtResource("1_h7en0")
 
 [node name="GameManager" type="Node" parent="." unique_id=607846285]
 unique_name_in_owner = true
@@ -1510,10 +1525,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -152.5
-offset_top = 21.5
-offset_right = 152.5
-offset_bottom = 104.5
+offset_left = -150.0
+offset_top = 52.0
+offset_right = 155.0
+offset_bottom = 135.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 3
@@ -1580,6 +1595,42 @@ theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
 theme_override_fonts/font = ExtResource("3_8wi1m")
 theme_override_font_sizes/font_size = 45
 text = "main menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveGameButton" type="TextureButton" parent="UI/Pause/PauseMenu" unique_id=841540801]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -17.0
+offset_right = 290.0
+offset_bottom = 59.0
+texture_normal = SubResource("AtlasTexture_of4gw")
+texture_pressed = SubResource("AtlasTexture_alrkp")
+texture_hover = SubResource("AtlasTexture_ivp4d")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("25_ufl6j")
+
+[node name="SaveGameLabel" type="Label" parent="UI/Pause/PauseMenu/SaveGameButton" unique_id=627505716]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -3.0
+offset_right = 2.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.7137255, 0.5372549, 0.38431373, 1)
+theme_override_fonts/font = ExtResource("3_8wi1m")
+theme_override_font_sizes/font_size = 45
+text = "SAVE GAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -2230,6 +2281,8 @@ vertical_alignment = 1
 [connection signal="mouse_entered" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause/PauseMenu/BackToMainMenuButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/Pause/PauseMenu/BackToMainMenuButton" to="UI/Pause" method="_on_back_to_main_menu_button_pressed"]
+[connection signal="mouse_entered" from="UI/Pause/PauseMenu/SaveGameButton" to="UI/Pause/PauseMenu/SaveGameButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="UI/Pause/PauseMenu/SaveGameButton" to="UI/Pause/PauseMenu/SaveGameButton" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver/GameOverMenu/RestartButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver/GameOverMenu/RestartButton" method="_on_mouse_exited"]
 [connection signal="pressed" from="UI/GameOver/GameOverMenu/RestartButton" to="UI/GameOver" method="_on_restart_button_pressed"]

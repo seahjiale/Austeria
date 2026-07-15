@@ -16,5 +16,5 @@ func _on_play_button_pressed() -> void:
 	ExpManager.reset()
 	SkillManager.reset()
 	button_sfx.play()
-	SceneTransition.transition_to("res://Assets/Levels/Area1/area_1.tscn")
+	SceneTransition.transition_to("res://Assets/Menus/Save_Menu/save_menu.tscn")
 	MusicManager.stop_music()

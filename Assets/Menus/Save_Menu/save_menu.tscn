@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://xunhackrcsb6"]
+
+[ext_resource type="Texture2D" uid="uid://chsqwl7ldr20q" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/Setting menu.png" id="1_jwptl"]
+[ext_resource type="Script" uid="uid://daldypkswouw8" path="res://Assets/Menus/Save_Menu/save_menu.gd" id="1_rnpm6"]
+[ext_resource type="FontFile" uid="uid://dyy84jm7jk7xo" path="res://Assets/Menus/game_menu_sprites/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_krwrw"]
+[ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="3_rnpm6"]
+[ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="5_vye8h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we0qx"]
+atlas = ExtResource("1_jwptl")
+region = Rect2(129.60002, 0, 126.39998, 144)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_krwrw"]
+texture = SubResource("AtlasTexture_we0qx")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vye8h"]
+texture = ExtResource("3_rnpm6")
+region_rect = Rect2(9.600037, 68.79999, 28.799988, 20.800003)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fby7i"]
+atlas = ExtResource("5_vye8h")
+region = Rect2(0, 0, 96.40029, 32.424232)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6ssj"]
+atlas = ExtResource("5_vye8h")
+region = Rect2(95.691605, 0, 96.308395, 32.616993)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gipfy"]
+atlas = ExtResource("5_vye8h")
+region = Rect2(95.38316, 0, 96.61684, 32.616993)
+
+[node name="SaveMenu" type="Control" unique_id=1726601533]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rnpm6")
+
+[node name="Panel" type="Panel" parent="." unique_id=1321445481]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.0
+offset_top = -223.0
+offset_right = 357.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_krwrw")
+
+[node name="Label" type="Label" parent="." unique_id=29168545]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 162.0
+offset_right = 166.0
+offset_bottom = 258.232
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_krwrw")
+theme_override_font_sizes/font_size = 45
+theme_override_styles/normal = SubResource("StyleBoxTexture_vye8h")
+text = "Save MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SaveFile1Button" type="TextureButton" parent="." unique_id=524924097]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 260.0
+offset_right = 847.0
+offset_bottom = 522.0
+texture_normal = SubResource("AtlasTexture_fby7i")
+texture_pressed = SubResource("AtlasTexture_p6ssj")
+texture_hover = SubResource("AtlasTexture_gipfy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="SaveFile1Button" unique_id=138583584]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.5
+offset_top = -93.0
+offset_right = 223.5
+offset_bottom = 63.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_krwrw")
+theme_override_font_sizes/font_size = 40
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeleteSaveButton" type="TextureButton" parent="." unique_id=1394337433]
+layout_mode = 0
+offset_left = 340.0
+offset_top = 514.0
+offset_right = 584.0
+offset_bottom = 617.0
+texture_normal = SubResource("AtlasTexture_fby7i")
+texture_pressed = SubResource("AtlasTexture_p6ssj")
+texture_hover = SubResource("AtlasTexture_gipfy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="DeleteSaveButton" unique_id=166984962]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -31.5
+offset_right = 115.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_krwrw")
+theme_override_font_sizes/font_size = 30
+text = "Delete Save"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewSaveButton" type="TextureButton" parent="." unique_id=20081609]
+layout_mode = 0
+offset_left = 593.0
+offset_top = 513.0
+offset_right = 842.0
+offset_bottom = 616.0
+texture_normal = SubResource("AtlasTexture_fby7i")
+texture_pressed = SubResource("AtlasTexture_p6ssj")
+texture_hover = SubResource("AtlasTexture_gipfy")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="NewSaveButton" unique_id=55422698]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -111.5
+offset_top = -31.5
+offset_right = 115.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_krwrw")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+horizontal_alignment = 1
+vertical_alignment = 1
