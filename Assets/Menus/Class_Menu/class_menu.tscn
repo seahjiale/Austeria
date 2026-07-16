@@ -10,6 +10,15 @@
 [ext_resource type="Resource" uid="uid://bsx3ow7m2d3w3" path="res://Assets/Characters/Classes/Archer/ArcherClass.tres" id="4_u3fk2"]
 [ext_resource type="Texture2D" uid="uid://lrk3vavsh143" path="res://Assets/Characters/Player/PlayerSprites/Idle (32x32).png" id="6_htkgp"]
 [ext_resource type="Texture2D" uid="uid://c0umclx4884dj" path="res://Assets/Items/Sprites/Item SpriteSheet.png" id="6_ramj0"]
+[ext_resource type="Texture2D" uid="uid://db7n5qfyin6u0" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/1.png" id="11_s0nu4"]
+[ext_resource type="Script" uid="uid://cjo4hwqkbl75r" path="res://Assets/Levels/Area1/Background/Sky/sky.gd" id="12_fu8r4"]
+[ext_resource type="Script" uid="uid://k6m1q04b7u0q" path="res://Assets/Levels/Area1/Background/Sky/sky_2.gd" id="13_iyd7d"]
+[ext_resource type="Texture2D" uid="uid://ddakgg63kpo7j" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/2.png" id="14_w6ocj"]
+[ext_resource type="Script" uid="uid://bqkqy4rv7risg" path="res://Assets/Levels/Area1/Background/Clouds/cloud_1.gd" id="15_jsped"]
+[ext_resource type="Script" uid="uid://bbu1hwf0753cr" path="res://Assets/Levels/Area1/Background/Clouds/big_cloud_2.gd" id="16_c0yir"]
+[ext_resource type="Texture2D" uid="uid://0d0yk2a6jjgn" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/3.png" id="17_jcuh7"]
+[ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Levels/Area1/Background/Clouds/cloud_2.gd" id="18_3avvv"]
+[ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Levels/Area1/Background/Clouds/small_cloud_2.gd" id="19_oml3b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_svqb2"]
 atlas = ExtResource("1_yceny")
@@ -189,6 +198,48 @@ grow_horizontal = 2
 grow_vertical = 2
 rotation = 2.1991148
 texture = SubResource("AtlasTexture_htkgp")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1612116489]
+layer = -1
+
+[node name="Sky" type="Sprite2D" parent="Background" unique_id=1440363147]
+scale = Vector2(2, 2)
+texture = ExtResource("11_s0nu4")
+centered = false
+script = ExtResource("12_fu8r4")
+
+[node name="Sky2" type="Sprite2D" parent="Background" unique_id=385486535]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("11_s0nu4")
+centered = false
+script = ExtResource("13_iyd7d")
+
+[node name="BigCloud1" type="Sprite2D" parent="Background" unique_id=594970450]
+scale = Vector2(2, 2)
+texture = ExtResource("14_w6ocj")
+centered = false
+script = ExtResource("15_jsped")
+
+[node name="BigCloud2" type="Sprite2D" parent="Background" unique_id=1751243554]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("14_w6ocj")
+centered = false
+script = ExtResource("16_c0yir")
+
+[node name="SmallCloud1" type="Sprite2D" parent="Background" unique_id=1467222881]
+scale = Vector2(2, 2)
+texture = ExtResource("17_jcuh7")
+centered = false
+script = ExtResource("18_3avvv")
+
+[node name="SmallCloud2" type="Sprite2D" parent="Background" unique_id=188439849]
+position = Vector2(1152, 0)
+scale = Vector2(2, 2)
+texture = ExtResource("17_jcuh7")
+centered = false
+script = ExtResource("19_oml3b")
 
 [connection signal="mouse_entered" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_mouse_entered"]
 [connection signal="mouse_exited" from="Class_Panel/WarriorButton" to="." method="_on_warrior_button_mouse_exited"]
