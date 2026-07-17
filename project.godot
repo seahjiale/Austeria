@@ -29,6 +29,10 @@ SkillManager="*uid://qb4rpe3kojxq"
 
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gut/plugin.cfg")
+
 [input]
 
 jump={
