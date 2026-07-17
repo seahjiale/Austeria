@@ -31,6 +31,7 @@ func _ready() -> void:
 	SkillManager.points_changed.connect(_on_points_changed)
 	SkillManager.skill_unlocked.connect(_on_skill_unlocked)
 	SkillManager.manager_reset.connect(_on_manager_reset)
+	SkillManager.skill_unequipped.connect(_on_skill_unequipped)
 
 
 func _load_skills() -> void:
@@ -217,9 +218,13 @@ func _drop_on_equip(_at_position: Variant, data: Variant, slot: TextureRect) -> 
 func _equip_skill_to_slot(skill: SkillData, slot: TextureRect) -> void:
 	slot.set_meta("is_filled", true)
 	slot.set_meta("equipped_skill", skill)
-	for child in slot.get_children():
-		child.queue_free()
+
+	var existing_icon = slot.get_node_or_null("EquippedIcon")
+	if existing_icon:
+		existing_icon.queue_free()
+
 	var icon := TextureRect.new()
+	icon.name = "EquippedIcon"
 	icon.texture = skill.icon
 	icon.custom_minimum_size = Vector2(38, 38)
 	icon.size = Vector2(38, 38)
@@ -232,8 +237,11 @@ func _equip_skill_to_slot(skill: SkillData, slot: TextureRect) -> void:
 func _unequip_slot(slot: TextureRect) -> void:
 	slot.set_meta("is_filled", false)
 	slot.set_meta("equipped_skill", null)
-	for child in slot.get_children():
-		child.queue_free()
+
+	var existing_icon = slot.get_node_or_null("EquippedIcon")
+	if existing_icon:
+		existing_icon.queue_free()
+
 	SkillManager.unequip_skill(slot.get_meta("index"))
 
 
@@ -272,3 +280,18 @@ func _clear_equip_grid() -> void:
 	]
 	for slot in slots:
 		_unequip_slot(slot)
+
+func _on_skill_unequipped(slot_index: int) -> void:
+	var slots = [
+		$RightPage/EquipGrid/Slot1,
+		$RightPage/EquipGrid/Slot2,
+		$RightPage/EquipGrid/Slot3,
+		$RightPage/EquipGrid/Slot4
+	]
+	var slot = slots[slot_index]
+	if slot.get_meta("is_filled", false):
+		slot.set_meta("is_filled", false)
+		slot.set_meta("equipped_skill", null)
+		var existing_icon = slot.get_node_or_null("EquippedIcon")
+		if existing_icon:
+			existing_icon.queue_free()

@@ -21,6 +21,14 @@ func _on_level_up(_new_level: int) -> void:
 	add_skill_point(1)
 
 func equip_skill(slot_index: int, skill: SkillData) -> void:
+	for i in equipped_slots.size():
+		if i != slot_index and equipped_slots[i] == skill:
+			equipped_slots[i] = null
+			_cooldowns[i] = 0.0
+			_max_cooldowns[i] = 0.0
+			skill_unequipped.emit(i)
+			break
+
 	equipped_slots[slot_index] = skill
 	skill_equipped.emit(slot_index, skill)
 
