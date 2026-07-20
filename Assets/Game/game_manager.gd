@@ -13,6 +13,8 @@ func _ready() -> void:
 	# updating hearts after class selection
 	if GameState.selected_class != null:
 		lives = GameState.selected_class.max_health
+	if GameState.current_health > 0:  # add this
+		lives = GameState.current_health
 	update_hearts()
 
 func update_hearts():

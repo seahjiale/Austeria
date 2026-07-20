@@ -50,7 +50,14 @@ func _ready():
 		global_position = GameState.respawn_position
 	else:
 		GameState.respawn_position = global_position
-	
+	if GameState.load_position != Vector2.ZERO:
+		global_position = GameState.load_position
+		GameState.load_position = Vector2.ZERO  # clear it so it only applies once
+	elif GameState.respawn_position != Vector2.ZERO:
+		global_position = GameState.respawn_position
+	else:
+		GameState.respawn_position = global_position
+
 func _physics_process(delta: float) -> void:
 	# resets double jump
 	if is_on_floor():

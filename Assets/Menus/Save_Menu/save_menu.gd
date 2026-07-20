@@ -57,12 +57,30 @@ func _on_load_pressed() -> void:
 func _apply_save_data(save_data: Dictionary) -> void:
 	if save_data.has("current_area"):
 		GameState.current_area = save_data.current_area
-	if save_data.has("respawn_position"):
-		GameState.respawn_position = Vector2(
-			save_data.respawn_position.x,
-			save_data.respawn_position.y)
+	if save_data.has("player_position"):
+		GameState.load_position = Vector2(
+		save_data.player_position.x,
+		save_data.player_position.y)
 	if save_data.has("selected_class") and save_data.selected_class != "":
 		GameState.selected_class = load(save_data.selected_class)
 	if save_data.has("equipped_weapon") and save_data.equipped_weapon != "":
 		GameState.equipped_weapon = load(save_data.equipped_weapon)
+	if save_data.has("unlocked_skills"):
+		SkillManager.unlocked_skills = save_data.unlocked_skills
+	if save_data.has("skill_points"):
+		SkillManager.skill_points = save_data.skill_points
+	if save_data.has("equipped_skills"):
+		for i in save_data.equipped_skills.size():
+			var path = save_data.equipped_skills[i]
+			if path != "":
+				SkillManager.equip_skill(i, load(path))
+			else:
+				SkillManager.unequip_skill(i)
+	if save_data.has("lives"):
+		GameState.current_health = save_data.lives
+	if save_data.has("level"):
+		ExpManager.level = save_data.level
+		ExpManager.xp_to_next = ExpManager._xp_for_level(ExpManager.level)
+	if save_data.has("current_xp"):
+		ExpManager.current_xp = save_data.current_xp
 	SceneTransition.transition_to(GameState.current_area)
