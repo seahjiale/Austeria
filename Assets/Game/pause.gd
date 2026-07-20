@@ -27,14 +27,30 @@ func _on_back_to_main_menu_button_pressed() -> void:
 	SceneTransition.transition_to("res://Assets/Menus/Main_Menu/main_menu.tscn")
 
 func _on_save_button_pressed() -> void:
+	var players = get_tree().get_nodes_in_group("player")
+	var player = players[0] if players.size() > 0 else null    
+	if player == null:
+		print("Player not found, cannot save position")
+		return
+	var equipped_skill_ids = []
+	for skill in SkillManager.equipped_slots:
+		if skill != null:
+			equipped_skill_ids.append(skill.resource_path)
+		else:
+			equipped_skill_ids.append("")
 	var save_data = {
 		"current_area": GameState.current_area,
-		"respawn_position": {
-			"x": GameState.respawn_position.x,
-			"y": GameState.respawn_position.y
-		},
+		"player_position": {
+			"x": player.global_position.x,
+			"y": player.global_position.y},
 		"selected_class": GameState.selected_class.resource_path if GameState.selected_class else "",
-		"equipped_weapon": GameState.equipped_weapon.resource_path if GameState.equipped_weapon else ""
+		"equipped_weapon": GameState.equipped_weapon.resource_path if GameState.equipped_weapon else "",
+		"equipped_skills": equipped_skill_ids,
+		"unlocked_skills": SkillManager.unlocked_skills,
+		"skill_points": SkillManager.skill_points,
+		"lives": get_tree().current_scene.get_node("%GameManager").lives,
+		"level": ExpManager.level,
+		"current_xp": ExpManager.current_xp  
 	}
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	if file == null:
