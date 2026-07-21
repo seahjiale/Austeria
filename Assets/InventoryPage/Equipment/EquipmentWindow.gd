@@ -8,6 +8,8 @@ extends Control
 func _ready() -> void:
 	visible = false
 	GlobalSignals.update_equipment.connect(update_equipment_ui)
+	if GameState.equipped_weapon != null:
+		equipment_data.equipped_weapon = GameState.equipped_weapon
 	update_equipment_ui()
 
 func _input(event: InputEvent) -> void:
