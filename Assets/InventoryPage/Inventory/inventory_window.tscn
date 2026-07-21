@@ -9,7 +9,7 @@
 texture = ExtResource("3_2ds80")
 region_rect = Rect2(2.981289, 97.97183, 42.082054, 44.049225)
 
-[node name="InventoryWindow" type="Control" unique_id=717162805]
+[node name="InventoryWindow" type="Control" unique_id=717162805 groups=["inventory_window"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

@@ -11,6 +11,15 @@ func _process(_delta: float) -> void:
 
 func _ready() -> void:
 	visible = false
+	print("saved inventory on load: ", GameState.saved_inventory)
+	if GameState.saved_inventory.size() > 0:
+		inventory_data.item_data.clear()
+		for path in GameState.saved_inventory:
+			if path != "":
+				inventory_data.item_data.append(load(path))
+			else:
+				inventory_data.item_data.append(null)
+		GameState.saved_inventory.clear()
 	update_inventory_data()
 	connect_signals()
 

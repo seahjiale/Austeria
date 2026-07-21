@@ -49,9 +49,7 @@ func _on_load_pressed() -> void:
 	file.close()
 	var save_data = JSON.parse_string(text)
 	if save_data == null:
-		print("Failed to parse save file")
 		return
-	print("Loaded save data: ", save_data)
 	_apply_save_data(save_data)
 
 func _apply_save_data(save_data: Dictionary) -> void:
@@ -83,4 +81,6 @@ func _apply_save_data(save_data: Dictionary) -> void:
 		ExpManager.xp_to_next = ExpManager._xp_for_level(ExpManager.level)
 	if save_data.has("current_xp"):
 		ExpManager.current_xp = save_data.current_xp
+	if save_data.has("inventory"):
+		GameState.saved_inventory = save_data.inventory
 	SceneTransition.transition_to(GameState.current_area)

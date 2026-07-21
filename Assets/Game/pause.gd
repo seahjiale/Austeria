@@ -38,6 +38,17 @@ func _on_save_button_pressed() -> void:
 			equipped_skill_ids.append(skill.resource_path)
 		else:
 			equipped_skill_ids.append("")
+	var inventory_window = get_tree().get_first_node_in_group("inventory_window")
+	print("inventory window found: ", inventory_window)
+	var inventory_paths = []
+	if inventory_window:
+		print("inventory data: ", inventory_window.inventory_data)
+		print("inventory items: ", inventory_window.inventory_data.item_data)
+		for item in inventory_window.inventory_data.item_data:
+			if item != null:
+				inventory_paths.append(item.resource_path)
+			else:
+				inventory_paths.append("")
 	var save_data = {
 		"current_area": GameState.current_area,
 		"player_position": {
@@ -50,7 +61,8 @@ func _on_save_button_pressed() -> void:
 		"skill_points": SkillManager.skill_points,
 		"lives": get_tree().current_scene.get_node("%GameManager").lives,
 		"level": ExpManager.level,
-		"current_xp": ExpManager.current_xp  
+		"current_xp": ExpManager.current_xp,
+		"inventory": inventory_paths
 	}
 	var file := FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	if file == null:
