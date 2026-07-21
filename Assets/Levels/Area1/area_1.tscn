@@ -1338,7 +1338,7 @@ offset_bottom = -110.0
 theme_override_fonts/font = ExtResource("3_8wi1m")
 text = "Press F"
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=61818701]
+[node name="UI" type="CanvasLayer" parent="." unique_id=61818701 groups=["hide_on_transition"]]
 layer = 10
 visible = false
 
@@ -1796,7 +1796,7 @@ texture = ExtResource("23_sxlx6")
 centered = false
 script = ExtResource("28_me1nw")
 
-[node name="Inventory" type="CanvasLayer" parent="." unique_id=1324672093]
+[node name="Inventory" type="CanvasLayer" parent="." unique_id=1324672093 groups=["hide_on_transition"]]
 
 [node name="InventoryWindow" parent="Inventory" unique_id=717162805 instance=ExtResource("29_xb627")]
 offset_left = -1.0
@@ -1806,7 +1806,7 @@ offset_right = -1.0
 offset_left = -10.0
 offset_right = -10.0
 
-[node name="SkillBook" type="CanvasLayer" parent="." unique_id=2136810862]
+[node name="SkillBook" type="CanvasLayer" parent="." unique_id=2136810862 groups=["hide_on_transition"]]
 
 [node name="SkillBookUI" type="Control" parent="SkillBook" unique_id=1895184221]
 layout_mode = 3
@@ -2021,7 +2021,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("43_abqbe")
 autowrap_mode = 2
 
-[node name="SkillUI" type="CanvasLayer" parent="." unique_id=766989893]
+[node name="SkillUI" type="CanvasLayer" parent="." unique_id=766989893 groups=["hide_on_transition"]]
 
 [node name="SkillHUD" type="Control" parent="SkillUI" unique_id=1106542230]
 layout_mode = 3

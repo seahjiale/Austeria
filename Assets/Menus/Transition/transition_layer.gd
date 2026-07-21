@@ -1,5 +1,4 @@
 extends CanvasLayer
-
 @onready var color_rect: ColorRect = $ColorRect
 var target_scene: String = ""
 var duration: float = 0.8
@@ -15,6 +14,7 @@ func transition_to(new_scene: String, trans_duration: float = 0.8) -> void:
 	_animate_out()
 
 func _animate_out() -> void:
+	_set_ui_visible(false)
 	color_rect.visible = true
 	color_rect.material.set_shader_parameter("reverse", false)
 	var tween = create_tween()
@@ -36,7 +36,12 @@ func _animate_in() -> void:
 		0.0, 1.0, duration
 	)
 	tween.finished.connect(_on_in_finished)
-	
+
 func _on_in_finished() -> void:
 	color_rect.visible = false
 	color_rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_set_ui_visible(true)
+
+func _set_ui_visible(is_visible: bool) -> void:
+	for node in get_tree().get_nodes_in_group("hide_on_transition"):
+		node.visible = is_visible

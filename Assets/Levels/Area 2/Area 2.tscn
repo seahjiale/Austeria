@@ -1397,7 +1397,7 @@ script = ExtResource("5_c4ygx")
 position = Vector2(2.5, -144)
 shape = SubResource("RectangleShape2D_mpbaa")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=890948528]
+[node name="UI" type="CanvasLayer" parent="." unique_id=890948528 groups=["hide_on_transition"]]
 layer = 10
 visible = false
 
@@ -1967,7 +1967,7 @@ scale = Vector2(1.03125, 1)
 sprite_frames = SubResource("SpriteFrames_kh0ct")
 animation = &"new_animation"
 
-[node name="SkillBook" type="CanvasLayer" parent="." unique_id=557497499]
+[node name="SkillBook" type="CanvasLayer" parent="." unique_id=557497499 groups=["hide_on_transition"]]
 
 [node name="SkillBookUI" type="Control" parent="SkillBook" unique_id=1897281372]
 layout_mode = 3
@@ -2182,7 +2182,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("43_cn1am")
 autowrap_mode = 2
 
-[node name="SkillUI" type="CanvasLayer" parent="." unique_id=1777485405]
+[node name="SkillUI" type="CanvasLayer" parent="." unique_id=1777485405 groups=["hide_on_transition"]]
 
 [node name="SkillHUD" type="Control" parent="SkillUI" unique_id=1519444550]
 layout_mode = 3
