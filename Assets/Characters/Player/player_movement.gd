@@ -29,6 +29,7 @@ var is_hurt = false
 # double jump count
 var jumps_remaining = 2
 var can_attack: bool = true
+var is_trapped: bool = false
 
 @onready var level_up_label = $LevelUpEffect/LevelUpLabel
 var level_up_label_start_pos: Vector2
@@ -60,7 +61,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	# resets double jump
-	if is_on_floor():
+	if is_on_floor() and not is_trapped:
 		jumps_remaining = 2
 	
 	# gravity
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 		knockback = false
 
 	# double-jump logic and animation
-	if Input.is_action_just_pressed("jump") and jumps_remaining > 0:
+	if Input.is_action_just_pressed("jump") and jumps_remaining > 0 and not is_trapped:
 		jump_sound.play()
 		velocity.y = jump_power * jump_multiplier
 		jumps_remaining -= 1
@@ -94,7 +95,6 @@ func _physics_process(delta: float) -> void:
 func _input(event):
 	if event.is_action_pressed("attack"):
 		attack()
-		
 	if event.is_action_pressed("skill_1"):
 		use_skill(0)
 	if event.is_action_pressed("skill_2"):
