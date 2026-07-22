@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://dxyb7mg7msjwe" path="res://Assets/Menus/Settings_Menu/back_button.gd" id="7_5rb6j"]
 [ext_resource type="Texture2D" uid="uid://oi8khi33ox3c" path="res://Assets/Menus/game_menu_sprites/emojis-free/Emoji_Spritesheet_Free.png" id="8_qqrnj"]
 [ext_resource type="AudioStream" uid="uid://b2gxktiwdyra5" path="res://Assets/Sound/freesound_community-old-radio-button-click-97549.mp3" id="9_cyrmj"]
+[ext_resource type="Script" uid="uid://qaoqmb6ux2n6" path="res://Assets/Menus/Settings_Menu/controls_button.gd" id="10_0vt06"]
 [ext_resource type="Texture2D" uid="uid://db7n5qfyin6u0" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/1.png" id="10_etjox"]
 [ext_resource type="Script" uid="uid://cjo4hwqkbl75r" path="res://Assets/Levels/Area1/Background/Sky/sky.gd" id="11_0vt06"]
 [ext_resource type="Script" uid="uid://k6m1q04b7u0q" path="res://Assets/Levels/Area1/Background/Sky/sky_2.gd" id="12_eal4n"]
@@ -18,6 +19,11 @@
 [ext_resource type="Texture2D" uid="uid://0d0yk2a6jjgn" path="res://Assets/Levels/Area1/Background/BackgroundSprites/cloud_bg/3.png" id="16_bvk51"]
 [ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Levels/Area1/Background/Clouds/cloud_2.gd" id="17_nkdlq"]
 [ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Levels/Area1/Background/Clouds/small_cloud_2.gd" id="18_3s6pv"]
+[ext_resource type="Script" uid="uid://bti1lfxd7wmvp" path="res://Assets/Menus/Settings_Menu/controls_menu.gd" id="20_eal4n"]
+[ext_resource type="Script" uid="uid://dldoac73tv5ui" path="res://Assets/Menus/Settings_Menu/left.gd" id="21_1rhke"]
+[ext_resource type="Script" uid="uid://bikhp5f65rgdi" path="res://Assets/Menus/Settings_Menu/control_back_button.gd" id="21_ljj2u"]
+[ext_resource type="Script" uid="uid://cvx4c8i3m6qfm" path="res://Assets/Menus/Settings_Menu/right.gd" id="22_nkdlq"]
+[ext_resource type="Script" uid="uid://dsvmqlerb516m" path="res://Assets/Menus/Settings_Menu/attack.gd" id="23_3s6pv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qadjw"]
 texture = ExtResource("1_gh63n")
@@ -50,6 +56,25 @@ region = Rect2(16, 80, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_qadjw"]
 atlas = ExtResource("8_qqrnj")
 region = Rect2(32, 224, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etjox"]
+atlas = ExtResource("5_qqrnj")
+region = Rect2(9.445709, 67.70134, 28.992859, 23.441032)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vt06"]
+atlas = ExtResource("5_qqrnj")
+region = Rect2(57.56151, 68.318214, 28.375992, 23.749458)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eal4n"]
+atlas = ExtResource("5_qqrnj")
+region = Rect2(58.178375, 68.00977, 28.992859, 23.749466)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljj2u"]
+atlas = ExtResource("1_gh63n")
+region = Rect2(0, 0, 127.691605, 144)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1rhke"]
+texture = SubResource("AtlasTexture_ljj2u")
 
 [node name="SettingsMenu" type="Control" unique_id=278445073]
 layout_mode = 3
@@ -141,6 +166,33 @@ texture = SubResource("AtlasTexture_qadjw")
 position = Vector2(-178, 241)
 stream = ExtResource("9_cyrmj")
 
+[node name="ControlsButton" type="TextureButton" parent="SettingsPanel" unique_id=887780333]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 243.5
+offset_right = 380.0
+offset_bottom = 355.5
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+script = ExtResource("10_0vt06")
+
+[node name="Label" type="Label" parent="SettingsPanel/ControlsButton" unique_id=1871634928]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 36.0
+offset_right = 212.0
+offset_bottom = 89.0
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Controls"
+horizontal_alignment = 3
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SettingsPanel/ControlsButton" unique_id=184523051]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
 [node name="Background" type="CanvasLayer" parent="." unique_id=378220607]
 layer = -1
 
@@ -183,5 +235,203 @@ texture = ExtResource("16_bvk51")
 centered = false
 script = ExtResource("18_3s6pv")
 
+[node name="ControlsMenu" type="Panel" parent="." unique_id=1076785778]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -547.5
+offset_top = -373.0
+offset_right = 547.5
+offset_bottom = 367.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_1rhke")
+script = ExtResource("20_eal4n")
+
+[node name="Left" type="TextureButton" parent="ControlsMenu" unique_id=1725599970]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 243.5
+offset_right = 297.5
+offset_bottom = 355.5
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+script = ExtResource("21_1rhke")
+
+[node name="Label" type="Label" parent="ControlsMenu/Left" unique_id=1641850574]
+layout_mode = 0
+offset_left = -5.5
+offset_top = 26.5
+offset_right = 170.5
+offset_bottom = 79.5
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "LEFT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Left" unique_id=489520949]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Left" unique_id=924142713]
+layout_mode = 0
+offset_left = 14.5
+offset_top = 111.5
+offset_right = 145.5
+offset_bottom = 134.5
+text = "Current Key: "
+
+[node name="Right" type="TextureButton" parent="ControlsMenu" unique_id=956289164]
+layout_mode = 0
+offset_left = 332.5
+offset_top = 244.0
+offset_right = 487.0
+offset_bottom = 356.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+script = ExtResource("22_nkdlq")
+
+[node name="Label" type="Label" parent="ControlsMenu/Right" unique_id=1233804073]
+layout_mode = 0
+offset_left = -5.5
+offset_top = 26.5
+offset_right = 170.5
+offset_bottom = 79.5
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Right"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Right" unique_id=1767935679]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Right" unique_id=1531666218]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 108.0
+offset_right = 112.0
+offset_bottom = 131.0
+text = "Current Key:"
+
+[node name="Attack" type="TextureButton" parent="ControlsMenu" unique_id=237673324]
+layout_mode = 0
+offset_left = 518.5
+offset_top = 243.0
+offset_right = 675.5
+offset_bottom = 355.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+script = ExtResource("23_3s6pv")
+
+[node name="Label" type="Label" parent="ControlsMenu/Attack" unique_id=1704410285]
+layout_mode = 0
+offset_left = -5.5
+offset_top = 26.5
+offset_right = 170.5
+offset_bottom = 79.5
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Attack" unique_id=788377577]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Attack" unique_id=1801379063]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 108.0
+offset_right = 56.0
+offset_bottom = 131.0
+text = "Current Key:"
+
+[node name="Jump" type="TextureButton" parent="ControlsMenu" unique_id=397650346]
+layout_mode = 0
+offset_left = 138.5
+offset_top = 394.0
+offset_right = 293.0
+offset_bottom = 506.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlsMenu/Jump" unique_id=598613625]
+layout_mode = 0
+offset_left = -5.5
+offset_top = 26.5
+offset_right = 170.5
+offset_bottom = 79.5
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Jump"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Jump" unique_id=1525183955]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Jump" unique_id=1501394537]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 106.0
+offset_right = 110.0
+offset_bottom = 129.0
+text = "Current Key:"
+
+[node name="ControlBackButton" type="TextureButton" parent="ControlsMenu" unique_id=1166637883]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 930.5
+offset_top = -663.0
+offset_right = 996.5
+offset_bottom = -601.0
+grow_vertical = 0
+texture_normal = SubResource("AtlasTexture_xc50m")
+texture_pressed = SubResource("AtlasTexture_5rb6j")
+texture_hover = SubResource("AtlasTexture_5rb6j")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("21_ljj2u")
+
+[node name="BackButtonRect" type="TextureRect" parent="ControlsMenu/ControlBackButton" unique_id=1748618356]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = -16.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_qadjw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/ControlBackButton" unique_id=514934560]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
 [connection signal="mouse_entered" from="SettingsPanel/BackButton" to="SettingsPanel/BackButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="SettingsPanel/BackButton" to="SettingsPanel/BackButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="SettingsPanel/ControlsButton" to="SettingsPanel/ControlsButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="SettingsPanel/ControlsButton" to="SettingsPanel/ControlsButton" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="ControlsMenu/ControlBackButton" to="ControlsMenu/ControlBackButton" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="ControlsMenu/ControlBackButton" to="ControlsMenu/ControlBackButton" method="_on_mouse_exited"]
