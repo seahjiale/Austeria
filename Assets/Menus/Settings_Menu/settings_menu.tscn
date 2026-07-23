@@ -20,10 +20,7 @@
 [ext_resource type="Script" uid="uid://e3v2eyjkik63" path="res://Assets/Levels/Area1/Background/Clouds/cloud_2.gd" id="17_nkdlq"]
 [ext_resource type="Script" uid="uid://b5p6oig3m7op6" path="res://Assets/Levels/Area1/Background/Clouds/small_cloud_2.gd" id="18_3s6pv"]
 [ext_resource type="Script" uid="uid://bti1lfxd7wmvp" path="res://Assets/Menus/Settings_Menu/controls_menu.gd" id="20_eal4n"]
-[ext_resource type="Script" uid="uid://dldoac73tv5ui" path="res://Assets/Menus/Settings_Menu/left.gd" id="21_1rhke"]
 [ext_resource type="Script" uid="uid://bikhp5f65rgdi" path="res://Assets/Menus/Settings_Menu/control_back_button.gd" id="21_ljj2u"]
-[ext_resource type="Script" uid="uid://cvx4c8i3m6qfm" path="res://Assets/Menus/Settings_Menu/right.gd" id="22_nkdlq"]
-[ext_resource type="Script" uid="uid://dsvmqlerb516m" path="res://Assets/Menus/Settings_Menu/attack.gd" id="23_3s6pv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qadjw"]
 texture = ExtResource("1_gh63n")
@@ -261,7 +258,6 @@ texture_normal = SubResource("AtlasTexture_etjox")
 texture_pressed = SubResource("AtlasTexture_0vt06")
 texture_hover = SubResource("AtlasTexture_eal4n")
 stretch_mode = 0
-script = ExtResource("21_1rhke")
 
 [node name="Label" type="Label" parent="ControlsMenu/Left" unique_id=1641850574]
 layout_mode = 0
@@ -297,7 +293,6 @@ texture_normal = SubResource("AtlasTexture_etjox")
 texture_pressed = SubResource("AtlasTexture_0vt06")
 texture_hover = SubResource("AtlasTexture_eal4n")
 stretch_mode = 0
-script = ExtResource("22_nkdlq")
 
 [node name="Label" type="Label" parent="ControlsMenu/Right" unique_id=1233804073]
 layout_mode = 0
@@ -327,20 +322,19 @@ text = "Current Key:"
 layout_mode = 0
 offset_left = 518.5
 offset_top = 243.0
-offset_right = 675.5
+offset_right = 680.5
 offset_bottom = 355.0
 texture_normal = SubResource("AtlasTexture_etjox")
 texture_pressed = SubResource("AtlasTexture_0vt06")
 texture_hover = SubResource("AtlasTexture_eal4n")
 stretch_mode = 0
-script = ExtResource("23_3s6pv")
 
 [node name="Label" type="Label" parent="ControlsMenu/Attack" unique_id=1704410285]
 layout_mode = 0
-offset_left = -5.5
-offset_top = 26.5
-offset_right = 170.5
-offset_bottom = 79.5
+offset_left = -3.0
+offset_top = 29.0
+offset_right = 173.0
+offset_bottom = 82.0
 theme_override_fonts/font = ExtResource("4_5rb6j")
 theme_override_font_sizes/font_size = 38
 text = "Attack"
@@ -387,6 +381,41 @@ position = Vector2(-178, 241)
 stream = ExtResource("9_cyrmj")
 
 [node name="Label2" type="Label" parent="ControlsMenu/Jump" unique_id=1501394537]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 106.0
+offset_right = 110.0
+offset_bottom = 129.0
+text = "Current Key:"
+
+[node name="Interact" type="TextureButton" parent="ControlsMenu" unique_id=1896665504]
+layout_mode = 0
+offset_left = 331.5
+offset_top = 395.0
+offset_right = 535.5
+offset_bottom = 507.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlsMenu/Interact" unique_id=596739697]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 28.0
+offset_right = 198.0
+offset_bottom = 81.0
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Interact" unique_id=1775467939]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Interact" unique_id=97316471]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 106.0

@@ -16,9 +16,21 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _ready() -> void:
 	press_f_label.visible = false
+	press_f_label.text = "Press " + get_key_name("interact") + " to interact"
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
 
+func get_key_name(action: String) -> String:
+	var events = InputMap.action_get_events(action)
+	for event in events:
+		if event is InputEventKey:
+			return event.as_text_physical_keycode()
+		elif event is InputEventMouseButton:
+			match event.button_index:
+				MOUSE_BUTTON_LEFT: return "Left Click"
+				MOUSE_BUTTON_RIGHT: return "Right Click"
+				MOUSE_BUTTON_MIDDLE: return "Middle Click"
+	return "F"
 
 func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):

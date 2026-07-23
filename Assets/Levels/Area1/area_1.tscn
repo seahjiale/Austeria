@@ -1336,7 +1336,6 @@ offset_top = -129.0
 offset_right = 1556.0
 offset_bottom = -110.0
 theme_override_fonts/font = ExtResource("3_8wi1m")
-text = "Press F"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=61818701 groups=["hide_on_transition"]]
 layer = 10
