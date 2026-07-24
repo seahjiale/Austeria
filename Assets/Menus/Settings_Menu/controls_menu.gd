@@ -1,6 +1,16 @@
 extends Panel
 
+@export var hover_offset: float = 4.0
+@export var label_offset_x: float = -4.0
+@export var hover_duration: float = 0.1
+
+var original_positions := {}
+var original_label2_offsets := {} 
+var original_label_positions := {}  
+
+
 const CONTROLS_SAVE = "user://controls.cfg"
+
 
 var action_map = {
 	"Left": "move_left",
@@ -22,8 +32,37 @@ func _ready():
 	$Interact.pressed.connect(_on_remap_pressed.bind("interact", $Interact/Label2))
 	$Inventory.pressed.connect(_on_remap_pressed.bind("inventory", $Inventory/Label2))
 	$Skillbook.pressed.connect(_on_remap_pressed.bind("open_skill_book", $Skillbook/Label2))
+
+	for btn_name in ["Left", "Right", "Attack", "Jump", "Interact", "Inventory", "Skillbook"]:
+		var btn = get_node(btn_name)
+		var label2 = btn.get_node("Label2")
+		var label = btn.get_node("Label")
+		original_positions[btn] = btn.position
+		original_label2_offsets[label2] = Vector2(label2.offset_left, label2.offset_top)
+		original_label_positions[label] = label.position
+		btn.mouse_entered.connect(func(): _on_button_hover(btn, label2, label))
+		btn.mouse_exited.connect(func(): _on_button_unhover(btn, label2, label))
+
 	load_controls()
 	update_all_key_labels()
+
+func _on_button_hover(btn: BaseButton, label2: Label, label: Label) -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(btn, "position:y", original_positions[btn].y + hover_offset, hover_duration)
+	tween.tween_property(label2, "offset_left", original_label2_offsets[label2].x + label_offset_x, hover_duration)
+	tween.tween_property(label2, "offset_top", original_label2_offsets[label2].y + hover_offset, hover_duration)
+	tween.tween_property(label, "position:x", original_label_positions[label].x + label_offset_x, hover_duration)
+	tween.tween_property(label, "position:y", original_label_positions[label].y + hover_offset, hover_duration)
+
+func _on_button_unhover(btn: BaseButton, label2: Label, label: Label) -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(btn, "position:y", original_positions[btn].y, hover_duration)
+	tween.tween_property(label2, "offset_left", original_label2_offsets[label2].x, hover_duration)
+	tween.tween_property(label2, "offset_top", original_label2_offsets[label2].y, hover_duration)
+	tween.tween_property(label, "position:x", original_label_positions[label].x, hover_duration)
+	tween.tween_property(label, "position:y", original_label_positions[label].y, hover_duration)
 
 func save_controls() -> void:
 	var config = ConfigFile.new()
