@@ -13,7 +13,7 @@ func _ready() -> void:
 	update_equipment_ui()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Equipment"):
+	if event.is_action_pressed("inventory"):
 		visible = !visible
 
 func update_equipment_ui() -> void:

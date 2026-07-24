@@ -285,10 +285,10 @@ text = "Current Key: "
 
 [node name="Right" type="TextureButton" parent="ControlsMenu" unique_id=956289164]
 layout_mode = 0
-offset_left = 332.5
-offset_top = 244.0
-offset_right = 487.0
-offset_bottom = 356.0
+offset_left = 343.5
+offset_top = 243.0
+offset_right = 498.0
+offset_bottom = 355.0
 texture_normal = SubResource("AtlasTexture_etjox")
 texture_pressed = SubResource("AtlasTexture_0vt06")
 texture_hover = SubResource("AtlasTexture_eal4n")
@@ -320,10 +320,10 @@ text = "Current Key:"
 
 [node name="Attack" type="TextureButton" parent="ControlsMenu" unique_id=237673324]
 layout_mode = 0
-offset_left = 518.5
-offset_top = 243.0
-offset_right = 680.5
-offset_bottom = 355.0
+offset_left = 533.5
+offset_top = 242.0
+offset_right = 695.5
+offset_bottom = 354.0
 texture_normal = SubResource("AtlasTexture_etjox")
 texture_pressed = SubResource("AtlasTexture_0vt06")
 texture_hover = SubResource("AtlasTexture_eal4n")
@@ -416,6 +416,76 @@ position = Vector2(-178, 241)
 stream = ExtResource("9_cyrmj")
 
 [node name="Label2" type="Label" parent="ControlsMenu/Interact" unique_id=97316471]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 106.0
+offset_right = 110.0
+offset_bottom = 129.0
+text = "Current Key:"
+
+[node name="Inventory" type="TextureButton" parent="ControlsMenu" unique_id=680368673]
+layout_mode = 0
+offset_left = 730.5
+offset_top = 243.0
+offset_right = 960.5
+offset_bottom = 355.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlsMenu/Inventory" unique_id=2042902390]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 27.0
+offset_right = 217.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Inventory"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Inventory" unique_id=1143503518]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Inventory" unique_id=1528186481]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 106.0
+offset_right = 110.0
+offset_bottom = 129.0
+text = "Current Key:"
+
+[node name="Skillbook" type="TextureButton" parent="ControlsMenu" unique_id=1134321904]
+layout_mode = 0
+offset_left = 565.5
+offset_top = 395.0
+offset_right = 797.5
+offset_bottom = 507.0
+texture_normal = SubResource("AtlasTexture_etjox")
+texture_pressed = SubResource("AtlasTexture_0vt06")
+texture_hover = SubResource("AtlasTexture_eal4n")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="ControlsMenu/Skillbook" unique_id=379482092]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 27.0
+offset_right = 215.0
+offset_bottom = 80.0
+theme_override_fonts/font = ExtResource("4_5rb6j")
+theme_override_font_sizes/font_size = 38
+text = "Skillbook"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="ControlsMenu/Skillbook" unique_id=864423117]
+position = Vector2(-178, 241)
+stream = ExtResource("9_cyrmj")
+
+[node name="Label2" type="Label" parent="ControlsMenu/Skillbook" unique_id=1749695888]
 layout_mode = 0
 offset_left = 13.0
 offset_top = 106.0

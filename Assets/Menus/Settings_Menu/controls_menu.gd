@@ -7,7 +7,9 @@ var action_map = {
 	"Right": "move_right", 
 	"Attack": "attack",
 	"Jump": "jump",
-	"Interact": "interact"
+	"Interact": "interact",
+	"Inventory": "inventory",
+	"Skillbook": "open_skill_book"
 }
 var listening_for: String = ""
 var listening_label: Label = null
@@ -17,7 +19,9 @@ func _ready():
 	$Right.pressed.connect(_on_remap_pressed.bind("move_right", $Right/Label2))
 	$Attack.pressed.connect(_on_remap_pressed.bind("attack", $Attack/Label2))
 	$Jump.pressed.connect(_on_remap_pressed.bind("jump", $Jump/Label2))
-	$Interact.pressed.connect(_on_remap_pressed.bind("interact", $Interact/Label2))       
+	$Interact.pressed.connect(_on_remap_pressed.bind("interact", $Interact/Label2))
+	$Inventory.pressed.connect(_on_remap_pressed.bind("inventory", $Inventory/Label2))
+	$Skillbook.pressed.connect(_on_remap_pressed.bind("open_skill_book", $Skillbook/Label2))
 	load_controls()
 	update_all_key_labels()
 
@@ -61,6 +65,8 @@ func update_all_key_labels():
 	$Attack/Label2.text = "Current Key: " + get_key_name("attack")
 	$Jump/Label2.text = "Current Key: " + get_key_name("jump")
 	$Interact/Label2.text = "Current Key: " + get_key_name("interact")
+	$Inventory/Label2.text = "Current Key: " + get_key_name("inventory")
+	$Skillbook/Label2.text = "Current Key: " + get_key_name("open_skill_book")
 
 func get_key_name(action: String) -> String:
 	var events = InputMap.action_get_events(action)

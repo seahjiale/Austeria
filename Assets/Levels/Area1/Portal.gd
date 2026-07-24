@@ -30,7 +30,7 @@ func get_key_name(action: String) -> String:
 				MOUSE_BUTTON_LEFT: return "Left Click"
 				MOUSE_BUTTON_RIGHT: return "Right Click"
 				MOUSE_BUTTON_MIDDLE: return "Middle Click"
-	return "F"
+	return "Not binded"
 
 func _input(event: InputEvent) -> void:
 	if player_nearby and event.is_action_pressed("interact"):

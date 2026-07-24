@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://d0e6aos6chuw" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Settings Buttons.png" id="9_ys1tx"]
 [ext_resource type="Script" uid="uid://c24xw72xglybq" path="res://Assets/Levels/Area1/Portal.gd" id="10_2a1mf"]
 [ext_resource type="Script" uid="uid://8sx3xso5lb3y" path="res://Assets/Menus/Settings_Menu/volume_progress_bar.gd" id="10_ttsc2"]
+[ext_resource type="Script" uid="uid://nmq4mfujj8bc" path="res://Assets/Levels/Area1/tutorial_texts.gd" id="10_yfwm8"]
 [ext_resource type="Texture2D" uid="uid://d5fin6dvbihe" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/buttons/Square Buttons 26x19.png" id="11_lbrap"]
 [ext_resource type="Texture2D" uid="uid://b1lf1r7jcqsel" path="res://Assets/Levels/Area1/Area1_Sprites/BluePortal-Sheet.png" id="11_o86if"]
 [ext_resource type="Texture2D" uid="uid://clr5f1087u0s" path="res://Assets/Menus/game_menu_sprites/SpriteSheets/UI Big Play Button.png" id="12_xai42"]
@@ -1172,6 +1173,7 @@ position = Vector2(2003, -148)
 shape = SubResource("RectangleShape2D_3uyhe")
 
 [node name="TutorialTexts" type="Node2D" parent="SceneObjects/Map" unique_id=1005751373]
+script = ExtResource("10_yfwm8")
 
 [node name="MovingText" type="Panel" parent="SceneObjects/Map/TutorialTexts" unique_id=1719548211]
 texture_filter = 1
