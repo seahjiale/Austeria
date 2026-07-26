@@ -9,7 +9,8 @@ extends Node2D
 func _ready() -> void:
 	MovingText.text = get_key_name("move_left") + " to move left\n" + get_key_name("move_right") + " to move right"
 	JumpingText.text = get_key_name("jump") + " to jump"
-	AttackText.text = get_key_name("attack") + " to attack"
+	AttackText.text = get_key_name("attack") + "\n to attack"
+	InventorySkillText.text = get_key_name("inventory") + " for inventory\n" + get_key_name("open_skill_book") + " for skillbook"
 
 func get_key_name(action: String) -> String:
 	var events = InputMap.action_get_events(action)
