@@ -10,7 +10,8 @@ func enter():
 	can_transition = true
  
 func teleport():
-	owner.position = player.position + Vector2.RIGHT * 40
+	var offset = Vector2(40, -30)
+	owner.position = player.position + offset
  
 func transition():
 	if can_transition:
