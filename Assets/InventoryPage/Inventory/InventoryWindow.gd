@@ -52,19 +52,16 @@ func _input(event: InputEvent) -> void:
 		
 
 func start_drag() -> void:
-	# Prevent starting a new drag while already dragging something.
 	if not current_dragged_item_data.is_empty():
 		return
 
 	var hovered_slot = get_hovered_slot()
 	var hovered_equipment_slot = get_hovered_equipment_slot()
 
-	# Drag from inventory slot.
 	if hovered_slot != null:
 		start_drag_from_inventory(hovered_slot)
 		return
 
-	# Drag from equipment slot.
 	if hovered_equipment_slot != null:
 		start_drag_from_equipment(hovered_equipment_slot)
 		return
@@ -74,51 +71,42 @@ func end_drag() -> void:
 	var source = current_dragged_item_data.get("Source")
 	var original_index = current_dragged_item_data.get("Index")
 
-	# If no item is being dragged, stop.
 	if item == null:
 		return
 
 	var hovered_equipment_slot = get_hovered_equipment_slot()
 	var hovered_slot = get_hovered_slot()
 
-	# Drop onto equipment slot.
 	if hovered_equipment_slot != null:
 		# Only works if item is valid equipment, e.g. WeaponData.
 		if hovered_equipment_slot.equip_item(item):
 			finish_drag()
 			return
 
-		# If item cannot be equipped, return it.
 		return_item_to_source(item, source, original_index)
 		finish_drag()
 		return
 
-	# Drop onto inventory slot.
 	if hovered_slot != null:
 		var target_index = hovered_slot.get_index()
 
-		# Move item to empty inventory slot.
 		if inventory_data.item_data[target_index] == null:
 			inventory_data.item_data[target_index] = item
 			finish_drag()
 			return
 
-		# If target slot is occupied, return item to where it came from.
 		return_item_to_source(item, source, original_index)
 		finish_drag()
 		return
 
-	# Dropped outside inventory/equipment, so return item.
 	return_item_to_source(item, source, original_index)
 	finish_drag()
 
 func return_item_to_source(item: ItemData, source: String, original_index: int) -> void:
-	# Return item to original inventory slot.
 	if source == "Inventory":
 		inventory_data.item_data[original_index] = item
 		return
 
-	# Return item to equipment slot.
 	if source == "Equipment":
 		var equipment_slot = get_tree().get_first_node_in_group("equipment_slot")
 
@@ -133,14 +121,12 @@ func start_drag_from_inventory(slot: Slot) -> void:
 		return
 	var item = inventory_data.item_data[index]
 
-	# Store dragged item info.
 	current_dragged_item_data = {
 		"Item": item,
 		"Source": "Inventory",
 		"Index": index
 	}
 	create_drag_item(item)
-	# Remove item from inventory while dragging.
 	inventory_data.item_data[index] = null
 	GlobalSignals.update_inventory.emit()
 
@@ -150,17 +136,14 @@ func start_drag_from_equipment(equipment_slot: EquipmentSlot) -> void:
 
 	var item = equipment_slot.get_equipped_item()
 
-	# Store dragged item info.
 	current_dragged_item_data = {
 		"Item": item,
 		"Source": "Equipment",
 		"Index": -1
 	}
 
-	# Create visual dragged icon.
 	create_drag_item(item)
 
-	# Remove item from equipment while dragging.
 	equipment_slot.remove_equipped_item()
 	GlobalSignals.update_equipment.emit()
 

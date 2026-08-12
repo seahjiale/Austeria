@@ -40,7 +40,7 @@ func get_skill(slot_index: int) -> SkillData:
 	return equipped_slots[slot_index]
 
 var skill_points: int = 0
-var unlocked_skills: Array = []  # array of skill ids (Strings)
+var unlocked_skills: Array = []  # array of skill ids
 
 signal points_changed(new_total: int)
 signal skill_unlocked(skill: SkillData)

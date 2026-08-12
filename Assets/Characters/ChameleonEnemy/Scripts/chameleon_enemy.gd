@@ -25,9 +25,6 @@ var health = 4:
 
 func _ready() -> void:
 	tongue_hitbox.monitoring = false
-	# Compensates for the body sitting right-of-center within each frame's
-	# cell in the source spritesheets. Negative shifts the drawn texture left.
-	# Tweak this value until the body looks centered.
 	sprite.offset.x = -10
 
 func _process(_delta):
